@@ -1,4 +1,6 @@
 import { Accordion } from '@mantine/core';
+import productos from './Productos/productos.js';
+import { Tarjeta } from './Componentes/Card';
 
 export default function MainContainer() {
 	return (
@@ -6,7 +8,22 @@ export default function MainContainer() {
 			<Accordion.Item value='customization'>
 				<Accordion.Control>Customization</Accordion.Control>
 				<Accordion.Panel>
-					Colors, fonts, shadows and many other parts are customizable to fit your design needs
+					{productos.length === 0 ? (
+						<h2>Not recipe found</h2>
+					) : (
+						productos.map((prod) => {
+							return (
+								<Tarjeta
+									nombre={prod.nombre}
+									imagen={prod.imagen}
+									precio={prod.precio}
+									categoria={prod.categoria}
+									key={prod.id}
+									id={prod.id}
+								/>
+							);
+						})
+					)}
 				</Accordion.Panel>
 			</Accordion.Item>
 

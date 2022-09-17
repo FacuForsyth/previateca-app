@@ -22,9 +22,8 @@ import TopContainer from './TopContainer';
 export default function App() {
 	const theme = useMantineTheme();
 	const [opened, setOpened] = useState(false);
-	//------------------------------------
-
-	//------------------------------------
+	//-----------------
+	//-----------------
 	return (
 		<AppShell
 			styles={{
@@ -36,12 +35,19 @@ export default function App() {
 			asideOffsetBreakpoint='sm'
 			navbar={
 				<Navbar p='md' hiddenBreakpoint='sm' hidden={!opened} width={{ sm: 200, lg: 300 }}>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
+					<Text>📍PROMOS</Text>
+					<Text>📍Aperitivos</Text>
+					<Text>📍Cervezas</Text>
+					<Text>📍Vodkas</Text>
+					<Text>📍Vinos tintos</Text>
+					<Text>📍Vinos blancos</Text>
+					<Text>📍Gaseosas</Text>
+					<Text>📍Champagnes</Text>
+					<Text>📍Gin/Ron/Tequila</Text>
+					<Text>📍Energizantes</Text>
+					<Text>📍Jugos</Text>
+					<Text>📍Cigarrillos</Text>
+					<Text>📍Hielo/Vasos</Text>
 				</Navbar>
 			}
 			/* aside={
