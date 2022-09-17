@@ -9,14 +9,16 @@ function Lista({ productos }) {
 			) : (
 				productos.map((prod) => {
 					return (
-						<Tarjeta
-							nombre={prod.nombre}
-							imagen={prod.imagen}
-							precio={prod.precio}
-							categoria={prod.categoria}
-							key={prod.id}
-							id={prod.id}
-						/>
+						<div key={prod.id}>
+							<Tarjeta
+								nombre={prod.nombre}
+								imagen={prod.imagen}
+								precio={prod.precio}
+								categoria={prod.categoria}
+								id={prod.id}
+							/>
+							<br />
+						</div>
 					);
 				})
 			)}
