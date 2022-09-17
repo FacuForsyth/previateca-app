@@ -10,11 +10,13 @@ import {
 	Burger,
 	useMantineTheme,
 } from '@mantine/core';
+import { Tarjeta } from './Componentes/Card';
+import productos from './Productos/productos.js'
 
 export default function App() {
 	const theme = useMantineTheme();
 	const [opened, setOpened] = useState(false);
-
+console.log(productos);
 	//-----------------
 	//-----------------
 	return (
@@ -28,15 +30,19 @@ export default function App() {
 			asideOffsetBreakpoint='sm'
 			navbar={
 				<Navbar p='md' hiddenBreakpoint='sm' hidden={!opened} width={{ sm: 200, lg: 300 }}>
-					<Text>📍Vinos</Text>
-					<Text>Cerveza</Text>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
-					<Text>📍Vinos</Text>
-					<Text>Application navbar</Text>
-					<Text>Application navbar</Text>
-					<Text>Application navbar</Text>
+					<Text>📍PROMOS</Text>
+					<Text>📍Aperitivos</Text>
+					<Text>📍Cervezas</Text>
+					<Text>📍Vodkas</Text>
+					<Text>📍Vinos tintos</Text>
+					<Text>📍Vinos blancos</Text>
+					<Text>📍Gaseosas</Text>
+					<Text>📍Champagnes</Text>
+					<Text>📍Gin/Ron/Tequila</Text>
+					<Text>📍Energizantes</Text>
+					<Text>📍Jugos</Text>
+					<Text>📍Cigarrillos</Text>
+					<Text>📍Hielo/Vasos</Text>
 				</Navbar>
 			}
 			aside={
@@ -68,43 +74,15 @@ export default function App() {
 					</div>
 				</Header>
 			}>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
+				{
+          productos.length === 0
+          ? <h2>Not recipe found</h2> 
+          : productos.map(prod =>{
+            return(
+                <Tarjeta nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio} categoria={prod.categoria} key={prod.id} id={prod.id} />
+            )
+          })
+        }
 		</AppShell>
 	);
 }
