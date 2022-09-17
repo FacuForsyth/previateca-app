@@ -1,29 +1,34 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
 	AppShell,
 	Navbar,
 	Header,
 	Footer,
-	Aside,
 	Text,
 	MediaQuery,
 	Burger,
 	useMantineTheme,
+	Container,
+	/* Aside,
+	,
+	Grid, */
 } from '@mantine/core';
-import { Tarjeta } from './Componentes/Card';
-import productos from './Productos/productos.js'
 
+import MainContainer from './MainContainer';
+import TopContainer from './TopContainer';
+
+//------------------------------------
+//------------------------------------
 export default function App() {
 	const theme = useMantineTheme();
 	const [opened, setOpened] = useState(false);
-console.log(productos);
 	//-----------------
 	//-----------------
 	return (
 		<AppShell
 			styles={{
 				main: {
-					background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+					background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.indigo[0],
 				},
 			}}
 			navbarOffsetBreakpoint='sm'
@@ -45,21 +50,26 @@ console.log(productos);
 					<Text>📍Hielo/Vasos</Text>
 				</Navbar>
 			}
-			aside={
+			/* aside={
 				<MediaQuery smallerThan='sm' styles={{ display: 'none' }}>
 					<Aside p='md' hiddenBreakpoint='sm' width={{ sm: 200, lg: 300 }}>
 						<Text>Application sidebar</Text>
 					</Aside>
 				</MediaQuery>
-			}
+			} */
 			footer={
 				<Footer height={60} p='md'>
-					Application footer
+					<h2 style={{ margin: '0px' }}>PREVIATEK 2022</h2>
 				</Footer>
 			}
 			header={
 				<Header height={70} p='md'>
-					<div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							height: '100%',
+						}}>
 						<MediaQuery largerThan='sm' styles={{ display: 'none' }}>
 							<Burger
 								opened={opened}
@@ -69,20 +79,23 @@ console.log(productos);
 								mr='xl'
 							/>
 						</MediaQuery>
-
-						<Text> ⚠️ Previatek</Text>
+						<div
+							style={{
+								display: 'flex',
+								justifyContent: 'space-between ',
+								alignItems: 'center',
+								height: '100%',
+								width: '100%',
+								marginLeft: '-10px',
+							}}>
+							<Text> 🍹 Previatek</Text>
+							<Text> 🛒 Carrito </Text>
+						</div>
 					</div>
 				</Header>
 			}>
-				{
-          productos.length === 0
-          ? <h2>Not recipe found</h2> 
-          : productos.map(prod =>{
-            return(
-                <Tarjeta nombre={prod.nombre} imagen={prod.imagen} precio={prod.precio} categoria={prod.categoria} key={prod.id} id={prod.id} />
-            )
-          })
-        }
+			<TopContainer />
+			<MainContainer />
 		</AppShell>
 	);
 }
