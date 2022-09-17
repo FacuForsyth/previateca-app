@@ -1,27 +1,35 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
 	AppShell,
 	Navbar,
 	Header,
 	Footer,
-	Aside,
 	Text,
 	MediaQuery,
 	Burger,
 	useMantineTheme,
+	Container,
+	/* Aside,
+	,
+	Grid, */
 } from '@mantine/core';
 
+import MainContainer from './MainContainer';
+import TopContainer from './TopContainer';
+
+//------------------------------------
+//------------------------------------
 export default function App() {
 	const theme = useMantineTheme();
 	const [opened, setOpened] = useState(false);
+	//------------------------------------
 
-	//-----------------
-	//-----------------
+	//------------------------------------
 	return (
 		<AppShell
 			styles={{
 				main: {
-					background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+					background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.indigo[0],
 				},
 			}}
 			navbarOffsetBreakpoint='sm'
@@ -29,31 +37,33 @@ export default function App() {
 			navbar={
 				<Navbar p='md' hiddenBreakpoint='sm' hidden={!opened} width={{ sm: 200, lg: 300 }}>
 					<Text>📍Vinos</Text>
-					<Text>Cerveza</Text>
 					<Text>📍Vinos</Text>
 					<Text>📍Vinos</Text>
 					<Text>📍Vinos</Text>
 					<Text>📍Vinos</Text>
-					<Text>Application navbar</Text>
-					<Text>Application navbar</Text>
-					<Text>Application navbar</Text>
+					<Text>📍Vinos</Text>
 				</Navbar>
 			}
-			aside={
+			/* aside={
 				<MediaQuery smallerThan='sm' styles={{ display: 'none' }}>
 					<Aside p='md' hiddenBreakpoint='sm' width={{ sm: 200, lg: 300 }}>
 						<Text>Application sidebar</Text>
 					</Aside>
 				</MediaQuery>
-			}
+			} */
 			footer={
 				<Footer height={60} p='md'>
-					Application footer
+					<h2 style={{ margin: '0px' }}>PREVIATEK 2022</h2>
 				</Footer>
 			}
 			header={
 				<Header height={70} p='md'>
-					<div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							height: '100%',
+						}}>
 						<MediaQuery largerThan='sm' styles={{ display: 'none' }}>
 							<Burger
 								opened={opened}
@@ -63,48 +73,23 @@ export default function App() {
 								mr='xl'
 							/>
 						</MediaQuery>
-
-						<Text> ⚠️ Previatek</Text>
+						<div
+							style={{
+								display: 'flex',
+								justifyContent: 'space-between ',
+								alignItems: 'center',
+								height: '100%',
+								width: '100%',
+								marginLeft: '-10px',
+							}}>
+							<Text> 🍹 Previatek</Text>
+							<Text> 🛒 Carrito </Text>
+						</div>
 					</div>
 				</Header>
 			}>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
-			<h1>TARJETA</h1>
+			<TopContainer />
+			<MainContainer />
 		</AppShell>
 	);
 }
