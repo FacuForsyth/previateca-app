@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStyles, Select, TextInput } from '@mantine/core';
-import { DatePicker } from '@mantine/dates';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -28,22 +27,35 @@ export default function InputsCarrito() {
 
   return (
     <div>
-      <TextInput label="Shipping address" placeholder="15329 Huston 21st" classNames={classes} />
+      <TextInput 
+        label="Ingresa tu nombre" 
+        placeholder="Nombre..." 
+        classNames={classes} 
+      />
+      
+      <TextInput
+        label="Ingresa la direccion" 
+        placeholder="Direccion..." 
+        classNames={classes} 
+        style={{ marginTop: 20, zIndex: 2 }} 
+      />
+      {/* CHECKBOX RETIRAR PEDIDO POR EL LOCAL Y SE DESAPARECE EL TEXT DE ARRIBA */}
+
+      <TextInput 
+        label="Abono con $" 
+        placeholder="$" 
+        type="number" 
+        classNames={classes} 
+        style={{ marginTop: 20, zIndex: 2 }} 
+      />
+      {/* CHECKBOX PARA TRANSFERENCIA Y TARJETA (+ 8%) Y DESAPARECE EL DE ARRIBA */}
 
       <Select
         style={{ marginTop: 20, zIndex: 2 }}
-        data={['React', 'Angular', 'Svelte', 'Vue']}
-        placeholder="Pick one"
-        label="Your favorite library/framework"
+        data={['Efectivo', 'Transferencia', 'Tarjeta (+ 8%)']}
+        placeholder="Seleccionar"
+        label="Medio de pago"
         classNames={classes}
-      />
-
-      <DatePicker
-        style={{ marginTop: 20 }}
-        label="Departure date"
-        placeholder="When will you leave?"
-        classNames={classes}
-        clearable={false}
       />
     </div>
   );

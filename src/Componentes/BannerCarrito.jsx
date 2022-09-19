@@ -1,7 +1,6 @@
 import React from "react";
 import { createStyles, Text, Title, TextInput, Button, Image } from '@mantine/core';
 import InputsCarrito from "./InptusCarrito";
-//import image from './image.svg';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -72,25 +71,18 @@ export default function BannerCarrito() {
     <div className={classes.wrapper}>
       <div className={classes.body}>
         
-        {/* <InputsCarrito /> */}
-        
-        {/* <Title className={classes.title}>Wait a minute...</Title>
-        <Text weight={500} size="lg" mb={5}>
-          Subscribe to our newsletter!
-        </Text>
-        <Text size="sm" color="dimmed">
-          You will never miss important product updates, latest news and community QA sessions. Our
-          newsletter is once a week, every Sunday.
-        </Text> */}
+        <InputsCarrito />
 
         <div className={classes.controls}>
           <TextInput
-            placeholder="Your email"
+            placeholder="Algun comentartio..."
             classNames={{ input: classes.input, root: classes.inputWrapper }}
           />
-          <Button className={classes.control}>Enviar pedido</Button>
+          <Button className={classes.control}>Enviar mi pedido</Button>
         </div>
       </div>
+      LISTA DE PRODUCTOS SELECCIONADOS
+      CARRITO
       {/*LISTA DE PRODUCTOS CARRITO <Image src={image.src} className={classes.image} /> */}
     </div>
   );
