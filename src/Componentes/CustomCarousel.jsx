@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
 
-import productos from '../Productos/productos.js';
+import productos from '../Productos/promos.js';
 import PromoCard from './PromoCard.jsx';
 import { useMantineTheme } from '@mantine/core';
 

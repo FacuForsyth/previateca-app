@@ -1,13 +1,13 @@
 import React from 'react';
 import { Tarjeta } from './Card';
 
-function Lista({ cervezas }) {
+function Lista({ productos }) {
 	return (
 		<div>
-			{cervezas.length === 0 ? (
-				<h2>Cargando cervezas</h2>
+			{productos.length === 0 ? (
+				<h2>Cargando productos</h2>
 			) : (
-				cervezas.map((prod) => {
+				productos.map((prod) => {
 					return (
 						<div key={prod.id}>
 							<Tarjeta
