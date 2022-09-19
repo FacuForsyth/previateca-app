@@ -7,6 +7,8 @@ import CustomNavbar from './Componentes/CustomNavbar';
 import CustomFooter from './Componentes/Footer';
 import CustomHeader from './Componentes/CustomHeader';
 import BannerCarrito from './Componentes/BannerCarrito';
+import CustomCarousel from './Componentes/CustomCarousel.jsx';
+
 //------------------------------------
 //------------------------------------
 export default function App() {
@@ -27,6 +29,9 @@ export default function App() {
 			footer={<CustomFooter />}
 			header={<CustomHeader theme={theme} opened={opened} setOpened={setOpened} />}>
 			<TopContainer />
+			<br />
+			<CustomCarousel />
+			<br />
 			<MainContainer />
 			<BannerCarrito />
 		</AppShell>
