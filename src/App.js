@@ -6,6 +6,7 @@ import TopContainer from './Componentes/TopContainer';
 import CustomNavbar from './Componentes/CustomNavbar';
 import CustomFooter from './Componentes/Footer';
 import CustomHeader from './Componentes/CustomHeader';
+import BannerCarrito from './Componentes/BannerCarrito';
 import CustomCarousel from './Componentes/CustomCarousel.jsx';
 
 //------------------------------------
@@ -32,6 +33,7 @@ export default function App() {
 			<CustomCarousel />
 			<br />
 			<MainContainer />
+			<BannerCarrito />
 		</AppShell>
 	);
 }
