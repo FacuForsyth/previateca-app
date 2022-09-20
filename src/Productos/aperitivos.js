@@ -30,7 +30,7 @@ const aperitivos = [
   {
     id: 5,
     nombre: "Frizze Blue 1L",
-    imagen: "https://www.matildaexpress.com.ar/wp-content/uploads/2021/10/frizze-evolution-blue-1l.jpg",
+    imagen: `${require('./imagenes/promos/VINO-FRIZZE-EVOLUTION-BLUE.webp')}`,
     precio: 430,
     categoria: "Aperitivos"
   },
