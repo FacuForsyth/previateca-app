@@ -78,7 +78,7 @@ export default function BannerCarrito() {
             placeholder="Algun comentartio..."
             classNames={{ input: classes.input, root: classes.inputWrapper }}
           />
-          <Button background-color="#ff4f5e" className={classes.control}>Enviar mi pedido</Button>
+          <Button variant="gradient" gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}>Enviar mi pedido</Button>
         </div>
       </div>
       LISTA DE PRODUCTOS SELECCIONADOS

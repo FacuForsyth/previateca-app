@@ -20,7 +20,7 @@ export default function App() {
 		<AppShell
 			styles={{
 				main: {
-					background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.indigo[0],
+					background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : '#fffffc',
 				},
 			}}
 			navbarOffsetBreakpoint='sm'
