@@ -1,14 +1,18 @@
 import React from 'react';
 import { Navbar, Text, Button } from '@mantine/core';
 import categorias from './categorias';
-import img from '../icons/001-vodka_adobe_express.svg'
+import imgHielo from '../icons/ice-cubes.png'
 
 function CustomNavbar({ opened }) {
+	const catego = categorias.concat({title: 'Hielo / Vasos', img: imgHielo})
 	return (
 		<Navbar p='md' hiddenBreakpoint='sm' hidden={!opened} width={{ sm: 200, lg: 300 }}>
-			{categorias.map((tipos) => {
+			{catego.map((tipos) => {
 				{/* COMO AGREGAR :HOVER PARA QUE SE VEA SELECCIONADO IGUAL Q LA NAVBAR MARTINE*/}
-				return <Button leftIcon={img} variant="white" color="red" key={`${tipos.title}`}>{`${tipos.title}`}</Button>;
+				return <Button variant="white" color="red" key={`${tipos.title}`}>
+					<img src={tipos.img} alt='' width='32px' />
+					{`${tipos.title}`}
+					</Button>;
 			})}
 		</Navbar>
 	);
