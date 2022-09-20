@@ -12,7 +12,7 @@ import {
 } from '@tabler/icons';
 
 /* 
-ICONOS PULE ACA: https://www.flaticon.com/search?word=cocktail&choice=1&order_by=4
+ICONOS PULE ACA:	
 */
 
 const categorias = [

@@ -50,6 +50,8 @@ const useStyles = createStyles((theme) => ({
 		zIndex: 1,
 		top: 10,
 		right: 10,
+		backgroundColor: 'white',
+		padding: '15px 5px',
 	},
 }));
 
@@ -80,10 +82,10 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 		<Card withBorder radius='md' className={classes.card}>
 			<Card.Section className={classes.imageSection}>
 				<Image src={imagen} alt='' width='100%' height={200} fit='contain' />
-				<Badge className={classes.badge} color='grey'>
+				<Badge className={classes.badge} radius='xs'>
 					<Text
 						size='xl'
-						weight={700}
+						weight={600}
 						variant='gradient'
 						gradient={{ from: 'yellow', to: 'pink', deg: 45 }}>
 						${precio}
@@ -92,7 +94,9 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 			</Card.Section>
 			<Card.Section className={classes.section}>
 				<Group position='apart' mt='md'>
-					<Text weight={500}>{nombre}</Text>
+					<Text weight={600} align='center'>
+						{nombre}
+					</Text>
 					{/* <Text size="xs" color="dimmed">
             Free recharge at any station
           </Text> */}
