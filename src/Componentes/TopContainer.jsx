@@ -1,5 +1,6 @@
 import { createStyles, Card, Text, SimpleGrid, UnstyledButton, Anchor, Group } from '@mantine/core';
 import categorias from './categorias';
+import img from '../icons/002-beers.png'
 
 const useStyles = createStyles((theme) => ({
 	card: {
@@ -34,7 +35,8 @@ export default function TopContainer() {
 
 	const items = categorias.map((item) => (
 		<UnstyledButton key={item.title} className={classes.item}>
-			<item.icon color={theme.colors[item.color][6]} size={32} />
+			<img src={img} alt='' width='32px' />
+			{/* <item.icon color={theme.colors[item.color][6]} size={32} /> */}
 			<Text size='xs' mt={7}>
 				{item.title}
 			</Text>
