@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Card, Image, Text, Group, createStyles, Center, Button } from '@mantine/core';
+import { Card, Image, Text, Group, createStyles, Center, Button, Badge } from '@mantine/core';
 import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons';
 import Contador from './Contador';
 import { useState } from 'react';
@@ -9,10 +9,11 @@ import { useState } from 'react';
 const useStyles = createStyles((theme) => ({
 	card: {
 		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+		padding: '0px',
 	},
 
 	imageSection: {
-		padding: theme.spacing.md,
+		padding: '0px',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -31,13 +32,24 @@ const useStyles = createStyles((theme) => ({
 	},
 
 	section: {
-		padding: theme.spacing.md,
-		borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}`,
+		padding: 10,
+		//borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}`,
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: '-20px',
 	},
 
 	icon: {
 		marginRight: 5,
 		color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
+	},
+	badge: {
+		position: 'absolute',
+		zIndex: 1,
+		top: 10,
+		right: 10,
 	},
 }));
 
@@ -68,28 +80,25 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 		<Card withBorder radius='md' className={classes.card}>
 			<Card.Section className={classes.imageSection}>
 				<Image src={imagen} alt='' width='100%' height={200} fit='contain' />
+				<Badge className={classes.badge} color='grey'>
+					<Text
+						size='xl'
+						weight={700}
+						variant='gradient'
+						gradient={{ from: 'yellow', to: 'pink', deg: 45 }}>
+						${precio}
+					</Text>
+				</Badge>
 			</Card.Section>
-
-			<Group position='apart' mt='md'>
-				<div>
+			<Card.Section className={classes.section}>
+				<Group position='apart' mt='md'>
 					<Text weight={500}>{nombre}</Text>
 					{/* <Text size="xs" color="dimmed">
             Free recharge at any station
           </Text> */}
-				</div>
-				{/* <Badge variant="outline">25% off</Badge> */}
-			</Group>
 
-			<Card.Section className={classes.section} mt='md'>
-				<Text size='sm' color='dimmed' className={classes.label}>
-					${precio}
-				</Text>
-				{/* <Group spacing={8} mb={-8}>
-          {features}
-        </Group> */}
-			</Card.Section>
-
-			<Card.Section className={classes.section}>
+					{/* <Badge variant="outline">25% off</Badge> */}
+				</Group>
 				<Group spacing={30}>
 					{/* <div>
             <Text size="xl" weight={700} sx={{ lineHeight: 1 }}>

@@ -1,9 +1,18 @@
+import { SimpleGrid } from '@mantine/core';
 import React from 'react';
 import { Tarjeta } from './Card';
 
 function Lista({ productos }) {
 	return (
-		<div>
+		<SimpleGrid
+			cols={4}
+			spacing='lg'
+			breakpoints={[
+				{ maxWidth: 'md', cols: 3, spacing: 'md' },
+				{ maxWidth: 'sm', cols: 2, spacing: 'sm' },
+				{ maxWidth: 'xs', cols: 2, spacing: 'xs' },
+			]}
+			mt='md'>
 			{productos.length === 0 ? (
 				<h2>Cargando productos</h2>
 			) : (
@@ -22,7 +31,7 @@ function Lista({ productos }) {
 					);
 				})
 			)}
-		</div>
+		</SimpleGrid>
 	);
 }
 
