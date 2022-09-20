@@ -1,5 +1,6 @@
 import { Burger, Header, MediaQuery, Text, useMantineTheme } from '@mantine/core';
 import React from 'react';
+import imgPrev from '../images/Previateca-logo-tipografia.png'
 
 function CustomHeader({ opened, setOpened }) {
 	const theme = useMantineTheme();
@@ -29,7 +30,7 @@ function CustomHeader({ opened, setOpened }) {
 						width: '100%',
 						marginLeft: '-10px',
 					}}>
-					<Text> 🍹 Previatek</Text>
+					<img src={imgPrev} alt="" width="200px" />
 					<Text> 🛒 Carrito </Text>
 				</div>
 			</div>

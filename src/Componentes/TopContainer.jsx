@@ -3,7 +3,7 @@ import categorias from './categorias';
 
 const useStyles = createStyles((theme) => ({
 	card: {
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.yellow[5],
+		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : '#ff4f5e',
 	},
 
 	title: {
@@ -43,12 +43,12 @@ export default function TopContainer() {
 
 	return (
 		<Card withBorder radius='md' className={classes.card}>
-			<Group position='apart'>
+			{/* <Group position='apart'>
 				<Text className={classes.title}>Services</Text>
 				<Anchor size='xs' color='dimmed' sx={{ lineHeight: 1 }}>
 					+ 21 other services
 				</Anchor>
-			</Group>
+			</Group> */}
 			<SimpleGrid cols={3} mt='md'>
 				{items}
 			</SimpleGrid>

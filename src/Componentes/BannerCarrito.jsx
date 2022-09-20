@@ -1,5 +1,5 @@
 import React from "react";
-import { createStyles, Text, Title, TextInput, Button, Image } from '@mantine/core';
+import { createStyles, Text, Title, TextInput, Button } from '@mantine/core';
 import InputsCarrito from "./InptusCarrito";
 
 const useStyles = createStyles((theme) => ({
@@ -78,7 +78,7 @@ export default function BannerCarrito() {
             placeholder="Algun comentartio..."
             classNames={{ input: classes.input, root: classes.inputWrapper }}
           />
-          <Button className={classes.control}>Enviar mi pedido</Button>
+          <Button background-color="#ff4f5e" className={classes.control}>Enviar mi pedido</Button>
         </div>
       </div>
       LISTA DE PRODUCTOS SELECCIONADOS
