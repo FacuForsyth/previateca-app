@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { AppShell, useMantineTheme } from '@mantine/core';
 
-import MainContainer from './Componentes/MainContainer';
-import TopContainer from './Componentes/TopContainer';
+import MainContainer from './Componentes/MainContainer.tsx';
+import TopContainer from './Componentes/TopContainer copy.tsx';
 import CustomNavbar from './Componentes/CustomNavbar';
 import CustomFooter from './Componentes/Footer';
 import CustomHeader from './Componentes/CustomHeader';
 import BannerCarrito from './Componentes/BannerCarrito';
 import CustomCarousel from './Componentes/CustomCarousel.jsx';
+import Demo from './Componentes/DEMO.tsx';
 
 //------------------------------------
 //------------------------------------
@@ -34,6 +35,8 @@ export default function App() {
 			<br />
 			<MainContainer />
 			<BannerCarrito />
+
+			<Demo />
 		</AppShell>
 	);
 }

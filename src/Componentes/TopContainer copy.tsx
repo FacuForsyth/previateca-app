@@ -1,7 +1,9 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createStyles, Card, Text, SimpleGrid, UnstyledButton, Anchor, Group } from '@mantine/core';
 import categorias from './categorias';
 import img from '../icons/002-beers.png';
+import { useScrollIntoView } from '@mantine/hooks';
+import React from 'react';
 
 const useStyles = createStyles((theme) => ({
 	card: {
@@ -33,18 +35,13 @@ const useStyles = createStyles((theme) => ({
 
 export default function TopContainer() {
 	const { classes, theme } = useStyles();
-
-	function scrollToTop(a) {
-		console.log('🟢🟢🟢 SearchID: ', a);
-		const element = document.getElementById(a);
-		element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-	}
+	let { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({ offset: 60 });
 
 	const items = categorias.map((item) => (
 		<UnstyledButton
 			key={item.title}
 			className={classes.item}
-			onClick={() => scrollToTop(`${item.title}`)}>
+			onClick={() => scrollIntoView({ alignment: 'center' })}>
 			<img src={img} alt='' width='32px' />
 			{/* <item.icon color={theme.colors[item.color][6]} size={32} /> */}
 			<Text size='xs' mt={7}>

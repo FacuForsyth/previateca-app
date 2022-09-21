@@ -1,3 +1,5 @@
+/* eslint-disable no-lone-blocks */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Navbar, Text, Button } from '@mantine/core';
 import categorias from './categorias';

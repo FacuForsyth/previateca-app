@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { createStyles, Text, Title, TextInput, Button } from '@mantine/core';
 import InputsCarrito from "./InptusCarrito";
