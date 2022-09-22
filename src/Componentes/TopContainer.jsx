@@ -49,12 +49,10 @@ export default function TopContainer() {
 		element?.scrollIntoView({ behavior: 'smooth', block: 'end', offset: 60 });
 	} */
 	function scrollToTargetAdjusted(id) {
-		console.log('🟢 id:', id);
 		var element = document.getElementById(id);
 		var headerOffset = 72;
 		var elementPosition = element.getBoundingClientRect().top;
 		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-		console.log('💥', window.pageYOffset);
 
 		window.scrollTo({
 			top: offsetPosition,
