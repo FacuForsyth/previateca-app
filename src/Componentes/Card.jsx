@@ -5,7 +5,7 @@ import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler
 import { useState } from 'react';
 import { useCounter } from '@mantine/hooks';
 import { agregarCarrito } from '../redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 //------------css
 const useStyles = createStyles((theme) => ({
@@ -52,6 +52,8 @@ const useStyles = createStyles((theme) => ({
 		zIndex: 1,
 		top: 10,
 		right: 10,
+		backgroundColor: 'white',
+		padding: '15px 5px',
 	},
 }));
 
@@ -65,9 +67,8 @@ const mockdata = [
 export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	const [buttonSwith, setbuttonSwith] = useState(false);
 	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
-	const [carrito, setCarrito] = useState({
-		producto: [],
-	});
+
+	let cart = useSelector((state)=> state.carrito);
 	const dispatch = useDispatch();
 
 	const { classes } = useStyles();
@@ -85,32 +86,40 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 
 	const handlerClickMenos = (e) => {
 		handlers.decrement();
+		cart.map((p) => {
+			if(p.nombre === nombre){
+				p.cantidad --
+			}
+		})
+		dispatch(agregarCarrito(cart));
 	};
 	
 	function handlerClickMas(e) {
 		handlers.increment();
-		console.log("antes", carrito)
-		//console.log(!carrito.producto.includes(nombre))
-		if (!carrito.producto.includes(nombre)) {
-			setCarrito({
-				...carrito,
-				producto: carrito.producto.push(nombre),
+		let nombres = cart.map((prod) => prod.nombre);
+		if (!nombres.includes(nombre)){
+			cart.push({
+				nombre: nombre,
+				cantidad: 1
 			});
-
+		} else {
+			cart.map((p) => {
+				if(p.nombre === nombre){
+					p.cantidad ++
+				}
+			})
 		}
-		console.log("dsp", carrito)
-		//dispatch(agregarCarrito(carrito));
+		dispatch(agregarCarrito(cart));
 	};
-
 
 	return (
 		<Card withBorder radius='md' className={classes.card}>
 			<Card.Section className={classes.imageSection}>
 				<Image src={imagen} alt='' width='100%' height={200} fit='contain' />
-				<Badge className={classes.badge} color='grey'>
+				<Badge className={classes.badge} radius='xs'>
 					<Text
 						size='xl'
-						weight={700}
+						weight={600}
 						variant='gradient'
 						gradient={{ from: 'yellow', to: 'pink', deg: 45 }}>
 						${precio}
@@ -119,7 +128,9 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 			</Card.Section>
 			<Card.Section className={classes.section}>
 				<Group position='apart' mt='md'>
-					<Text weight={500}>{nombre}</Text>
+					<Text weight={600} align='center'>
+						{nombre}
+					</Text>
 					{/* <Text size="xs" color="dimmed">
             Free recharge at any station
           </Text> */}

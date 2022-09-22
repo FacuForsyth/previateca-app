@@ -3,4 +3,10 @@ export function agregarCarrito(carro){
       type: 'CARRITO',
       payload: carro
   }
-};
+}
+
+export function carritoConProductos(){
+  return{
+    type: 'CARROS'
+  }
+}

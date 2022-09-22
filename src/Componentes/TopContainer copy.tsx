@@ -1,15 +1,9 @@
-/* eslint-disable no-unused-vars */
-import {
-	createStyles,
-	Card,
-	Text,
-	SimpleGrid,
-	UnstyledButton,
-	Anchor,
-	Group,
-	Button,
-} from '@mantine/core';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { createStyles, Card, Text, SimpleGrid, UnstyledButton, Anchor, Group } from '@mantine/core';
 import categorias from './categorias';
+import img from '../icons/002-beers.png';
+import { useScrollIntoView } from '@mantine/hooks';
+import React from 'react';
 
 const useStyles = createStyles((theme) => ({
 	card: {
@@ -41,31 +35,15 @@ const useStyles = createStyles((theme) => ({
 
 export default function TopContainer() {
 	const { classes, theme } = useStyles();
-
-	/* 	ESTO FUNCIONA BIEN PERO NO ME SIRVE EL OFFSET */
-	/* 	function scrollToTop(a) {
-		console.log('🟢🟢🟢 SearchID: ', a);
-		const element = document.getElementById(a);
-		element?.scrollIntoView({ behavior: 'smooth', block: 'end', offset: 60 });
-	} */
-	function scrollToTargetAdjusted(id) {
-		var element = document.getElementById(id);
-		var headerOffset = 72;
-		var elementPosition = element.getBoundingClientRect().top;
-		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: 'smooth',
-		});
-	}
+	let { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({ offset: 60 });
 
 	const items = categorias.map((item) => (
 		<UnstyledButton
 			key={item.title}
 			className={classes.item}
-			onClick={() => scrollToTargetAdjusted(item.title)}>
-			<img src={item.img} alt='' width='32px' />
+			onClick={() => scrollIntoView({ alignment: 'center' })}>
+			<img src={img} alt='' width='32px' />
+			{/* <item.icon color={theme.colors[item.color][6]} size={32} /> */}
 			<Text size='xs' mt={7}>
 				{item.title}
 			</Text>
