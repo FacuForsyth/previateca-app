@@ -63,22 +63,15 @@ export default function TopContainer() {
 	}
 
 	const items = categorias.map((item) => (
-		<Button
+		<UnstyledButton
 			key={item.title}
-			variant='white'
-			color='orange'
-			className={classes.item} /* data-target={`${item.title}`} */
-			/* component='a'
-			key={item.title}
-			href={`#${item.title}`} */
+			className={classes.item}
 			onClick={() => scrollToTargetAdjusted(item.title)}>
-			<div className={classes.item}>
-				<img src={item.img} alt='' width='32px' />
-				<Text size='xs' mt={7}>
-					{item.title}
-				</Text>
-			</div>
-		</Button>
+			<img src={item.img} alt='' width='32px' />
+			<Text size='xs' mt={7}>
+				{item.title}
+			</Text>
+		</UnstyledButton>
 	));
 
 	return (
