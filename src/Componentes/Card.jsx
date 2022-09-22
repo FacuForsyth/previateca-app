@@ -5,7 +5,7 @@ import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler
 import { useState } from 'react';
 import { useCounter } from '@mantine/hooks';
 import { agregarCarrito } from '../redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 //------------css
 const useStyles = createStyles((theme) => ({
@@ -67,9 +67,8 @@ const mockdata = [
 export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	const [buttonSwith, setbuttonSwith] = useState(false);
 	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
-	const [carrito, setCarrito] = useState({
-		producto: [],
-	});
+
+	let cart = useSelector((state)=> state.carrito);
 	const dispatch = useDispatch();
 
 	const { classes } = useStyles();
@@ -87,23 +86,31 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 
 	const handlerClickMenos = (e) => {
 		handlers.decrement();
+		cart.map((p) => {
+			if(p.nombre === nombre){
+				p.cantidad --
+			}
+		})
+		dispatch(agregarCarrito(cart));
 	};
 	
 	function handlerClickMas(e) {
 		handlers.increment();
-		console.log("antes", carrito)
-		//console.log(!carrito.producto.includes(nombre))
-		if (!carrito.producto.includes(nombre)) {
-			setCarrito({
-				...carrito,
-				producto: carrito.producto.push(nombre),
+		let nombres = cart.map((prod) => prod.nombre);
+		if (!nombres.includes(nombre)){
+			cart.push({
+				nombre: nombre,
+				cantidad: 1
 			});
-
+		} else {
+			cart.map((p) => {
+				if(p.nombre === nombre){
+					p.cantidad ++
+				}
+			})
 		}
-		console.log("dsp", carrito)
-		//dispatch(agregarCarrito(carrito));
+		dispatch(agregarCarrito(cart));
 	};
-
 
 	return (
 		<Card withBorder radius='md' className={classes.card}>

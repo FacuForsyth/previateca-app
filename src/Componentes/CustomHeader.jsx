@@ -1,4 +1,4 @@
-import { Burger, Button, Header, MediaQuery, Text, useMantineTheme } from '@mantine/core';
+import { Burger, Button, Header, MediaQuery, useMantineTheme } from '@mantine/core';
 import React from 'react';
 import imgPrev from '../images/Previateca-logo-tipografia.png';
 
