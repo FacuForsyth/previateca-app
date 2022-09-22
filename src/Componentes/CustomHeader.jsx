@@ -1,11 +1,24 @@
-import { Burger, Header, MediaQuery, Text, useMantineTheme } from '@mantine/core';
+import { Burger, Button, Header, MediaQuery, Text, useMantineTheme } from '@mantine/core';
 import React from 'react';
-import imgPrev from '../images/Previateca-logo-tipografia.png'
+import imgPrev from '../images/Previateca-logo-tipografia.png';
 
 function CustomHeader({ opened, setOpened }) {
 	const theme = useMantineTheme();
+	function scrollToTargetAdjusted(id) {
+		console.log('🟢 id:', id);
+		var element = document.getElementById(id);
+		var headerOffset = 45;
+		var elementPosition = element.getBoundingClientRect().top;
+		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+		console.log('💥', window.pageYOffset);
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	}
 	return (
-		<Header height={70} p='md'>
+		<Header height={70} p='md' style={{ overflow: 'hidden', backgroundColor: '#EDF2FF' }}>
 			<div
 				style={{
 					display: 'flex',
@@ -30,8 +43,10 @@ function CustomHeader({ opened, setOpened }) {
 						width: '100%',
 						marginLeft: '-10px',
 					}}>
-					<img src={imgPrev} alt="" width="200px" />
-					<Text> 🛒 Carrito </Text>
+					<img src={imgPrev} alt='' width='200px' />
+					<Button variant='subtle' color='dark' onClick={() => scrollToTargetAdjusted('Carrito')}>
+						🛒 Carrito
+					</Button>
 				</div>
 			</div>
 		</Header>

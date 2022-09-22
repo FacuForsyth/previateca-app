@@ -7,7 +7,7 @@ export default function MainContainer() {
 	function scrollToTargetAdjusted(id) {
 		console.log('🟢 id:', id);
 		var element = document.getElementById(id);
-		var headerOffset = 45;
+		var headerOffset = 72;
 		var elementPosition = element.getBoundingClientRect().top;
 		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 		console.log('💥', offsetPosition);
