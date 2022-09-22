@@ -8,7 +8,7 @@ import CustomFooter from './Componentes/Footer';
 import CustomHeader from './Componentes/CustomHeader';
 import BannerCarrito from './Componentes/BannerCarrito';
 import CustomCarousel from './Componentes/CustomCarousel.jsx';
-import Demo from './Componentes/DEMO.tsx';
+//import Demo from './Componentes/DEMO.tsx';
 
 //------------------------------------
 
