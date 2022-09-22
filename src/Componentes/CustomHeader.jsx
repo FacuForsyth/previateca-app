@@ -5,12 +5,10 @@ import imgPrev from '../images/Previateca-logo-tipografia.png';
 function CustomHeader({ opened, setOpened }) {
 	const theme = useMantineTheme();
 	function scrollToTargetAdjusted(id) {
-		console.log('🟢 id:', id);
 		var element = document.getElementById(id);
 		var headerOffset = 45;
 		var elementPosition = element.getBoundingClientRect().top;
 		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-		console.log('💥', window.pageYOffset);
 
 		window.scrollTo({
 			top: offsetPosition,
