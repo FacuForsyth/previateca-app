@@ -11,15 +11,16 @@ function Demo() {
 			{arreglo.map((arr) => {
 				const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({ offset: 5 });
 				return (
-					<>
+					<div key={arr}>
 						<Button onClick={() => scrollIntoView({ alignment: 'center' })}>Boton {arr}</Button>
 						<div style={{ height: '20vh' }} />
 						<Text ref={targetRef}>{arr}º TEXTO</Text>
 						<div style={{ height: '20vh' }} />
-					</>
+					</div>
 				);
 			})}
 		</>
 	);
 }
+
 export default Demo;

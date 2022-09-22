@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Image, Text, Group, createStyles, Center, Button, Badge } from '@mantine/core';
 import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons';
-import Contador from './Contador';
 import { useState } from 'react';
+import { useCounter } from '@mantine/hooks';
+import { agregarCarrito } from '../redux/actions';
+import { useDispatch } from 'react-redux';
 
 //------------css
 const useStyles = createStyles((theme) => ({
@@ -64,6 +66,11 @@ const mockdata = [
 
 export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	const [buttonSwith, setbuttonSwith] = useState(false);
+	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
+	const [carrito, setCarrito] = useState({
+		producto: [],
+	});
+	const dispatch = useDispatch();
 
 	const { classes } = useStyles();
 	const features = mockdata.map((feature) => (
@@ -77,6 +84,26 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 		e.preventDefault();
 		setbuttonSwith(!buttonSwith);
 	};
+
+	const handlerClickMenos = (e) => {
+		handlers.decrement();
+	};
+	
+	function handlerClickMas(e) {
+		handlers.increment();
+		console.log("antes", carrito)
+		//console.log(!carrito.producto.includes(nombre))
+		if (!carrito.producto.includes(nombre)) {
+			setCarrito({
+				...carrito,
+				producto: carrito.producto.push(nombre),
+			});
+
+		}
+		console.log("dsp", carrito)
+		//dispatch(agregarCarrito(carrito));
+	};
+
 
 	return (
 		<Card withBorder radius='md' className={classes.card}>
@@ -114,7 +141,11 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
           </div> */}
 
 					{buttonSwith ? (
-						<Contador />
+						<Group position="center">
+							<Button onClick={handlerClickMenos}>-</Button>
+								<Text>{count}</Text>
+							<Button onClick={handlerClickMas}>+</Button>
+						</Group>
 					) : (
 						<Button onClick={(e) => handlerSwitchButton(e)} radius='xl' style={{ flex: 1 }}>
 							Comprar

@@ -22,8 +22,6 @@ function MainContainer({ targetRef }) {
 				console.log('💥💥💥 ID: ', prod.title);
 				const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({ offset: 50 });
 
-				let timer = setTimeout(scrollIntoView({ alignment: 'center' }), 2000);
-
 				return (
 					<div key={`${prod.title}`} id={prod.title}>
 						<Accordion.Item key={`${prod.title}`} value={`${prod.title}`} id={prod.title}>

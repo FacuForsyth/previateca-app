@@ -1,7 +1,15 @@
 /* eslint-disable no-unused-vars */
-import { createStyles, Card, Text, SimpleGrid, UnstyledButton, Anchor, Group } from '@mantine/core';
+import {
+	createStyles,
+	Card,
+	Text,
+	SimpleGrid,
+	UnstyledButton,
+	Anchor,
+	Group,
+	Button,
+} from '@mantine/core';
 import categorias from './categorias';
-import img from '../icons/002-beers.png';
 
 const useStyles = createStyles((theme) => ({
 	card: {
@@ -34,23 +42,43 @@ const useStyles = createStyles((theme) => ({
 export default function TopContainer() {
 	const { classes, theme } = useStyles();
 
-	function scrollToTop(a) {
+	/* 	ESTO FUNCIONA BIEN PERO NO ME SIRVE EL OFFSET */
+	/* 	function scrollToTop(a) {
 		console.log('🟢🟢🟢 SearchID: ', a);
 		const element = document.getElementById(a);
-		element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		element?.scrollIntoView({ behavior: 'smooth', block: 'end', offset: 60 });
+	} */
+	function scrollToTargetAdjusted(id) {
+		console.log('🟢 id:', id);
+		var element = document.getElementById(id);
+		var headerOffset = 45;
+		var elementPosition = element.getBoundingClientRect().top;
+		var offsetPosition = elementPosition - window.pageYOffset - headerOffset;
+		console.log('💥', offsetPosition);
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
 	}
 
 	const items = categorias.map((item) => (
-		<UnstyledButton
+		<Button
 			key={item.title}
-			className={classes.item}
-			onClick={() => scrollToTop(`${item.title}`)}>
-			<img src={img} alt='' width='32px' />
-			{/* <item.icon color={theme.colors[item.color][6]} size={32} /> */}
-			<Text size='xs' mt={7}>
-				{item.title}
-			</Text>
-		</UnstyledButton>
+			variant='white'
+			color='orange'
+			className={classes.item} /* data-target={`${item.title}`} */
+			/* component='a'
+			key={item.title}
+			href={`#${item.title}`} */
+			onClick={() => scrollToTargetAdjusted(item.title)}>
+			<div className={classes.item}>
+				<img src={item.img} alt='' width='32px' />
+				<Text size='xs' mt={7}>
+					{item.title}
+				</Text>
+			</div>
+		</Button>
 	));
 
 	return (
