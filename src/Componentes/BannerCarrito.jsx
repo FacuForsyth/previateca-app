@@ -1,6 +1,10 @@
-import React from "react";
-import { createStyles, Text, Title, TextInput, Button } from '@mantine/core';
+import React, { useEffect } from "react";
+import { createStyles, Text, Title, TextInput, Button, List, ThemeIcon } from '@mantine/core';
+import { IconCircleCheck, IconCircleDashed } from '@tabler/icons';
 import InputsCarrito from "./InptusCarrito";
+import { useSelector, useDispatch } from "react-redux";
+import '../css/bannerCarrito.css';
+import { carritoConProductos } from "../redux/actions";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -67,6 +71,14 @@ const useStyles = createStyles((theme) => ({
 
 export default function BannerCarrito() {
   const { classes } = useStyles();
+  const dispatch = useDispatch();
+  var carro = useSelector((state)=> state.carrito);
+  var carro2 = carritoConProductos(); 
+  useEffect(()=> {
+    dispatch(carritoConProductos());
+    console.log(carro2)
+  }, [dispatch])
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.body}>
@@ -81,9 +93,23 @@ export default function BannerCarrito() {
           <Button variant="gradient" gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}>Enviar mi pedido</Button>
         </div>
       </div>
-      LISTA DE PRODUCTOS SELECCIONADOS
-      CARRITO
-      {/*LISTA DE PRODUCTOS CARRITO <Image src={image.src} className={classes.image} /> */}
+
+      <List
+        spacing="xs"
+        size="sm"
+        center
+        icon={
+          <ThemeIcon color="teal" size={24} radius="xl">
+            <IconCircleCheck size={16} />
+          </ThemeIcon>
+        }
+      >
+      {carro.map((p) => <List.Item>{p.cantidad}x {p.nombre}</List.Item>)}
+    </List>
+
+      <div className="carro">
+        {carro.map((p) => <h3>{p.cantidad}x {p.nombre}  </h3>)}
+      </div>
     </div>
   );
 }
