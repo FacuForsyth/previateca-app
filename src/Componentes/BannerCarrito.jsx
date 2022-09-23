@@ -128,64 +128,20 @@ export default function BannerCarrito() {
           </ThemeIcon>
         }
       >
-      {carro.map((p) => <List.Item>{p.cantidad}x {p.nombre}</List.Item>)}
-    </List>
-
-      <div className="carro">
-        {carro.map((p) => <h3>{p.cantidad}x {p.nombre}  </h3>)}
-      </div>
-    </div>
-  );
-}
-
-	const { classes } = useStyles();
-	const dispatch = useDispatch();
-	var carro = useSelector((state) => state.carrito);
-	var carro2 = carritoConProductos();
-	useEffect(() => {
-		dispatch(carritoConProductos());
-		console.log(carro2);
-	}, [dispatch]);
-
-	return (
-		<div className={classes.wrapper}>
-			<div className={classes.body}>
-				<InputsCarrito />
-
-				<div className={classes.controls}>
-					<TextInput
-						placeholder='Algun comentartio...'
-						classNames={{ input: classes.input, root: classes.inputWrapper }}
-					/>
-					<Button variant='gradient' gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}>
-						Enviar mi pedido
-					</Button>
-				</div>
-			</div>
-
-			<List
-				spacing='xs'
-				size='sm'
-				center
-				icon={
-					<ThemeIcon color='teal' size={24} radius='xl'>
-						<IconCircleCheck size={16} />
-					</ThemeIcon>
-				}>
-				{carro.map((p) => (
+    		{carro.map((p) => (
 					<List.Item>
 						{p.cantidad}x {p.nombre}
 					</List.Item>
 				))}
 			</List>
 
-			<div className='carro'>
+      <div className='carro'>
 				{carro.map((p) => (
 					<h3>
 						{p.cantidad}x {p.nombre}{' '}
 					</h3>
 				))}
 			</div>
-		</div>
-	);
+    </div>
+  );
 }
