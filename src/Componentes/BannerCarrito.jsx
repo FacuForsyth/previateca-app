@@ -136,7 +136,7 @@ export default function BannerCarrito() {
 		//console.log('⚠️ Carrito del Banner: ', carro);
 	}, [dispatch, carro]);
 
-	let Pedido = carro.map((ped) => `${ped.cantidad}x ${ped.nombre}`).toString()
+	let Pedido = carro.map((ped) => `${ped.cantidad}x ${ped.nombre} \n`).join('').toString()
 	let SubTotal = carro.length ? carro.map((p) => Number(p.cantidad * p.precio)) : 0;
 	//console.log('🟢 SubTotal: ', typeof SubTotal[0]);
 	let Total = 0;
