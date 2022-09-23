@@ -129,10 +129,10 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 				</Group>
 				<Group spacing={30}>
 					{buttonSwith ? (
-						<Group position='center'>
-							<Button onClick={handlerClickMenos}>-</Button>
+						<Group position='center' style={{ gap: "11px"}}>
+							<Button onClick={handlerClickMenos} style={{paddingLeft: "11px", paddingRight: "11px", height:"30px" }}>-</Button>
 							<Text>{count}</Text>
-							<Button onClick={handlerClickMas}>+</Button>
+							<Button onClick={handlerClickMas} style={{paddingLeft: "11px", paddingRight: "11px", height:"30px" }}>+</Button>
 						</Group>
 					) : (
 						<Button onClick={(e) => handlerSwitchButton(e)} radius='xl' style={{ flex: 1 }}>
