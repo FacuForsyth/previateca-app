@@ -4,7 +4,7 @@ import { Card, Image, Text, Group, createStyles, Center, Button, Badge } from '@
 import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons';
 import { useState } from 'react';
 import { useCounter } from '@mantine/hooks';
-import { agregarCarrito } from '../redux/actions';
+import { agregarCarrito, restarProducto, sumarProducto } from '../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 //------------css
@@ -68,7 +68,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	const [buttonSwith, setbuttonSwith] = useState(false);
 	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
 
-	let cart = useSelector((state)=> state.carrito);
+	let cart = useSelector((state) => state.carrito);
 	const dispatch = useDispatch();
 
 	const { classes } = useStyles();
@@ -82,35 +82,30 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	const handlerSwitchButton = (e) => {
 		e.preventDefault();
 		setbuttonSwith(!buttonSwith);
+		handlers.increment();
+		dispatch(
+			agregarCarrito({
+				nombre: nombre,
+				cantidad: 1,
+				precio,
+			})
+		);
 	};
 
 	const handlerClickMenos = (e) => {
+		if (count === 1) {
+			setbuttonSwith(!buttonSwith);
+		}
 		handlers.decrement();
-		cart.map((p) => {
-			if(p.nombre === nombre){
-				p.cantidad --
-			}
-		})
-		dispatch(agregarCarrito(cart));
+		//console.log('💥 Restar Producto: ', nombre);
+		dispatch(restarProducto(nombre));
 	};
-	
+
 	function handlerClickMas(e) {
 		handlers.increment();
-		let nombres = cart.map((prod) => prod.nombre);
-		if (!nombres.includes(nombre)){
-			cart.push({
-				nombre: nombre,
-				cantidad: 1
-			});
-		} else {
-			cart.map((p) => {
-				if(p.nombre === nombre){
-					p.cantidad ++
-				}
-			})
-		}
-		dispatch(agregarCarrito(cart));
-	};
+		//console.log('🟢Agregar Producto: ', nombre);
+		dispatch(sumarProducto(nombre));
+	}
 
 	return (
 		<Card withBorder radius='md' className={classes.card}>
@@ -131,26 +126,12 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 					<Text weight={600} align='center'>
 						{nombre}
 					</Text>
-					{/* <Text size="xs" color="dimmed">
-            Free recharge at any station
-          </Text> */}
-
-					{/* <Badge variant="outline">25% off</Badge> */}
 				</Group>
 				<Group spacing={30}>
-					{/* <div>
-            <Text size="xl" weight={700} sx={{ lineHeight: 1 }}>
-              ${precio}
-            </Text>
-            <Text size="sm" color="dimmed" weight={500} sx={{ lineHeight: 1 }} mt={3}>
-              per day
-            </Text>
-          </div> */}
-
 					{buttonSwith ? (
-						<Group position="center">
+						<Group position='center'>
 							<Button onClick={handlerClickMenos}>-</Button>
-								<Text>{count}</Text>
+							<Text>{count}</Text>
 							<Button onClick={handlerClickMas}>+</Button>
 						</Group>
 					) : (
