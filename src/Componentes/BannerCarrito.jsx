@@ -30,7 +30,7 @@ const useStyles = createStyles((theme) => ({
 	wrapper: {
 		minHeight: 400,
 		boxSizing: 'border-box',
-		backgroundImage: `linear-gradient(-60deg, ${theme.colors.pink[7]} 0%, ${theme.colors.orange[1]} 100%)`,
+		backgroundImage: `linear-gradient(-60deg, #ff4f78 0%, #ff4f5e 100%)`,
 		borderRadius: theme.radius.md,
 		padding: theme.spacing.xl * 2.5,
 
@@ -199,8 +199,8 @@ export default function BannerCarrito() {
 		<div className={classes.wrapper} id='Carrito'>
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
-					<Title className={classes.title}>Carrito</Title>
-					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+					<Title style={{ color: 'white' }} className={classes.title}>Carrito</Title>
+					<Text style={{ color: 'white' }} className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
 						Hace tu pedido y te contestaremos enseguida!
 					</Text>
 					<List
@@ -347,15 +347,18 @@ export default function BannerCarrito() {
 						/* classNames={classes} */
 						/* style={{ marginTop: 20, zIndex: 2 }} */
 					/>
-					<TextInput
-						label='Abona con'
-						placeholder='$'
-						type="number"
-						value={cliente.abonaCon} 
-            name='abonaCon' 
-            onChange={e => handleChange(e)}
-						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
+					{cliente.metodoPago === 'Efectivo'? 
+						<TextInput
+							label='Abona con'
+							placeholder='$'
+							type="number"
+							value={cliente.abonaCon} 
+							name='abonaCon' 
+							onChange={e => handleChange(e)}
+							classNames={{ input: classes.input, label: classes.inputLabel }}
+						/>
+						: <br/>
+					}
 					<Textarea
 						label='Comentario'
 						placeholder='Necesitas aclarar algo?'

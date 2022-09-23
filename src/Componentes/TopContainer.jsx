@@ -13,7 +13,7 @@ import categorias from './categorias';
 
 const useStyles = createStyles((theme) => ({
 	card: {
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : '#ff4f5e',
+		backgroundImage: `linear-gradient(-60deg, #ff4f5e 0%, #ff4f78 100%)`,
 	},
 
 	title: {

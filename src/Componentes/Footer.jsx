@@ -11,7 +11,7 @@ function CustomFooter() {
 				justifyContent: 'space-between',
 				alignItems: 'center',
 			}}>
-			<h3 style={{ margin: '0px', padding: '0px' }}>Que disfrutes tu pedido, salud! 🍾 </h3>
+			<h4 style={{ margin: '0px', padding: '0px' }}>⏰MARTES A DOMINGOS DE 18:00 a 00:30</h4>
 			<Button
 				variant='subtle'
 				color='dark'
