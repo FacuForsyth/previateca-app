@@ -170,7 +170,7 @@ export default function BannerCarrito() {
 		const textDireccion = `🛵 *Dirección:* ${cliente.direccion} \n`;
 		const textMetodoPago = `💰 *Método de pago:* ${cliente.metodoPago} \n`;
 		const textAbonaCon = `💵 *Abona con:* ${cliente.abonaCon} \n`;
-		const textPedido = `🍻 *Detalle del pedido:* ${Pedido} \n\n`;
+		const textPedido = `🍻 *Detalle del pedido:* \n ${Pedido} \n\n`;
 		const textComentario = `📣 Comentario: ${cliente.comentario} \n`;
 		const textTotal = `💲 *Total:* $${Total} \n\n\n`;
 		const textConfirmado = `🍾🍾 *Gracias por tu pedido. Lo confirmamos en un momento...* `;
