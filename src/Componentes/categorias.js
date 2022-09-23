@@ -11,7 +11,7 @@ import imgJugo from '../icons/juice.png'
 import imgVino from '../icons/vino.png'
 
 /* 
-ICONOS PULE ACA: https://www.flaticon.com/search?word=cocktail&choice=1&order_by=4
+ICONOS PULE ACA:	
 */
 
 const categorias = [
