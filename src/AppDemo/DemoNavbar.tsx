@@ -2,7 +2,6 @@ import React from 'react'; //DemoNavbar
 import { useState } from 'react';
 import { createStyles, Navbar, Group, Code, Button, ScrollArea, UnstyledButton } from '@mantine/core';
 
-
 import categorias from '../Componentes/categorias';
 import imgHielo from '../icons/ice-cubes.png';
 
@@ -94,7 +93,7 @@ export default function DemoNavbar({ opened, setOpened }) {
 				setOpened(!opened);
 				scrollToTargetAdjusted(item.label);
 			}}>
-			<img src={item.icon} alt='' width='32px' className={classes.linkIcon} stroke={1.5} />
+			<img src={item.icon} alt='' width='32px' className={classes.linkIcon} /* stroke={1.5} */ />
 
 			<span>{item.label}</span>
 		</UnstyledButton>
@@ -108,6 +107,10 @@ export default function DemoNavbar({ opened, setOpened }) {
 					<Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
 				</Group>
 				{links}
+				<Group className={classes.header} position='apart' style={{ marginTop: '2rem' }}>
+					Gracias por elegirnos!
+					<Code sx={{ fontWeight: 700 }}>2022</Code>
+				</Group>
 			</Navbar.Section>
 
 			{/* <Navbar.Section className={classes.footer}>
