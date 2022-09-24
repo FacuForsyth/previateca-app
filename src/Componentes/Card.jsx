@@ -123,14 +123,33 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 				</Badge>
 			</Card.Section>
 			<Card.Section className={classes.section}>
-				<Group position='apart' mt='md'>
+				<Group
+					position='apart'
+					mt='md'
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}>
 					<Text weight={600} align='center'>
 						{nombre}
 					</Text>
 				</Group>
-				<Group spacing={30}>
+				<Group
+					spacing={30}
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}>
 					{buttonSwith ? (
-						<Group position='center' style={{ gap: '11px' }}>
+						<Group
+							position='center'
+							style={{
+								gap: '11px',
+							}}>
 							<Button
 								radius='xs'
 								color='dark.3'
