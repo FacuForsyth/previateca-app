@@ -11,6 +11,7 @@ import CustomCarousel from './Componentes/CustomCarousel.jsx';
 //import Demo from './Componentes/DEMO.tsx';
 
 //------------------------------------
+import DemoNavbar from './AppDemo/DemoNavbar.tsx';
 
 //------------------------------------
 export default function App() {
@@ -27,7 +28,7 @@ export default function App() {
 			}}
 			navbarOffsetBreakpoint='sm'
 			asideOffsetBreakpoint='sm'
-			navbar={<CustomNavbar opened={opened} />}
+			navbar={<DemoNavbar opened={opened} setOpened={setOpened} />}
 			footer={<CustomFooter />}
 			header={<CustomHeader theme={theme} opened={opened} setOpened={setOpened} />}>
 			<TopContainer />
