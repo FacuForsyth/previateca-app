@@ -273,7 +273,7 @@ export default function BannerCarrito() {
 										<img
 											style={{ maxWidth: '1.5rem', position: 'relative', top: '15px' }}
 											src={price_tag}
-											alt='price_tag'	
+											alt='price_tag'
 										/>
 										&nbsp;&nbsp;
 										{p.precio}&nbsp;)
@@ -364,7 +364,7 @@ export default function BannerCarrito() {
 					) : null}
 				</div>
 				<div className={classes.form}>
-					<Text size='lg' weight={700} color='dark' className={classes.title2}>
+					<Text align='center' size='lg' weight={700} color='dark' className={classes.title2}>
 						Tus Datos
 					</Text>
 					<br />
