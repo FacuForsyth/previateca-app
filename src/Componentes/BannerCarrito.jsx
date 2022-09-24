@@ -16,8 +16,10 @@ import {
 	Group,
 	ActionIcon,
 	Select,
+	NumberInput,
+	Checkbox,  
 } from '@mantine/core';
-import { IconCircleCheck, IconCircleDashed } from '@tabler/icons';
+import { IconCircleCheck, IconCircleDashed, IconMotorbike } from '@tabler/icons';
 import InputsCarrito from './InptusCarrito';
 import { useSelector, useDispatch } from 'react-redux';
 import '../css/bannerCarrito.css';
@@ -30,7 +32,8 @@ const useStyles = createStyles((theme) => ({
 	wrapper: {
 		minHeight: 400,
 		boxSizing: 'border-box',
-		backgroundImage: `linear-gradient(-60deg, #ff4f78 0%, #ff4f5e 100%)`,
+		/* backgroundImage: `linear-gradient(-60deg, #ff4f78 0%, #ff4f5e 100%)`, */
+		backgroundColor: '#f8f9fa',
 		borderRadius: theme.radius.md,
 		padding: theme.spacing.xl * 2.5,
 
@@ -130,6 +133,7 @@ export default function BannerCarrito() {
 		abonaCon: "",  
   });
 	//console.log(cliente)
+	const [checked, setChecked] = useState(false);
 
 	useEffect(() => {
 		dispatch(carritoConProductos());
@@ -169,7 +173,7 @@ export default function BannerCarrito() {
 		const textCliente = `🤙 *Cliente:* ${cliente.nombre} \n`;
 		const textDireccion = `🛵 *Dirección:* ${cliente.direccion} \n`;
 		const textMetodoPago = `💰 *Método de pago:* ${cliente.metodoPago} \n`;
-		const textAbonaCon = `💵 *Abona con:* ${cliente.abonaCon} \n`;
+		const textAbonaCon = `💵 *Abona con:* $${cliente.abonaCon} \n`;
 		const textPedido = `🍻 *Detalle del pedido:* \n ${Pedido} \n\n`;
 		const textComentario = `📣 Comentario: ${cliente.comentario} \n`;
 		const textTotal = `💲 *Total:* $${Total} \n\n\n`;
@@ -196,11 +200,11 @@ export default function BannerCarrito() {
   }
 
 	return (
-		<div className={classes.wrapper} id='Carrito'>
-			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+		<div  className={classes.wrapper} id='Carrito'>
+			<SimpleGrid className={classes.form} cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
-					<Title style={{ color: 'white' }} className={classes.title}>Carrito</Title>
-					<Text style={{ color: 'white' }} className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+					<Title /* style={{ color: 'white' }} */ className={classes.title}>Carrito</Title>
+					<Text /* style={{ color: 'white' }} */ className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
 						Hace tu pedido y te contestaremos enseguida!
 					</Text>
 					<List
@@ -329,15 +333,25 @@ export default function BannerCarrito() {
             onChange={e => handleChange(e)}
 						classNames={{ input: classes.input, label: classes.inputLabel }}
 					/>
+					{checked === true?
+						<></>
+						: 
 					<TextInput
 						label='Dirección'
 						placeholder='Dónde es la fiesta?'
-						required
 						value={cliente.direccion} 
             name='direccion' 
             onChange={e => handleChange(e)}
 						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
+					/>}
+					<Checkbox
+      			label="Retiro por el local"
+						/* icon={IconMotorbike} */
+      			color="red"
+						style={{ margin: '5px 0px' }}
+						checked={checked} 
+						onChange={(event) => setChecked(event.currentTarget.checked)}
+    			/>
 					<Select
 						label="Medio de pago"
 						placeholder="Seleccionar"
@@ -348,10 +362,11 @@ export default function BannerCarrito() {
 						/* style={{ marginTop: 20, zIndex: 2 }} */
 					/>
 					{cliente.metodoPago === 'Efectivo'? 
-						<TextInput
+						<NumberInput
 							label='Abona con'
 							placeholder='$'
 							type="number"
+							hideControls
 							value={cliente.abonaCon} 
 							name='abonaCon' 
 							onChange={e => handleChange(e)}

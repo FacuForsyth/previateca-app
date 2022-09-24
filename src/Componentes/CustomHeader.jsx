@@ -16,7 +16,7 @@ function CustomHeader({ opened, setOpened }) {
 		});
 	}
 	return (
-		<Header height={70} p='md' style={{ overflow: 'hidden', backgroundColor: '#EDF2FF' }}>
+		<Header height={70} p='md' style={{ overflow: 'hidden', backgroundColor: '#f8f9fa' }}>
 			<div
 				style={{
 					display: 'flex',
