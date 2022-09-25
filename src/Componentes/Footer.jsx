@@ -9,7 +9,7 @@ function CustomFooter() {
 			height={20}
 			p='md'
 			style={{
-				backgroundColor: '#EDF2FF',
+				backgroundColor: '#f8f9fa',
 				display: 'flex',
 				justifyContent: 'space-between',
 				alignItems: 'center',
