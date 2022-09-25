@@ -207,7 +207,7 @@ export default function BannerCarrito() {
 		const textDireccion = `🛵 *Dirección:* ${cliente.direccion} \n`;
 		const textMetodoPago = `💰 *Método de pago:* ${cliente.metodoPago} \n`;
 		const textAbonaCon = `💵 *Abona con:* $${cliente.abonaCon} \n`;
-		const textPedido = `🍻 *Detalle del pedido:* \n ${Pedido} \n\n`;
+		const textPedido = `🍻 *Detalle del pedido:* \n${Pedido} \n\n`;
 		const textComentario = `📣 Comentario: ${cliente.comentario} \n`;
 		const textTotal = `💲 *Total:* $${Total} \n\n\n`;
 		const textConfirmado = `🍾🍾 *Gracias por tu pedido. Lo confirmamos en un momento...* `;
@@ -242,19 +242,18 @@ export default function BannerCarrito() {
 
 	return (
 		<div  className={classes.wrapper} id='Carrito'>
-			<SimpleGrid className={classes.form} cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+			<SimpleGrid /* className={classes.form} */ cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
-					<Title style={{ color: 'white' }} className={classes.title}>
+					<Title className={classes.title}>
 						Carrito
 					</Title>
 					<Text
-						style={{ color: 'white' }}
 						className={classes.description}
 						mt='sm'
 						mb={30}
 						size='lg'
 						weight={600}>
-						Hace tu pedido y te contestaremos enseguida!
+						¡Hace tu pedido y te contestaremos enseguida!
 					</Text>
 					<List
 						spacing='xs'
@@ -320,23 +319,21 @@ export default function BannerCarrito() {
 						) : (
 							<div>
 								<Text
-									style={{ color: 'white' }}
 									className={classes.description}
 									mt='sm'
 									mb={30}
 									size='lg'
 									weight={600}>
-									Tu Carrito Está Vacío &nbsp;
+									Tu Carrito Está Vacío {/* &nbsp; */}
 									<img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />.
 								</Text>
 								<Text
-									style={{ color: 'white' }}
 									className={classes.description}
 									mt='sm'
 									mb={30}
 									size='lg'
 									weight={600}>
-									Llenalo y empezá la fiesta !! &nbsp;
+									¡Llenalo y empezá la fiesta! {/* &nbsp; */}
 									<img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' />
 								</Text>
 							</div>
@@ -387,7 +384,7 @@ export default function BannerCarrito() {
 						: 
 					<TextInput
 						label='Dirección'
-						placeholder='Dónde es la fiesta?'
+						placeholder='¿Dónde es la fiesta? ¿Dpto, piso?'
 						required
 						value={cliente.direccion}
 						name='direccion'
@@ -422,12 +419,11 @@ export default function BannerCarrito() {
 							onChange={e => handleChange(e)}
 							classNames={{ input: classes.input, label: classes.inputLabel }}
 						/>
-					) : (
-						<br />
-					)}
+						:	<br />
+					}
 					<Textarea
 						label='Comentario'
-						placeholder='Necesitas aclarar algo?'
+						placeholder='¿Necesitas aclarar algo?'
 						minRows={4}
 						mt='md'
 						value={cliente.comentario}

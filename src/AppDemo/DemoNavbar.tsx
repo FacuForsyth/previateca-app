@@ -102,10 +102,10 @@ export default function DemoNavbar({ opened, setOpened }) {
 	return (
 		<Navbar height='100%' width={{ sm: 300 }} p='md' hidden={!opened}>
 			<Navbar.Section grow component={ScrollArea} mx='-xs' px='xs'>
-				<Group className={classes.header} position='apart'>
+				{/* <Group className={classes.header} position='apart'>
 					LOGO
 					<Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
-				</Group>
+				</Group> */}
 				{links}
 				<Group className={classes.header} position='apart' style={{ marginTop: '2rem' }}>
 					Gracias por elegirnos!
