@@ -155,6 +155,7 @@ export default function BannerCarrito() {
 
 	const dispatch = useDispatch();
 	var carro = useSelector((state) => state.carrito);
+	const [checked, setChecked] = useState(false);
 	const [cliente, setCliente] = useState({
 		nombre: '',
 		direccion: '',
@@ -162,8 +163,7 @@ export default function BannerCarrito() {
 		metodoPago: '',
 		abonaCon: '',
 	});
-	//console.log(cliente)
-	const [checked, setChecked] = useState(false);
+	console.log(cliente)
 
 	useEffect(() => {
 		dispatch(carritoConProductos());
@@ -197,6 +197,22 @@ export default function BannerCarrito() {
 			metodoPago: e,
 		});
 	}
+
+	function handleCheckbox(e){
+		setChecked(e.currentTarget.checked)
+		if (checked === false) {
+			setCliente({
+				...cliente,
+				direccion: "*Retiro por el local*",
+			});
+		}
+		else if (checked === true) {
+			setCliente({
+				...cliente,
+				direccion: "",
+			});
+		}
+	};
 
 	function handlerClick(e) {
 		//const orderTime = '🕐 *Hora del pedido:* ' + now.getHours() + 'hs' + now.getMinutes() + '\n'
@@ -242,7 +258,7 @@ export default function BannerCarrito() {
 
 	return (
 		<div  className={classes.wrapper} id='Carrito'>
-			<SimpleGrid /* className={classes.form} */ cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
 					<Title className={classes.title}>
 						Carrito
@@ -324,8 +340,8 @@ export default function BannerCarrito() {
 									mb={30}
 									size='lg'
 									weight={600}>
-									Tu Carrito Está Vacío {/* &nbsp; */}
-									<img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />.
+									Tu Carrito Está Vacío &nbsp;
+									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />. */}
 								</Text>
 								<Text
 									className={classes.description}
@@ -333,8 +349,8 @@ export default function BannerCarrito() {
 									mb={30}
 									size='lg'
 									weight={600}>
-									¡Llenalo y empezá la fiesta! {/* &nbsp; */}
-									<img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' />
+									¡Llenalo y empezá la fiesta! &nbsp;
+									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' /> */}
 								</Text>
 							</div>
 						)}
@@ -397,7 +413,7 @@ export default function BannerCarrito() {
       			color="red"
 						style={{ margin: '5px 0px' }}
 						checked={checked} 
-						onChange={(event) => setChecked(event.currentTarget.checked)}
+						onChange={(e) => handleCheckbox(e)}
     			/>
 					<Select
 						label='Medio de pago'
