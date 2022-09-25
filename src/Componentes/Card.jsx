@@ -38,9 +38,10 @@ const useStyles = createStyles((theme) => ({
 		//borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}`,
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'center',
-		alignItems: 'center',
+		justifyContent: 'space-around',
+		alignItems: 'space-around',
 		marginTop: '-20px',
+		minHeight: '160px',
 	},
 
 	icon: {
@@ -122,20 +123,55 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 				</Badge>
 			</Card.Section>
 			<Card.Section className={classes.section}>
-				<Group position='apart' mt='md'>
+				<Group
+					position='apart'
+					mt='md'
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}>
 					<Text weight={600} align='center'>
 						{nombre}
 					</Text>
 				</Group>
-				<Group spacing={30}>
+				<Group
+					spacing={30}
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}>
 					{buttonSwith ? (
-						<Group position='center' style={{ gap: "11px"}}>
-							<Button onClick={handlerClickMenos} style={{paddingLeft: "11px", paddingRight: "11px", height:"30px" }}>-</Button>
+						<Group
+							position='center'
+							style={{
+								gap: '11px',
+							}}>
+							<Button
+								radius='xs'
+								color='dark.3'
+								onClick={handlerClickMenos}
+								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
+								-
+							</Button>
 							<Text>{count}</Text>
-							<Button onClick={handlerClickMas} style={{paddingLeft: "11px", paddingRight: "11px", height:"30px" }}>+</Button>
+							<Button
+								radius='xs'
+								color='dark.3'
+								onClick={handlerClickMas}
+								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
+								+
+							</Button>
 						</Group>
 					) : (
-						<Button onClick={(e) => handlerSwitchButton(e)} radius='xl' style={{ flex: 1 }}>
+						<Button
+							radius='xs'
+							color='dark.3'
+							onClick={(e) => handlerSwitchButton(e)}
+							style={{ flex: 1 }}>
 							Comprar
 						</Button>
 					)}

@@ -48,6 +48,7 @@ export default function TopContainer() {
 		const element = document.getElementById(a);
 		element?.scrollIntoView({ behavior: 'smooth', block: 'end', offset: 60 });
 	} */
+	/* SCROLL DE LA PAGINA AL APRETAR EL BOTON */
 	function scrollToTargetAdjusted(id) {
 		var element = document.getElementById(id);
 		var headerOffset = 72;

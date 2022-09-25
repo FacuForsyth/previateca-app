@@ -1,12 +1,17 @@
-import { Burger, Button, Header, MediaQuery, useMantineTheme } from '@mantine/core';
+import { Badge, Burger, Button, Header, MediaQuery, useMantineTheme } from '@mantine/core';
 import React from 'react';
 import imgPrev from '../images/Previateca-logo-tipografia.png';
+import shopping_cart from '../icons/shopping_cart.png';
+import { useSelector } from 'react-redux';
 
 function CustomHeader({ opened, setOpened }) {
 	const theme = useMantineTheme();
+	var carro = useSelector((state) => state.carrito);
+	let cantidad = carro.length;
+
 	function scrollToTargetAdjusted(id) {
 		var element = document.getElementById(id);
-		var headerOffset = 45;
+		var headerOffset = 71;
 		var elementPosition = element.getBoundingClientRect().top;
 		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -41,9 +46,18 @@ function CustomHeader({ opened, setOpened }) {
 						width: '100%',
 						marginLeft: '-10px',
 					}}>
-					<img src={imgPrev} alt='' width='200px' />
+					<img src={imgPrev} alt='logo' width='200px' />
 					<Button variant='subtle' color='dark' onClick={() => scrollToTargetAdjusted('Carrito')}>
-						🛒 Carrito
+						<img src={shopping_cart} alt='shopping_cart' style={{ maxWidth: '30px', bottom: '-30px' }} />
+						{cantidad ? (
+							<Badge
+								size='sm'
+								variant='filled'
+								color='pink'
+								style={{ position: 'absolute', top: '-5px', left: '35px' }}>
+								{cantidad}
+							</Badge>
+						) : null}
 					</Button>
 				</div>
 			</div>
