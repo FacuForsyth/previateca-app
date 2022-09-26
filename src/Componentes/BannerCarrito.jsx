@@ -369,10 +369,10 @@ export default function BannerCarrito() {
 							<Text color='white' align='center' size='sm'>
 								<Badge
 									size='xl'
-									gradient={{ from: '#ed6ea0', to: '#ec8c69', deg: 35 }}
 									variant='gradient'
+									gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 									style={{ marginTop: '1rem' }}>
-									{Total}
+									$ {Total}
 								</Badge>
 							</Text>
 						</Paper>

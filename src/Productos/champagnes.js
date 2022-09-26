@@ -2,28 +2,28 @@ const champagnes = [
   {
     id: 61,
     nombre: "Renaissance extra brut",
-    imagen: `${require('./imagenes/Renaissance.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Champagne-Renaissance.png')}`,
     precio: 580,
     categoria: "Champagnes"
   },
   {
     id: 62,
     nombre: "Mumm extra brut",
-    imagen: `${require('./imagenes/mumm.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Champagne-Mumm.png')}`,
     precio: 1160,
     categoria: "Champagnes"
   },
   {
     id: 63,
     nombre: "Chandon extra brut",
-    imagen: `${require('./imagenes/CHANDON-EXTRA-BRUT.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Champagne-Chandon.png')}`,
     precio: 1360,
     categoria: "Champagnes"
   },
   {
     id: 64,
     nombre: "Baron B extra brut",
-    imagen: `${require('./imagenes/baron b.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Champagne-BaronB.png')}`,
     precio: 3400,
     categoria: "Champagnes"
   },

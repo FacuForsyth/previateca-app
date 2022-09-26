@@ -2,21 +2,21 @@ const vodkas = [
   {
     id: 26,
     nombre: "Sernova",
-    imagen: `${require('./imagenes/sernova.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Sernova.png')}`,
     precio: 1000,
     categoria: "Vodkas"
   },
   {
     id: 27,
     nombre: "Sernova Wild Berries",
-    imagen: `${require('./imagenes/sernova-wild-berries-700ml.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Sernova2.png')}`,
     precio: 1150,
     categoria: "Vodkas"
   },
   {
     id: 28,
     nombre: "Sernova Fresh Citrus",
-    imagen: `${require('./imagenes/sernova-fresh-citrus-700ml.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Sernova1.png')}`,
     precio: 1150,
     categoria: "Vodkas"
   },
@@ -30,77 +30,77 @@ const vodkas = [
   {
     id: 30,
     nombre: "Smirnoff",
-    imagen: `${require('./imagenes/smirnoff.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff.png')}`,
     precio: 1200,
     categoria: "Vodkas"
   },
   {
     id: 31,
     nombre: "Smirnoff Manzana",
-    imagen: `${require('./imagenes/smirnoff manzana.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff3.png')}`,
     precio: 1350,
     categoria: "Vodkas"
   },
   {
     id: 32,
     nombre: "Smirnoff Raspberry",
-    imagen: `${require('./imagenes/smirnoff raspberry.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff5.png')}`,
     precio: 1350,
     categoria: "Vodkas"
   },
   {
     id: 33,
     nombre: "Smirnoff Watermelon",
-    imagen: `${require('./imagenes/vodka-smirnoff-watermelon-700cc.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff4.png')}`,
     precio: 1350,
     categoria: "Vodkas"
   },
   {
     id: 34,
     nombre: "Smirnoff Citrus",
-    imagen: `${require('./imagenes/Smirnoff-Vodka-Citrus-750ml.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff2.png')}`,
     precio: 1350,
     categoria: "Vodkas"
   },
   {
     id: 35,
     nombre: "Smirnoff Grape&Citrus",
-    imagen: `${require('./imagenes/smirnoff Grapefruit.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff1.png')}`,
     precio: 1350,
     categoria: "Vodkas"
   },
   {
     id: 36,
     nombre: "Absolut",
-    imagen: `${require('./imagenes/Absolut-Vodka-700ml.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Absolute.png')}`,
     precio: 3000,
     categoria: "Vodkas"
   },
   {
     id: 37,
     nombre: "Absolut Apple",
-    imagen: `${require('./imagenes/absolut aplple.jfif')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Absolute1.png')}`,
     precio: 3500,
     categoria: "Vodkas"
   },
   {
     id: 38,
     nombre: "Absolut Mandarin",
-    imagen: `${require('./imagenes/absolut-mandrin.webp')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Absolute4.png')}`,
     precio: 3500,
     categoria: "Vodkas"
   },
   {
     id: 39,
     nombre: "Absolut Raspberry",
-    imagen: `${require('./imagenes/absolut-raspberri.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Absolute2.png')}`,
     precio: 3500,
     categoria: "Vodkas"
   },
   {
     id: 40,
     nombre: "Absolut Mango",
-    imagen: `${require('./imagenes/absolut mango.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Absolute3.png')}`,
     precio: 1700,
     categoria: "Vodkas"
   },

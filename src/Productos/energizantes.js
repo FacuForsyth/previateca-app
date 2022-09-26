@@ -2,7 +2,7 @@ const energizantes = [
   {
     id: 76,
     nombre: "Speed 250",
-    imagen: `${require('./imagenes/speed.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Speed.png')}`,
     precio: 170,
     categoria: "Energizantes"
   },
@@ -16,21 +16,21 @@ const energizantes = [
   {
     id: 78,
     nombre: "Monster Energy 475",
-    imagen: `${require('./imagenes/monster energy.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Monster-energy.png')}`,
     precio: 270,
     categoria: "Energizantes"
   },
   {
     id: 79,
     nombre: "Monster Ultra 475",
-    imagen: `${require('./imagenes/monster ultra.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Monster-ultra.png')}`,
     precio: 270,
     categoria: "Energizantes"
   },
   {
     id: 80,
     nombre: "Monster Mango Loca 475",
-    imagen: `${require('./imagenes/monster mango.png')}`,
+    imagen: `${require('./imagenes/Previateca---Monster-mangoloco.png')}`,
     precio: 270,
     categoria: "Energizantes"
   },

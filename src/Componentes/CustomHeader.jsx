@@ -60,8 +60,7 @@ function CustomHeader({ opened, setOpened }) {
 							<Badge
 								size='sm'
 								variant='filled'
-								color='pink'
-								style={{ position: 'absolute', top: '-5px', left: '35px' }}>
+								style={{ backgroundColor:'#ff4f78', position: 'absolute', top: '-5px', left: '35px' }}>
 								{cantidad}
 							</Badge>
 						) : null}

@@ -30,10 +30,10 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 				justifyContent: 'center',
 			}}>
 			<Card.Section component='' href=''>
-				<Image src={imagen} alt={nombre} maxwidth='100%' height={250} fit='contain' />
+				<Image src={imagen} alt={nombre} maxwidth='100%' height={300} fit='contain' />
 			</Card.Section>
 
-			<Group position='apart' mt='md' mb='xs' style={{ display: 'flex', justifyContent: 'center' }}>
+			{/* <Group position='apart' mt='md' mb='xs' style={{ display: 'flex', justifyContent: 'center' }}>
 				<Text weight={600} align='center'>
 					{nombre}
 				</Text>
@@ -48,9 +48,10 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 					}}>
 					¡PROMO!
 				</Badge>
-			</Group>
+			</Group> */}
 			<Group
 				style={{
+					marginTop: '15px',
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'center',

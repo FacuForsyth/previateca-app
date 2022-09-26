@@ -113,7 +113,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 		<Card withBorder radius='sm' className={classes.card}>
 			<Card.Section className={classes.imageSection}>
 				<Image src={imagen} alt='' width='100%' height={200} fit='contain' />
-				<Badge className={classes.badge} radius='sm'>
+				{/* <Badge className={classes.badge} radius='sm'>
 					<Text
 						size='xl'
 						weight={600}
@@ -121,7 +121,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 						gradient={{ from: 'yellow', to: 'pink', deg: 45 }}>
 						${precio}
 					</Text>
-				</Badge>
+				</Badge> */}
 			</Card.Section>
 			<Card.Section className={classes.section}>
 				<Group
@@ -135,6 +135,17 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 					}}>
 					<Text weight={600} align='center'>
 						{nombre}
+					</Text>
+				</Group>
+				<Group 
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}>
+					<Text size='sm' color='dimmed' 						align='center' weight={600}>
+						${precio}
 					</Text>
 				</Group>
 				<Group
@@ -153,7 +164,8 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 							}}>
 							<Button
 								radius='sm'
-								color='dark.3'
+								variant='gradient'
+								gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 								onClick={handlerClickMenos}
 								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
 								-
@@ -161,7 +173,8 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 							<Text>{count}</Text>
 							<Button
 								radius='sm'
-								color='dark.3'
+								variant='gradient'
+								gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 								onClick={handlerClickMas}
 								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
 								+
@@ -169,8 +182,9 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 						</Group>
 					) : (
 						<Button
+							variant='gradient'
+							gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 							radius='sm'
-							color='dark.3'
 							onClick={(e) => handlerSwitchButton(e)}
 							style={{ flex: 1 }}>
 							Comprar

@@ -2,21 +2,21 @@ const tintos = [
   {
     id: 49,
     nombre: "Viña del Balbo",
-    imagen: `${require('./imagenes/Vino-Tinto-Viñas-de-Balbo-Borgoña-125-Lts-_1.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vino-Tinto-ViñaDelBalbo.png')}`,
     precio: 400,
     categoria: "Vinos tintos"
   },
   {
     id: 50,
     nombre: "Estancia Mendoza Malbec",
-    imagen: `${require('./imagenes/estancia mendoza malbec.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vino-Tinto-EstanciaDeMendoza.png')}`,
     precio: 600,
     categoria: "Vinos tintos"
   },
   {
     id: 51,
     nombre: "Cafayate Malbec",
-    imagen: `${require('./imagenes/VINO-TINTO-CAFAYATE-MALBEC.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vino-Tinto-Cafayate.png')}`,
     precio: 590,
     categoria: "Vinos tintos"
   },
@@ -30,14 +30,14 @@ const tintos = [
   {
     id: 53,
     nombre: "Elementos Malbec",
-    imagen: `${require('./imagenes/VINO ELEMENTOS MALBEC 2019 750ML.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vino-Tinto-Elementos.png')}`,
     precio: 690,
     categoria: "Vinos tintos"
   },
   {
     id: 54,
     nombre: "Amalaya Malbec",
-    imagen: `${require('./imagenes/amalaya malbec.jpeg')}`,
+    imagen: `${require('./imagenes/Previateca---Vino-Tinto-Amalaya.png')}`,
     precio: 1170,
     categoria: "Vinos tintos"
   },
