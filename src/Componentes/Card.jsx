@@ -41,7 +41,7 @@ const useStyles = createStyles((theme) => ({
 		justifyContent: 'space-around',
 		alignItems: 'space-around',
 		marginTop: '-20px',
-		minHeight: '160px',
+		minHeight: '139px',
 	},
 
 	icon: {
@@ -103,7 +103,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	return (
 		<Card withBorder radius='sm' className={classes.card}>
 			<Card.Section className={classes.imageSection}>
-				<Image src={imagen} alt='' width='100%' height={200} fit='contain' />
+				<Image src={imagen} alt='' width='100%' /* height={200} */ fit='contain' />
 				{/* <Badge className={classes.badge} radius='sm'>
 					<Text
 						size='xl'
@@ -116,27 +116,28 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 			</Card.Section>
 			<Card.Section className={classes.section}>
 				<Group
-					position='apart'
-					mt='md'
 					style={{
 						display: 'flex',
 						flexDirection: 'row',
 						justifyContent: 'center',
 						alignItems: 'center',
+						marginTop: '10px',
 					}}>
-					<Text weight={600} align='center'>
-						{nombre}
+					<Text /* size='sm' color='dimmed' */ align='center' weight={600}>
+						${precio}
 					</Text>
 				</Group>
 				<Group
+					/* position='apart'
+					mt='md' */
 					style={{
 						display: 'flex',
 						flexDirection: 'row',
 						justifyContent: 'center',
 						alignItems: 'center',
 					}}>
-					<Text size='sm' color='dimmed' align='center' weight={600}>
-						${precio}
+					<Text size='sm' color='dimmed' weight={550} align='center'>
+						{nombre}
 					</Text>
 				</Group>
 				<Group
