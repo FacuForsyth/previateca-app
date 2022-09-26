@@ -21,13 +21,13 @@ const useStyles = createStyles((theme) => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 		textAlign: 'center',
-		borderRadius: theme.radius.md,
+		borderRadius: theme.radius.sm,
 		height: 90,
 		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
 		transition: 'box-shadow 150ms ease, transform 100ms ease',
 
 		'&:hover': {
-			boxShadow: `${theme.shadows.md} !important`,
+			boxShadow: `${theme.shadows.sm} !important`,
 			transform: 'scale(1.05)',
 		},
 	},
@@ -51,7 +51,7 @@ export default function TopContainer() {
 	));
 
 	return (
-		<Card withBorder radius='md' className={classes.card}>
+		<Card withBorder radius='sm' className={classes.card}>
 			{/* <Group position='apart'>
 				<Text className={classes.title}>Services</Text>
 				<Anchor size='xs' color='dimmed' sx={{ lineHeight: 1 }}>

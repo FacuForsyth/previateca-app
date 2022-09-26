@@ -18,10 +18,11 @@ import {
 	ActionIcon,
 	Select,
 	NumberInput,
-	Checkbox,  
+	Checkbox,
 	Progress,
 	Badge,
 	Paper,
+	Space,
 } from '@mantine/core';
 import { IconCircleCheck, IconCircleDashed, IconMotorbike } from '@tabler/icons';
 import InputsCarrito from './InptusCarrito';
@@ -42,6 +43,13 @@ import money from '../icons/money.png';
 
 import { IconSwimming } from '@tabler/icons';
 
+import categorias from './categorias';
+import imgHielo from '../icons/ice-cubes.png';
+
+let catego = categorias.concat({ title: 'Hielo / Vasos' });
+let iconos = { 'Hielo / Vasos': imgHielo };
+for (let ico of categorias) iconos[ico.title] = ico.img;
+
 const ICON_SIZE = 60;
 
 const useStyles = createStyles((theme) => ({
@@ -50,7 +58,7 @@ const useStyles = createStyles((theme) => ({
 		boxSizing: 'border-box',
 		/* backgroundImage: `linear-gradient(-60deg, #ff4f78 0%, #ff4f5e 100%)`, */
 		backgroundColor: '#f8f9fa',
-		borderRadius: theme.radius.md,
+		borderRadius: theme.radius.sm,
 		padding: theme.spacing.xl * 2.5,
 
 		[`@media (max-width: ${theme.breakpoints.sm}px)`]: {
@@ -91,7 +99,7 @@ const useStyles = createStyles((theme) => ({
 	form: {
 		backgroundColor: theme.white,
 		padding: theme.spacing.xl,
-		borderRadius: theme.radius.md,
+		borderRadius: theme.radius.sm,
 		boxShadow: theme.shadows.lg,
 	},
 
@@ -137,6 +145,8 @@ const useStyles = createStyles((theme) => ({
 	},
 
 	icon: {
+		backgroundColor: '#f6dee2',
+
 		position: 'absolute',
 		top: -ICON_SIZE / 3,
 		left: `calc(50% - ${ICON_SIZE / 2}px)`,
@@ -148,13 +158,12 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
-const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
-
 export default function BannerCarrito() {
 	const { classes } = useStyles();
 
 	const dispatch = useDispatch();
 	var carro = useSelector((state) => state.carrito);
+
 	const [checked, setChecked] = useState(false);
 	const [cliente, setCliente] = useState({
 		nombre: '',
@@ -163,7 +172,7 @@ export default function BannerCarrito() {
 		metodoPago: '',
 		abonaCon: '',
 	});
-	console.log(cliente)
+	//console.log(cliente);
 
 	useEffect(() => {
 		dispatch(carritoConProductos());
@@ -198,21 +207,20 @@ export default function BannerCarrito() {
 		});
 	}
 
-	function handleCheckbox(e){
-		setChecked(e.currentTarget.checked)
+	function handleCheckbox(e) {
+		setChecked(e.currentTarget.checked);
 		if (checked === false) {
 			setCliente({
 				...cliente,
-				direccion: "*Retiro por el local*",
+				direccion: '*Retiro por el local*',
 			});
-		}
-		else if (checked === true) {
+		} else if (checked === true) {
 			setCliente({
 				...cliente,
-				direccion: "",
+				direccion: '',
 			});
 		}
-	};
+	}
 
 	function handlerClick(e) {
 		//const orderTime = '🕐 *Hora del pedido:* ' + now.getHours() + 'hs' + now.getMinutes() + '\n'
@@ -257,18 +265,16 @@ export default function BannerCarrito() {
 	}
 
 	return (
-		<div  className={classes.wrapper} id='Carrito'>
+		<div
+			className={classes.wrapper}
+			id='Carrito'
+			style={{
+				marginTop: '1rem',
+			}}>
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
-					<Title className={classes.title}>
-						Carrito
-					</Title>
-					<Text
-						className={classes.description}
-						mt='sm'
-						mb={30}
-						size='lg'
-						weight={600}>
+					<Title className={classes.title}>Carrito</Title>
+					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
 						¡Hace tu pedido y te contestaremos enseguida!
 					</Text>
 					<List
@@ -276,79 +282,68 @@ export default function BannerCarrito() {
 						size='sm'
 						center
 						icon={
-							<ThemeIcon color='teal' size={24} radius='xl'>
-								<IconCircleCheck size={16} />
+							<ThemeIcon color='teal' size={24} radius='sm'>
+								<IconCircleCheck size={10} />
 							</ThemeIcon>
 						}>
 						{carro.length ? (
 							carro.map((p, i) => (
-								<Paper radius='md' withBorder className={classes.card} mt={ICON_SIZE / 3}>
+								<Paper key={i} radius='sm' withBorder className={classes.card} mt={ICON_SIZE / 3}>
 									<ThemeIcon className={classes.icon} size={ICON_SIZE} radius={ICON_SIZE}>
-										<IconSwimming size={34} stroke={1.5} />
+										<img src={iconos[p.categoria]} alt={p.categoria} width='32px' />
 									</ThemeIcon>
 
-									<Text align='center' weight={700} className={classes.Cardtitle}>
-										{p.nombre}&nbsp;&nbsp; (&nbsp;
-										<img
-											style={{ maxWidth: '1.5rem', position: 'relative', top: '15px' }}
-											src={price_tag}
-											alt='price_tag'
-										/>
-										&nbsp;&nbsp;
-										{p.precio}&nbsp;)
+									<Text size='xl' align='center' weight={700} className={classes.Cardtitle}>
+										{p.nombre}
+										{/* <div
+											style={{ maxWidth: '1.5rem', position: 'absolute', top: '10px', right: '20px' }}>
+											{p.precio}&nbsp;
+											<img
+												style={{ maxWidth: '1.5rem'  }}
+												src={price_tag}
+												alt='price_tag'
+											/>
+										</div> */}
 									</Text>
 
 									<Group position='apart' mt='xs' style={{ gap: '5px' }}>
-										<Text size='sm' color=''>
+										<Text size='lg' color=''>
 											Cantidad:
 										</Text>
-										<Button style={{}} variant='subtle' color='dark' radius='xl' size='' compact>
+										<Button style={{}} variant='subtle' color='dark' radius='sm' size='' compact>
 											<img style={{ maxWidth: '1.5rem' }} src={minus} alt='minus' />
 										</Button>
 
-										<Text size='sm' color=''>
+										<Text size='xl' color=''>
 											{p.cantidad}
 										</Text>
-										<Button style={{}} variant='subtle' color='dark' radius='xl' size='' compact>
+										<Button style={{}} variant='subtle' color='dark' radius='sm' size='' compact>
 											<img style={{ maxWidth: '1.5rem' }} src={plus} alt='plus' />
 										</Button>
+									</Group>
+
+									<Group position='apart' mt='md'>
+										<Text size='lg'>Subtotal: {`${p.precio * p.cantidad}`}&nbsp;&nbsp;</Text>
+										{/* <img style={{ maxWidth: '1.5rem' }} src={profits} alt='profits' /> */}
 										<Button
 											style={{ margin: '0px 0px' }}
 											variant='subtle'
 											color='dark'
-											radius='xl'
+											radius='sm'
 											size=''
 											compact>
 											<img style={{ maxWidth: '1.5rem' }} src={deleteI} alt='deleteI' />
 										</Button>
 									</Group>
-
-									<Group position='apart' mt='md'>
-										<Text size='sm'>
-											Subtotal: &nbsp;&nbsp;
-											<img style={{ maxWidth: '1.5rem' }} src={profits} alt='profits' />
-										</Text>
-										<Badge size='sm'>{`${p.precio * p.cantidad}`}</Badge>
-									</Group>
 								</Paper>
 							))
 						) : (
 							<div>
-								<Text
-									className={classes.description}
-									mt='sm'
-									mb={30}
-									size='lg'
-									weight={600}>
+								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
 									Tu Carrito Está Vacío &nbsp;
 									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />. */}
 								</Text>
-								<Text
-									className={classes.description}
-									mt='sm'
-									mb={30}
-									size='lg'
-									weight={600}>
+								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
 									¡Llenalo y empezá la fiesta! &nbsp;
 									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' /> */}
 								</Text>
@@ -357,7 +352,7 @@ export default function BannerCarrito() {
 					</List>
 					<br />
 					{carro.length ? (
-						<Paper radius='md' withBorder className={classes.card} mt={ICON_SIZE / 3}>
+						<Paper radius='sm' withBorder className={classes.card} mt={ICON_SIZE / 3}>
 							<ThemeIcon className={classes.icon} size={ICON_SIZE} radius={ICON_SIZE}>
 								<img
 									style={{ maxWidth: '1.5rem', top: '10px' }}
@@ -372,8 +367,11 @@ export default function BannerCarrito() {
 								Total:
 							</Text>
 							<Text color='white' align='center' size='sm'>
-								<Badge size='xl' style={{ marginTop: '1rem' }}>
-									{' '}
+								<Badge
+									size='xl'
+									gradient={{ from: '#ed6ea0', to: '#ec8c69', deg: 35 }}
+									variant='gradient'
+									style={{ marginTop: '1rem' }}>
 									{Total}
 								</Badge>
 							</Text>
@@ -395,26 +393,27 @@ export default function BannerCarrito() {
 						onChange={(e) => handleChange(e)}
 						classNames={{ input: classes.input, label: classes.inputLabel }}
 					/>
-					{checked === true?
+					{checked === true ? (
 						<></>
-						: 
-					<TextInput
-						label='Dirección'
-						placeholder='¿Dónde es la fiesta? ¿Dpto, piso?'
-						required
-						value={cliente.direccion}
-						name='direccion'
-						onChange={(e) => handleChange(e)}
-						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>}
+					) : (
+						<TextInput
+							label='Dirección'
+							placeholder='¿Dónde es la fiesta? ¿Dpto, piso?'
+							required
+							value={cliente.direccion}
+							name='direccion'
+							onChange={(e) => handleChange(e)}
+							classNames={{ input: classes.input, label: classes.inputLabel }}
+						/>
+					)}
 					<Checkbox
-      			label="Retiro por el local"
+						label='Retiro por el local'
 						/* icon={IconMotorbike} */
-      			color="red"
+						color='red'
 						style={{ margin: '5px 0px' }}
-						checked={checked} 
+						checked={checked}
 						onChange={(e) => handleCheckbox(e)}
-    			/>
+					/>
 					<Select
 						label='Medio de pago'
 						placeholder='Seleccionar'
@@ -424,19 +423,20 @@ export default function BannerCarrito() {
 						/* classNames={classes} */
 						/* style={{ marginTop: 20, zIndex: 2 }} */
 					/>
-					{cliente.metodoPago === 'Efectivo'? 
+					{cliente.metodoPago === 'Efectivo' ? (
 						<NumberInput
 							label='Abona con'
 							placeholder='$'
-							type="number"
+							type='number'
 							hideControls
-							value={cliente.abonaCon} 
-							name='abonaCon' 
-							onChange={e => handleChange(e)}
+							value={cliente.abonaCon}
+							name='abonaCon'
+							onChange={(e) => handleChange(e)}
 							classNames={{ input: classes.input, label: classes.inputLabel }}
 						/>
-						:	<br />
-					}
+					) : (
+						<br />
+					)}
 					<Textarea
 						label='Comentario'
 						placeholder='¿Necesitas aclarar algo?'

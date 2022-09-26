@@ -18,10 +18,17 @@ export default function MainContainer() {
 
 	const catego = categorias.concat({ title: 'Hielo / Vasos' });
 	return (
-		<Accordion variant='filled' radius='md' defaultValue=''>
+		<Accordion variant='separated' radius='sm' defaultValue='PROMOS'>
 			{catego.map((prod) => {
 				return (
-					<Accordion.Item id={prod.title} key={`${prod.title}`} value={`${prod.title}`}>
+					<Accordion.Item
+						id={prod.title}
+						key={`${prod.title}`}
+						value={`${prod.title}`}
+						style={{
+							backgroundColor: '#F5F5F5',
+							margin: '0.2rem 0rem',
+						}}>
 						<Accordion.Control
 							onClick={() =>
 								setTimeout(scrollToTargetAdjusted, 250, prod.title)
