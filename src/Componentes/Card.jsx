@@ -89,6 +89,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 				nombre: nombre,
 				cantidad: 1,
 				precio,
+				categoria,
 			})
 		);
 	};
@@ -109,10 +110,10 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	}
 
 	return (
-		<Card withBorder radius='md' className={classes.card}>
+		<Card withBorder radius='sm' className={classes.card}>
 			<Card.Section className={classes.imageSection}>
 				<Image src={imagen} alt='' width='100%' height={200} fit='contain' />
-				<Badge className={classes.badge} radius='xs'>
+				<Badge className={classes.badge} radius='sm'>
 					<Text
 						size='xl'
 						weight={600}
@@ -151,7 +152,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 								gap: '11px',
 							}}>
 							<Button
-								radius='xs'
+								radius='sm'
 								color='dark.3'
 								onClick={handlerClickMenos}
 								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
@@ -159,7 +160,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 							</Button>
 							<Text>{count}</Text>
 							<Button
-								radius='xs'
+								radius='sm'
 								color='dark.3'
 								onClick={handlerClickMas}
 								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
@@ -168,7 +169,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 						</Group>
 					) : (
 						<Button
-							radius='xs'
+							radius='sm'
 							color='dark.3'
 							onClick={(e) => handlerSwitchButton(e)}
 							style={{ flex: 1 }}>

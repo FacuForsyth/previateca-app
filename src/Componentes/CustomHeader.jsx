@@ -3,6 +3,7 @@ import React from 'react';
 import imgPrev from '../images/Previateca-logo-tipografia.png';
 import shopping_cart from '../icons/shopping_cart.png';
 import { useSelector } from 'react-redux';
+import Fireworks from './Fireworks.tsx';
 
 function CustomHeader({ opened, setOpened }) {
 	const theme = useMantineTheme();
@@ -47,7 +48,13 @@ function CustomHeader({ opened, setOpened }) {
 						marginLeft: '-10px',
 					}}>
 					<img src={imgPrev} alt='logo' width='200px' />
-					<Button variant='subtle' color='dark' onClick={() => scrollToTargetAdjusted('Carrito')}>
+					<Button
+						variant='subtle'
+						color='dark'
+						onClick={() => {
+							if (cantidad) Fireworks();
+							scrollToTargetAdjusted('Carrito');
+						}}>
 						<img src={shopping_cart} alt='shopping_cart' style={{ maxWidth: '30px', bottom: '-30px' }} />
 						{cantidad ? (
 							<Badge

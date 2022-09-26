@@ -40,7 +40,7 @@ export default function CustomCarousel() {
 			onMouseLeave={autoplay.current.reset}>
 			{productos?.map((prod) => {
 				return (
-					<Carousel.Slide key={prod.id}>
+					<Carousel.Slide key={prod.id} style={{ marginBottom: '10px' }}>
 						<PromoCard
 							nombre={prod.nombre}
 							imagen={prod.imagen}

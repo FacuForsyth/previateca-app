@@ -1,43 +1,45 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Accordion, Button, Text } from '@mantine/core';
+import { Accordion } from '@mantine/core';
 import productos from '../Productos/productos.js';
 import categorias from './categorias.js';
 import Lista from './Lista';
-import { IconCoin, IconExternalLink } from '@tabler/icons';
 import React from 'react';
-import { useScrollIntoView } from '@mantine/hooks';
 
-function MainContainer({ targetRef }) {
-	const catego = categorias.concat({ title: 'Hielo / Vasos', icon: IconCoin, color: 'blue' });
+export default function MainContainer() {
+	function scrollToTargetAdjusted(id) {
+		var element = document.getElementById(id);
+		var headerOffset = 72;
+		var elementPosition = element.getBoundingClientRect().top;
+		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-	/* 	function scrollToTop(a) {
-		console.log('🟢🟢🟢 SearchID: ', a);
-		const element = document.getElementById(a);
-		element?.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });
-	} */
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	}
+
+	const catego = categorias.concat({ title: 'Hielo / Vasos' });
 	return (
-		<Accordion variant='filled' radius='md' defaultValue=''>
+		<Accordion variant='separated' radius='' defaultValue='PROMOS'>
 			{catego.map((prod) => {
-				console.log('💥💥💥 ID: ', prod.title);
-				const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({ offset: 50 });
-
 				return (
-					<div key={`${prod.title}`} id={prod.title}>
-						<Accordion.Item key={`${prod.title}`} value={`${prod.title}`} id={prod.title}>
-							<Accordion.Control onClick={() => timer()}>
-								<Text ref={targetRef} size='xs' mt={7}>
-									{`${prod.title}`}
-								</Text>
-							</Accordion.Control>
-							<Accordion.Panel>
-								<Lista productos={productos.filter((p) => p.categoria === prod.title)} />
-							</Accordion.Panel>
-						</Accordion.Item>
-					</div>
+					<Accordion.Item
+						id={prod.title}
+						key={`${prod.title}`}
+						value={`${prod.title}`}
+						style={{
+							backgroundColor: '#fff3f7',
+							margin: '0.2rem 0rem',
+						}}>
+						<Accordion.Control
+							onClick={() =>
+								setTimeout(scrollToTargetAdjusted, 250, prod.title)
+							}>{`${prod.title}`}</Accordion.Control>
+						<Accordion.Panel>
+							<Lista productos={productos.filter((p) => p.categoria === prod.title)} />
+						</Accordion.Panel>
+					</Accordion.Item>
 				);
 			})}
 		</Accordion>
 	);
 }
-export default MainContainer;

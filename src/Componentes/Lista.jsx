@@ -3,6 +3,8 @@ import React from 'react';
 import { Tarjeta } from './Card';
 
 function Lista({ productos }) {
+	//console.log('🟢 productos: ', productos);
+
 	return (
 		<SimpleGrid
 			cols={4}
