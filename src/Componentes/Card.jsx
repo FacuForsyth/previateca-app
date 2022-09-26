@@ -68,17 +68,8 @@ const mockdata = [
 export function Tarjeta({ nombre, imagen, precio, categoria }) {
 	const [buttonSwith, setbuttonSwith] = useState(false);
 	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
-
-	let cart = useSelector((state) => state.carrito);
 	const dispatch = useDispatch();
-
 	const { classes } = useStyles();
-	const features = mockdata.map((feature) => (
-		<Center key={feature.label}>
-			<feature.icon size={18} className={classes.icon} stroke={1.5} />
-			<Text size='xs'>{feature.label}</Text>
-		</Center>
-	));
 
 	const handlerSwitchButton = (e) => {
 		e.preventDefault();
@@ -137,14 +128,14 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 						{nombre}
 					</Text>
 				</Group>
-				<Group 
+				<Group
 					style={{
 						display: 'flex',
 						flexDirection: 'row',
 						justifyContent: 'center',
 						alignItems: 'center',
 					}}>
-					<Text size='sm' color='dimmed' 						align='center' weight={600}>
+					<Text size='sm' color='dimmed' align='center' weight={600}>
 						${precio}
 					</Text>
 				</Group>

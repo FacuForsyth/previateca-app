@@ -1,20 +1,29 @@
 import React from 'react';
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
-import { useDispatch } from 'react-redux';
-import { agregarCarrito } from '../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { agregarCarrito, sumarProducto } from '../redux/actions';
 
 function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 	let dispatch = useDispatch();
+	let cart = useSelector((state) => state.carrito);
+	console.log('💥cart:', cart);
+	let localCart = cart.map((product) => product.nombre);
+	console.log('🟢localCart: ', localCart);
+
 	const handleButton = (e) => {
 		e.preventDefault();
-		dispatch(
-			agregarCarrito({
-				nombre: nombre,
-				cantidad: 1,
-				precio,
-				categoria,
-			})
-		);
+		if (!localCart.includes(nombre)) {
+			dispatch(
+				agregarCarrito({
+					nombre: nombre,
+					cantidad: 1,
+					precio,
+					categoria,
+				})
+			);
+		} else {
+			dispatch(sumarProducto(nombre));
+		}
 	};
 
 	return (
