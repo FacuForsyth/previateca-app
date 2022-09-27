@@ -484,7 +484,7 @@ export default function BannerCarrito() {
 							variant='gradient'
 							gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 							onClick={handlerClick}
-							disabled={!cliente.nombre || !cliente.direccion || !cliente.metodoPago}>
+							disabled={!cliente.nombre || !cliente.direccion || !cliente.metodoPago || carro.length === 0}>
 							¡ Pedílo !
 						</Button>
 					</Group>

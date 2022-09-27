@@ -30,7 +30,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 				justifyContent: 'center',
 			}}>
 			<Card.Section component='' href=''>
-				<Image src={imagen} alt={nombre} maxwidth='100%' height={300} fit='contain' />
+				<Image src={imagen} alt={nombre} /* maxwidth='100%' height={300} */ fit='contain' />
 					<Text
 						style={{
 							position: 'absolute',
@@ -52,7 +52,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 						position: 'absolute',
 						zIndex: 1,
 						top: 22,
-						left: 18,
+						left: '6%',
 						fontSize: 12,
 						padding: ' 4px' 
 					}}
