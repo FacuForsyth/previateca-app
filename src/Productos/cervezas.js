@@ -37,7 +37,7 @@ const cervezas = [
   {
     id: 15,
     nombre: "Budweiser Packx6 410",
-    imagen: `${require('./imagenes/Cerveza-Budweiser-Pack-6.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Ceverza-Budweiser.png')}`,
     precio: 1200,
     categoria: "Cervezas"
   },

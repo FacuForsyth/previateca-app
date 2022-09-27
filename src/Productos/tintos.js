@@ -23,7 +23,7 @@ const tintos = [
   {
     id: 52,
     nombre: "Gata Flora Malbec",
-    imagen: `${require('./imagenes/gatafloramalbec.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vino-Tinto-Gataflora.png')}`,
     precio: 950,
     categoria: "Vinos tintos"
   },

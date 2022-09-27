@@ -35,7 +35,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 						style={{
 							position: 'absolute',
 							zIndex: 1,
-							top: 180,
+							top: 190,
 							right: 15,
 							padding: '15px 5px'
 						}}

@@ -16,14 +16,14 @@ const gin_ron = [
   {
     id: 68,
     nombre: "Gin Beefeater 700",
-    imagen: `${require('./imagenes/beefeters.jfif')}`,
+    imagen: `${require('./imagenes/Previateca---Gin-Beefeters.png')}`,
     precio: 4200,
     categoria: "Gin / Ron / Tequila"
   },
   {
     id: 69,
     nombre: "Gin Tanqueray 750",
-    imagen: `${require('./imagenes/tanqueray.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Gin-Tanqueray.png')}`,
     precio: 4200,
     categoria: "Gin / Ron / Tequila"
   },
@@ -37,7 +37,7 @@ const gin_ron = [
   {
     id: 71,
     nombre: "Gin Tanqueray Sevilla",
-    imagen: `${require('./imagenes/tanqueray-sevilla-ok1-e607cb08d2fd8341ef16105636774140-640-0.png')}`,
+    imagen: `${require('./imagenes/Previateca---Gin-TanqueraySevilla.png')}`,
     precio: 4900,
     categoria: "Gin / Ron / Tequila"
   },

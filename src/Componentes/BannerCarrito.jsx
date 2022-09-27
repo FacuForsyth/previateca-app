@@ -232,7 +232,7 @@ export default function BannerCarrito() {
 		const textCliente = `🤙 *Cliente:* ${cliente.nombre} \n`;
 		const textDireccion = `🛵 *Dirección:* ${cliente.direccion} \n`;
 		const textMetodoPago = `💰 *Método de pago:* ${cliente.metodoPago} \n`;
-		const textAbonaCon = `💵 *Abona con:* $${cliente.abonaCon} \n`;
+		const textAbonaCon = cliente.metodoPago === 'Efectivo' ? `💵 *Abona con:* $${cliente.abonaCon} \n` : '\n';
 		const textPedido = `🍻 *Detalle del pedido:* \n${Pedido} \n\n`;
 		const textComentario = `📣 Comentario: ${cliente.comentario} \n`;
 		const textTotal = `💲 *Total:* $${Total} \n\n\n`;
