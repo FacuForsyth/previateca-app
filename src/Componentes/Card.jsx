@@ -38,7 +38,7 @@ const useStyles = createStyles((theme) => ({
 		//borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}`,
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'space-around',
+		justifyContent: 'space-between',
 		alignItems: 'space-around',
 		marginTop: '-20px',
 		minHeight: '139px',
@@ -130,7 +130,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 						flexDirection: 'row',
 						justifyContent: 'center',
 						alignItems: 'center',
-						marginTop: '10px'
+						marginTop: '14px'
 					}}>
 					<Text /* size='sm' color='dimmed' */ align='center' weight={600}>
 						${precio}

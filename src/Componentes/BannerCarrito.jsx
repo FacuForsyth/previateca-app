@@ -274,7 +274,7 @@ export default function BannerCarrito() {
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
 					<Title className={classes.title}>Carrito</Title>
-					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+					<Text className={classes.description} style={{ marginLeft: '25px' }} mt='sm' mb={30} size='lg' weight={600}>
 						¡Hace tu pedido y te contestaremos enseguida!
 					</Text>
 					<List
@@ -339,11 +339,11 @@ export default function BannerCarrito() {
 							))
 						) : (
 							<div>
-								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
 									Tu Carrito Está Vacío &nbsp;
 									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />. */}
 								</Text>
-								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
 									¡Llenalo y empezá la fiesta! &nbsp;
 									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' /> */}
 								</Text>

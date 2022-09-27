@@ -31,6 +31,36 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 			}}>
 			<Card.Section component='' href=''>
 				<Image src={imagen} alt={nombre} maxwidth='100%' height={300} fit='contain' />
+					<Text
+						style={{
+							position: 'absolute',
+							zIndex: 1,
+							top: 180,
+							right: 15,
+							padding: '15px 5px'
+						}}
+						size='xl'
+						weight={600}
+						color='gray.0'>
+						${precio}
+					</Text>
+				<Button
+					style={{ 
+						width: 'fit-content', 
+						display: 'flex', 
+						justifyContent: 'center', 
+						position: 'absolute',
+						zIndex: 1,
+						top: 22,
+						left: 18,
+						fontSize: 12,
+						padding: ' 4px' 
+					}}
+					variant='gradient'
+					gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
+					onClick={(e) => handleButton(e)}>
+					Comprar
+				</Button>
 			</Card.Section>
 
 			{/* <Group position='apart' mt='md' mb='xs' style={{ display: 'flex', justifyContent: 'center' }}>
@@ -49,7 +79,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 					¡PROMO!
 				</Badge>
 			</Group> */}
-			<Group
+			{/* <Group
 				style={{
 					marginTop: '15px',
 					display: 'flex',
@@ -68,7 +98,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 					onClick={(e) => handleButton(e)}>
 					Comprar
 				</Button>
-			</Group>
+			</Group> */}
 		</Card>
 	);
 }
