@@ -6,79 +6,14 @@ import { useState } from 'react';
 import { useCounter } from '@mantine/hooks';
 import { agregarCarrito, restarProducto, sumarProducto } from '../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-
-//------------css
-const useStyles = createStyles((theme) => ({
-	card: {
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-		padding: '0px',
-	},
-
-	imageSection: {
-		padding: '0px',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		borderBottom: `1px solid ${
-			theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-		}`,
-	},
-
-	label: {
-		marginBottom: theme.spacing.xs,
-		lineHeight: 1,
-		fontWeight: 700,
-		fontSize: theme.fontSizes.xs,
-		letterSpacing: -0.25,
-		textTransform: 'uppercase',
-	},
-
-	section: {
-		padding: 10,
-		//borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}`,
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'space-between',
-		alignItems: 'space-around',
-		marginTop: '-20px',
-		minHeight: '139px',
-	},
-
-	icon: {
-		marginRight: 5,
-		color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
-	},
-	badge: {
-		position: 'absolute',
-		zIndex: 1,
-		top: 10,
-		right: 10,
-		backgroundColor: 'white',
-		padding: '15px 5px',
-	},
-}));
-
-const mockdata = [
-	{ label: '4 passengers', icon: IconUsers },
-	{ label: '100 km/h in 4 seconds', icon: IconGauge },
-	{ label: 'Automatic gearbox', icon: IconManualGearbox },
-	{ label: 'Electric', icon: IconGasStation },
-];
+import useStyles from '../css/Card';
 
 export function Tarjeta({ nombre, imagen, precio, categoria, id }) {
+	const { classes } = useStyles();
 	const [buttonSwith, setbuttonSwith] = useState(false);
 	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
-
-	let cart = useSelector((state) => state.carrito);
 	const dispatch = useDispatch();
-
-	const { classes } = useStyles();
-	const features = mockdata.map((feature) => (
-		<Center key={feature.label}>
-			<feature.icon size={18} className={classes.icon} stroke={1.5} />
-			<Text size='xs'>{feature.label}</Text>
-		</Center>
-	));
+	//let cart = useSelector((state) => state.carrito);
 
 	const handlerSwitchButton = (e) => {
 		e.preventDefault();
