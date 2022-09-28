@@ -49,19 +49,19 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 			}}>
 			<Card.Section component='' href=''>
 				<Image src={imagen} alt={nombre} /* maxwidth='100%' height={300} */ fit='contain' />
-				<Text
-					style={{
-						position: 'absolute',
-						zIndex: 1,
-						top: 190,
-						right: 15,
-						padding: '15px 5px',
-					}}
-					size='xl'
-					weight={600}
-					color='gray.0'>
-					${precio}
-				</Text>
+					<Text
+						style={{
+							position: 'absolute',
+							zIndex: 1,
+							top: '55%',
+							right: '4%',
+							padding: '15px 5px'
+						}}
+						size='xl'
+						weight={600}
+						color='gray.0'>
+						${precio}
+					</Text>
 				<Button
 					style={{
 						width: 'fit-content',
@@ -69,8 +69,8 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 						justifyContent: 'center',
 						position: 'absolute',
 						zIndex: 1,
-						top: 22,
-						left: '6%',
+						top: '72%',
+						right: '5%',
 						fontSize: 12,
 						padding: ' 4px',
 					}}

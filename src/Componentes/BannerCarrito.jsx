@@ -172,7 +172,7 @@ export default function BannerCarrito() {
 		metodoPago: '',
 		abonaCon: '',
 	});
-	//console.log(cliente);
+	console.log(cliente);
 
 	useEffect(() => {
 		dispatch(carritoConProductos());
@@ -190,7 +190,8 @@ export default function BannerCarrito() {
 	//console.log('🟢 Total: ', Total);
 
 	function handleChange(e) {
-		e.preventDefault();
+		console.log(e)
+		//e.preventDefault();
 		setCliente({
 			...cliente,
 			//lo seteo con el value
@@ -208,6 +209,13 @@ export default function BannerCarrito() {
 		});
 		setErrors(validate({ ...cliente, metodoPago: e }));
 	}
+
+	function handleChangeAbona(e) {
+		setCliente({
+			...cliente,
+			abonaCon: e,
+		});
+	};
 
 	function handleCheckbox(e) {
 		setChecked(e.currentTarget.checked);
@@ -483,8 +491,7 @@ export default function BannerCarrito() {
 							type='number'
 							hideControls
 							value={cliente.abonaCon}
-							name='abonaCon'
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => handleChangeAbona(e)}
 							classNames={{ input: classes.input, label: classes.inputLabel }}
 							/>
 							) : (
