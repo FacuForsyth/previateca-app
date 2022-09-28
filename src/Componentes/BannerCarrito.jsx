@@ -28,7 +28,7 @@ import { IconCircleCheck, IconCircleDashed, IconMotorbike } from '@tabler/icons'
 import InputsCarrito from './InptusCarrito';
 import { useSelector, useDispatch } from 'react-redux';
 import '../css/bannerCarrito.css';
-import { carritoConProductos } from '../redux/actions';
+import { borrarProducto, carritoConProductos, restarProducto, sumarProducto } from '../redux/actions';
 
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons';
 
@@ -295,6 +295,16 @@ export default function BannerCarrito() {
 		return errors;
 	};
 
+	const handlerClickMenos = (nombre, cantidad) => {
+		if (cantidad > 1) dispatch(restarProducto(nombre));
+	};
+
+	function handlerClickMas(nombre, cantidad) {
+		if (cantidad < 12) dispatch(sumarProducto(nombre));
+	}
+	function handlerClickBorrar(nombre) {
+		dispatch(borrarProducto(nombre));
+	}
 	return (
 		<div
 			className={classes.wrapper}
@@ -341,14 +351,28 @@ export default function BannerCarrito() {
 										<Text size='lg' color=''>
 											Cantidad:
 										</Text>
-										<Button style={{}} variant='subtle' color='dark' radius='sm' size='' compact>
+										<Button
+											style={{}}
+											variant='subtle'
+											color='dark'
+											radius='sm'
+											size=''
+											compact
+											onClick={() => handlerClickMenos(p.nombre, p.cantidad)}>
 											<img style={{ maxWidth: '1.5rem' }} src={minus} alt='minus' />
 										</Button>
 
 										<Text size='xl' color=''>
 											{p.cantidad}
 										</Text>
-										<Button style={{}} variant='subtle' color='dark' radius='sm' size='' compact>
+										<Button
+											style={{}}
+											variant='subtle'
+											color='dark'
+											radius='sm'
+											size=''
+											compact
+											onClick={() => handlerClickMas(p.nombre, p.cantidad)}>
 											<img style={{ maxWidth: '1.5rem' }} src={plus} alt='plus' />
 										</Button>
 									</Group>
@@ -362,7 +386,8 @@ export default function BannerCarrito() {
 											color='dark'
 											radius='sm'
 											size=''
-											compact>
+											compact
+											onClick={() => handlerClickBorrar(p.nombre)}>
 											<img style={{ maxWidth: '1.5rem' }} src={deleteI} alt='deleteI' />
 										</Button>
 									</Group>

@@ -6,7 +6,7 @@ import productos from '../Productos/promos.js';
 import PromoCard from './PromoCard.jsx';
 import { useMantineTheme } from '@mantine/core';
 
-export default function CustomCarousel() {
+export default function CustomCarousel({localCart}) {
 	const theme = useMantineTheme();
 
 	const autoplay = useRef(Autoplay({ delay: 4000 }));
@@ -47,6 +47,7 @@ export default function CustomCarousel() {
 							precio={prod.precio}
 							categoria={prod.categoria}
 							id={prod.id}
+							localCart={localCart}
 						/>
 					</Carousel.Slide>
 				);

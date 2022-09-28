@@ -1,8 +1,8 @@
 import React from 'react'; //DemoNavbar
 import { useState } from 'react';
-import { createStyles, Navbar, Group, Code, Button, ScrollArea, UnstyledButton } from '@mantine/core';
+import { createStyles, Navbar, Group, Code, ScrollArea, UnstyledButton } from '@mantine/core';
 
-import categorias from '../Componentes/categorias';
+import categorias from './categorias';
 import imgHielo from '../icons/ice-cubes.png';
 
 //import { MantineLogo } from '@mantine/ds';
@@ -81,7 +81,7 @@ function scrollToTargetAdjusted(id) {
 	});
 }
 
-export default function DemoNavbar({ opened, setOpened }) {
+export default function CustomNavbar({ opened, setOpened }) {
 	const { classes, cx } = useStyles();
 	const [active, setActive] = useState('Billing');
 

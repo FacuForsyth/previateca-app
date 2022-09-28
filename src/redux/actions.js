@@ -23,3 +23,9 @@ export function sumarProducto(nombre) {
 		payload: nombre,
 	};
 }
+export function borrarProducto(nombre) {
+	return {
+		type: 'BORRAR',
+		payload: nombre,
+	};
+}

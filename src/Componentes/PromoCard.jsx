@@ -1,21 +1,39 @@
 import React from 'react';
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+import { Card, Image, Text, Button, Group } from '@mantine/core';
 import { useDispatch } from 'react-redux';
-import { agregarCarrito } from '../redux/actions';
+import { agregarCarrito, sumarProducto } from '../redux/actions';
 
-function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
+function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 	let dispatch = useDispatch();
-	const handleButton = (e) => {
+
+	function handleButton(id) {
+		//console.log('🟢 id: ', id);
+		var element = document.getElementById(id);
+		var headerOffset = 71;
+		var elementPosition = element.getBoundingClientRect().top;
+		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	}
+
+	/* 	const handleButton = (e) => {
 		e.preventDefault();
-		dispatch(
-			agregarCarrito({
-				nombre: nombre,
-				cantidad: 1,
-				precio,
-				categoria,
-			})
-		);
-	};
+		if (!localCart.includes(nombre)) {
+			dispatch(
+				agregarCarrito({
+					nombre: nombre,
+					cantidad: 1,
+					precio,
+					categoria,
+				})
+			);
+		} else {
+			dispatch(sumarProducto(nombre));
+		}
+	}; */
 
 	return (
 		<Card
@@ -45,20 +63,20 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id }) {
 						${precio}
 					</Text>
 				<Button
-					style={{ 
-						width: 'fit-content', 
-						display: 'flex', 
-						justifyContent: 'center', 
+					style={{
+						width: 'fit-content',
+						display: 'flex',
+						justifyContent: 'center',
 						position: 'absolute',
 						zIndex: 1,
 						top: '72%',
 						right: '5%',
 						fontSize: 12,
-						padding: ' 4px' 
+						padding: ' 4px',
 					}}
 					variant='gradient'
 					gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
-					onClick={(e) => handleButton(e)}>
+					onClick={(e) => handleButton(`${nombre}`)}>
 					Comprar
 				</Button>
 			</Card.Section>

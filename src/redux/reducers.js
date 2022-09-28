@@ -6,10 +6,6 @@ function rootReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'CARRITO':
 			//console.log(state); //si llega con nuevos prod
-			console.log('🟢 EstadoGlobal: ', {
-				...state,
-				carrito: [...state.carrito, action.payload],
-			});
 			return {
 				...state,
 				carrito: [...state.carrito, action.payload],
@@ -33,7 +29,16 @@ function rootReducer(state = initialState, action) {
 				...state,
 				carrito: [...state.carrito],
 			};
-
+		case 'BORRAR':
+			for (const producto of state.carrito) {
+				if (producto.nombre === action.payload) {
+					state.carrito = state.carrito.filter((producto) => producto.nombre !== action.payload);
+				}
+			}
+			return {
+				...state,
+				carrito: [...state.carrito],
+			};
 		case 'CARROS':
 			const carro2 = state.carrito;
 			return {
