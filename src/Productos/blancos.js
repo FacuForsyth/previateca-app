@@ -37,7 +37,7 @@ const blancos = [
   {
     id: 48,
     nombre: "Piatelli Natural Sweet",
-    imagen: `https://www.edirectwines.com.ar/media/catalog/product/cache/ab37763d10edb75fd1af77282c089699/r/e/retoque_toma_botella_natural_sweet_color_ok.jpg`,
+    imagen: `${require('./imagenes/Previateca---Vino-Blanco-Piatelli.png')}`,
     precio: 1550,
     categoria: "Vinos blancos"
   },

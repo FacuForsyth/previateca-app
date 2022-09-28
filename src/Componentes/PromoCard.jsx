@@ -1,12 +1,25 @@
 import React from 'react';
-import { Card, Image, Text,  Button, Group } from '@mantine/core';
+import { Card, Image, Text, Button, Group } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { agregarCarrito, sumarProducto } from '../redux/actions';
 
 function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 	let dispatch = useDispatch();
 
-	const handleButton = (e) => {
+	function handleButton(id) {
+		//console.log('🟢 id: ', id);
+		var element = document.getElementById(id);
+		var headerOffset = 71;
+		var elementPosition = element.getBoundingClientRect().top;
+		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	}
+
+	/* 	const handleButton = (e) => {
 		e.preventDefault();
 		if (!localCart.includes(nombre)) {
 			dispatch(
@@ -20,7 +33,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 		} else {
 			dispatch(sumarProducto(nombre));
 		}
-	};
+	}; */
 
 	return (
 		<Card
@@ -35,7 +48,37 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 				justifyContent: 'center',
 			}}>
 			<Card.Section component='' href=''>
-				<Image src={imagen} alt={nombre} maxwidth='100%' height={300} fit='contain' />
+				<Image src={imagen} alt={nombre} /* maxwidth='100%' height={300} */ fit='contain' />
+				<Text
+					style={{
+						position: 'absolute',
+						zIndex: 1,
+						top: 190,
+						right: 15,
+						padding: '15px 5px',
+					}}
+					size='xl'
+					weight={600}
+					color='gray.0'>
+					${precio}
+				</Text>
+				<Button
+					style={{
+						width: 'fit-content',
+						display: 'flex',
+						justifyContent: 'center',
+						position: 'absolute',
+						zIndex: 1,
+						top: 22,
+						left: '6%',
+						fontSize: 12,
+						padding: ' 4px',
+					}}
+					variant='gradient'
+					gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
+					onClick={(e) => handleButton(`${nombre}`)}>
+					Comprar
+				</Button>
 			</Card.Section>
 
 			{/* <Group position='apart' mt='md' mb='xs' style={{ display: 'flex', justifyContent: 'center' }}>
@@ -54,7 +97,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 					¡PROMO!
 				</Badge>
 			</Group> */}
-			<Group
+			{/* <Group
 				style={{
 					marginTop: '15px',
 					display: 'flex',
@@ -73,7 +116,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 					onClick={(e) => handleButton(e)}>
 					Comprar
 				</Button>
-			</Group>
+			</Group> */}
 		</Card>
 	);
 }

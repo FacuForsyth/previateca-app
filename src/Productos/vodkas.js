@@ -23,7 +23,7 @@ const vodkas = [
   {
     id: 29,
     nombre: "Sernova Sweet Apple Pear",
-    imagen: `${require('./imagenes/vodka-sernova-sweet-apple-pear.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Sernova3.png')}`,
     precio: 1150,
     categoria: "Vodkas"
   },
@@ -107,14 +107,14 @@ const vodkas = [
   {
     id: 41,
     nombre: "Skyy",
-    imagen: `${require('./imagenes/VODKASKY.jpg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Skyy.png')}`,
     precio: 1200,
     categoria: "Vodkas"
   },
   {
     id: 42,
     nombre: "Skyy Raspberry",
-    imagen: `${require('./imagenes/skyy-rasp.jpeg')}`,
+    imagen: `${require('./imagenes/Previateca---Vodka-Skyy1.png')}`,
     precio: 1350,
     categoria: "Vodkas"
   },

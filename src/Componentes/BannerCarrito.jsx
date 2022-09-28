@@ -196,6 +196,7 @@ export default function BannerCarrito() {
 			//lo seteo con el value
 			[e.target.name]: e.target.value,
 		});
+		setErrors(validate({ ...cliente, [e.target.name]: e.target.value }));
 	}
 
 	function handleSelect(e) {
@@ -205,6 +206,7 @@ export default function BannerCarrito() {
 			...cliente,
 			metodoPago: e,
 		});
+		setErrors(validate({ ...cliente, metodoPago: e }));
 	}
 
 	function handleCheckbox(e) {
@@ -230,7 +232,7 @@ export default function BannerCarrito() {
 		const textCliente = `🤙 *Cliente:* ${cliente.nombre} \n`;
 		const textDireccion = `🛵 *Dirección:* ${cliente.direccion} \n`;
 		const textMetodoPago = `💰 *Método de pago:* ${cliente.metodoPago} \n`;
-		const textAbonaCon = `💵 *Abona con:* $${cliente.abonaCon} \n`;
+		const textAbonaCon = cliente.metodoPago === 'Efectivo' ? `💵 *Abona con:* $${cliente.abonaCon} \n` : '\n';
 		const textPedido = `🍻 *Detalle del pedido:* \n${Pedido} \n\n`;
 		const textComentario = `📣 Comentario: ${cliente.comentario} \n`;
 		const textTotal = `💲 *Total:* $${Total} \n\n\n`;
@@ -262,7 +264,28 @@ export default function BannerCarrito() {
 			var link2 = `https://wa.me/543874153451?text=${text}&lang=es`;
 			window.location.href = link2;
 		}
-	}
+	};
+
+	const [errors, setErrors] = useState({});
+	function validate(cliente) {
+		const errors = {};
+		if(!cliente.nombre) {
+			errors.nombre = "Debe ingresar un nombre";
+		}
+		if(!cliente.direccion) {
+			errors.direccion = "Debe ingresar una direccion";
+		}
+		if(!cliente.metodoPago) {
+			errors.metodoPago = "Debe seleccionar un metodo de pago";
+		}
+		else if (!/^[0-9]+$/.test(cliente.abonaCon)) {
+			errors.abonaCon = "Solo puede contener números";
+		}
+		/* if(carro.length === 0){
+			errors.carro = "El carrito se encuentra vacio"
+		} */
+		return errors;
+	};
 
 	const handlerClickMenos = (nombre, cantidad) => {
 		if (cantidad > 1) dispatch(restarProducto(nombre));
@@ -284,7 +307,7 @@ export default function BannerCarrito() {
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
 					<Title className={classes.title}>Carrito</Title>
-					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+					<Text className={classes.description} style={{ marginLeft: '25px' }} mt='sm' mb={30} size='lg' weight={600}>
 						¡Hace tu pedido y te contestaremos enseguida!
 					</Text>
 					<List
@@ -364,11 +387,11 @@ export default function BannerCarrito() {
 							))
 						) : (
 							<div>
-								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
 									Tu Carrito Está Vacío &nbsp;
 									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />. */}
 								</Text>
-								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={600}>
+								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
 									¡Llenalo y empezá la fiesta! &nbsp;
 									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' /> */}
 								</Text>
@@ -412,12 +435,14 @@ export default function BannerCarrito() {
 						label='Nombre'
 						placeholder='Leo Messi'
 						required
+						error={errors.nombre}
 						mt='md'
 						value={cliente.nombre}
 						name='nombre'
 						onChange={(e) => handleChange(e)}
 						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
+						/>
+						{/* {errors.nombre && <p style={{ color: 'red', fontSize: '10px'}}>{errors.nombre}</p>} */}
 					{checked === true ? (
 						<></>
 					) : (
@@ -425,12 +450,13 @@ export default function BannerCarrito() {
 							label='Dirección'
 							placeholder='¿Dónde es la fiesta? ¿Dpto, piso?'
 							required
+							error={errors.direccion}
 							value={cliente.direccion}
 							name='direccion'
 							onChange={(e) => handleChange(e)}
 							classNames={{ input: classes.input, label: classes.inputLabel }}
 						/>
-					)}
+						)}
 					<Checkbox
 						label='Retiro por el local'
 						/* icon={IconMotorbike} */
@@ -438,12 +464,14 @@ export default function BannerCarrito() {
 						style={{ margin: '5px 0px' }}
 						checked={checked}
 						onChange={(e) => handleCheckbox(e)}
-					/>
+						/>
+						{/* {errors.direccion && <p style={{ color: 'red', fontSize: '10px'}}>{errors.direccion}</p>} */}
 					<Select
 						label='Medio de pago'
 						placeholder='Seleccionar'
 						required
 						data={['Efectivo', 'Transferencia', 'Tarjeta (+ 8%)']}
+						error={errors.metodoPago}
 						onChange={(e) => handleSelect(e)}
 						/* classNames={classes} */
 						/* style={{ marginTop: 20, zIndex: 2 }} */
@@ -458,10 +486,12 @@ export default function BannerCarrito() {
 							name='abonaCon'
 							onChange={(e) => handleChange(e)}
 							classNames={{ input: classes.input, label: classes.inputLabel }}
-						/>
-					) : (
-						<br />
-					)}
+							/>
+							) : (
+								<br />
+								)}
+						{/* {errors.abonaCon && <p style={{ color: 'red', fontSize: '11px'}}>{errors.abonaCon}</p>} */}	
+					{/* {errors.metodoPago && <p style={{ color: 'red', fontSize: '10px'}}>{errors.metodoPago}</p>} */}
 					<Textarea
 						label='Comentario'
 						placeholder='¿Necesitas aclarar algo?'
@@ -478,7 +508,8 @@ export default function BannerCarrito() {
 							className={classes.control}
 							variant='gradient'
 							gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
-							onClick={handlerClick}>
+							onClick={handlerClick}
+							disabled={!cliente.nombre || !cliente.direccion || !cliente.metodoPago || carro.length === 0}>
 							¡ Pedílo !
 						</Button>
 					</Group>
