@@ -2,9 +2,7 @@ import { SimpleGrid } from '@mantine/core';
 import React from 'react';
 import { Tarjeta } from './Card';
 
-function Lista({ productos }) {
-	//console.log('🟢 productos: ', productos);
-
+function Lista({ productos, localCart }) {
 	return (
 		<SimpleGrid
 			cols={4}
@@ -27,6 +25,7 @@ function Lista({ productos }) {
 								precio={prod.precio}
 								categoria={prod.categoria}
 								id={prod.id}
+								
 							/>
 							<br />
 						</div>

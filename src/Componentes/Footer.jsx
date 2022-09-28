@@ -3,7 +3,7 @@ import { Button, Footer } from '@mantine/core';
 import alarm from '../icons/alarm_clock.png';
 import arrow from '../icons/up_arrow.png';
 
-function CustomFooter() {
+function CustomFooter({ opened, setOpened }) {
 	return (
 		<Footer
 			height={20}
@@ -14,7 +14,7 @@ function CustomFooter() {
 				justifyContent: 'space-between',
 				alignItems: 'center',
 			}}>
-			<img src={alarm} alt='alarm' width='25px' c stroke={1.5} />
+			<img src={alarm} alt='alarm' width='25px' />
 			<h5 style={{ margin: '0px', padding: '0px', textAlign: 'center' }}>
 				MARTES A DOMINGOS
 				<br />
@@ -24,13 +24,14 @@ function CustomFooter() {
 				variant='subtle'
 				color='dark'
 				size='md'
-				onClick={() =>
+				onClick={() => {
 					window.scrollTo({
 						top: 0,
 						behavior: 'smooth',
-					})
-				}>
-				<img src={arrow} alt='arrow' width='32px' c stroke={1.5} />
+					});
+					if (opened) setOpened((o) => !o);
+				}}>
+				<img src={arrow} alt='arrow' width='32px' />
 			</Button>
 		</Footer>
 	);

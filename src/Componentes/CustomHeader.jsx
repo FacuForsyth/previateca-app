@@ -54,13 +54,14 @@ function CustomHeader({ opened, setOpened }) {
 						onClick={() => {
 							if (cantidad) Fireworks();
 							scrollToTargetAdjusted('Carrito');
+							if (opened) setOpened((o) => !o);
 						}}>
 						<img src={shopping_cart} alt='shopping_cart' style={{ maxWidth: '30px', bottom: '-30px' }} />
 						{cantidad ? (
 							<Badge
 								size='sm'
 								variant='filled'
-								style={{ backgroundColor:'#ff4f78', position: 'absolute', top: '-5px', left: '35px' }}>
+								style={{ backgroundColor: '#ff4f78', position: 'absolute', top: '-5px', left: '35px' }}>
 								{cantidad}
 							</Badge>
 						) : null}

@@ -58,46 +58,47 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
-const mockdata = [
-	{ label: '4 passengers', icon: IconUsers },
-	{ label: '100 km/h in 4 seconds', icon: IconGauge },
-	{ label: 'Automatic gearbox', icon: IconManualGearbox },
-	{ label: 'Electric', icon: IconGasStation },
-];
-
-export function Tarjeta({ nombre, imagen, precio, categoria }) {
-	const [buttonSwith, setbuttonSwith] = useState(false);
-	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
+export function Tarjeta({ nombre, imagen, precio, categoria, id }) {
+	let [buttonSwith, setbuttonSwith] = useState(false);
 	const dispatch = useDispatch();
 	const { classes } = useStyles();
 
-	const handlerSwitchButton = (e) => {
-		e.preventDefault();
+	let cart = useSelector((state) => state.carrito);
+	let producto = cart.filter((product) => product.nombre === nombre);
+
+	const handlerSwitchButton = async (e) => {
+		e?.preventDefault();
 		setbuttonSwith(!buttonSwith);
-		handlers.increment();
-		dispatch(
-			agregarCarrito({
-				nombre: nombre,
-				cantidad: 1,
-				precio,
-				categoria,
-			})
-		);
+		console.log('💥producto: ', producto.length);
+
+		if (!producto.length) {
+			console.log('💥producto: ', producto.length);
+
+			await dispatch(
+				agregarCarrito({
+					nombre: nombre,
+					cantidad: 1,
+					precio,
+					categoria,
+				})
+			);
+		} else if (producto.cantidad < 12) {
+			dispatch(sumarProducto(nombre));
+		}
+		console.log('💥producto: ', producto);
 	};
 
 	const handlerClickMenos = (e) => {
-		if (count === 1) {
+		if (producto.cantidad === 1) {
 			setbuttonSwith(!buttonSwith);
 		}
-		handlers.decrement();
-		//console.log('💥 Restar Producto: ', nombre);
+
 		dispatch(restarProducto(nombre));
 	};
 
 	function handlerClickMas(e) {
-		handlers.increment();
 		//console.log('🟢Agregar Producto: ', nombre);
-		dispatch(sumarProducto(nombre));
+		if (producto.cantidad < 12) dispatch(sumarProducto(nombre));
 	}
 
 	return (
@@ -162,7 +163,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria }) {
 								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
 								-
 							</Button>
-							<Text>{count}</Text>
+							<Text>{producto.cantidad}</Text>
 							<Button
 								radius='sm'
 								variant='gradient'

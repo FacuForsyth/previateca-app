@@ -3,7 +3,7 @@ import productos from '../Productos/productos.js';
 import categorias from './categorias.js';
 import Lista from './Lista';
 
-export default function MainContainer() {
+export default function MainContainer({ localCart }) {
 	function scrollToTargetAdjusted(id) {
 		var element = document.getElementById(id);
 		var headerOffset = 72;
@@ -34,7 +34,10 @@ export default function MainContainer() {
 								setTimeout(scrollToTargetAdjusted, 250, prod.title)
 							}>{`${prod.title}`}</Accordion.Control>
 						<Accordion.Panel>
-							<Lista productos={productos.filter((p) => p.categoria === prod.title)} />
+							<Lista
+								productos={productos.filter((p) => p.categoria === prod.title)}
+								localCart={localCart}
+							/>
 						</Accordion.Panel>
 					</Accordion.Item>
 				);
