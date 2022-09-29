@@ -6,7 +6,7 @@ import { agregarCarrito, sumarProducto } from '../redux/actions';
 function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 	let dispatch = useDispatch();
 
-	/* function handleButton(id) {
+	function handleButton(id) {
 		//console.log('🟢 id: ', id);
 		var element = document.getElementById(id);
 		var headerOffset = 71;
@@ -17,9 +17,9 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 			top: offsetPosition,
 			behavior: 'smooth',
 		});
-	} */
+	}
 
-	const handleButton = (nombre) => {
+	/* const handleButton = (nombre) => {
 		//e.preventDefault();
 		if (!localCart.includes(nombre)) {
 			dispatch(
@@ -33,7 +33,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 		} else {
 			dispatch(sumarProducto(nombre));
 		}
-	};
+	}; */
 
 	return (
 		<Card
@@ -71,13 +71,14 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 						zIndex: 1,
 						top: '72%',
 						right: '5%',
-						fontSize: 12,
-						padding: ' 4px',
+						fontSize: 10,
+						height: '30px',
+						padding: '5px',
 					}}
 					variant='gradient'
 					gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 					onClick={(e) => handleButton(`${nombre}`)}>
-					Comprar
+					Ir a la promo
 				</Button>
 			</Card.Section>
 
