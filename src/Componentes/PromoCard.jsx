@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Text, Button, Group } from '@mantine/core';
+import { Card, Image, Text, Button } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { agregarCarrito, sumarProducto } from '../redux/actions';
 
