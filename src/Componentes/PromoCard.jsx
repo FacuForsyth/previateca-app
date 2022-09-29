@@ -6,7 +6,7 @@ import { agregarCarrito, sumarProducto } from '../redux/actions';
 function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 	let dispatch = useDispatch();
 
-	function handleButton(id) {
+	/* function handleButton(id) {
 		//console.log('🟢 id: ', id);
 		var element = document.getElementById(id);
 		var headerOffset = 71;
@@ -17,10 +17,10 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 			top: offsetPosition,
 			behavior: 'smooth',
 		});
-	}
+	} */
 
-	/* 	const handleButton = (e) => {
-		e.preventDefault();
+	const handleButton = (nombre) => {
+		//e.preventDefault();
 		if (!localCart.includes(nombre)) {
 			dispatch(
 				agregarCarrito({
@@ -33,7 +33,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 		} else {
 			dispatch(sumarProducto(nombre));
 		}
-	}; */
+	};
 
 	return (
 		<Card
