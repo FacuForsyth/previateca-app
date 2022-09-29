@@ -48,7 +48,7 @@ const aperitivos = [
     precio: 580,
     categoria: "Aperitivos"
   },
-  {
+  /* {
     id: 8,
     nombre: "New Age 750",
     imagen: `${require('./imagenes/Previateca---New-Age.png')}`,
@@ -61,7 +61,7 @@ const aperitivos = [
     imagen: `${require('./imagenes/Previateca---Jegger.png')}`,
     precio: 6500,
     categoria: "Aperitivos"
-  },
+  }, */
 ]
 
 export default aperitivos;

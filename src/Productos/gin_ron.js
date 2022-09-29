@@ -13,13 +13,13 @@ const gin_ron = [
     precio: 1550,
     categoria: "Gin / Ron / Tequila"
   },
-  {
+  /* {
     id: 68,
     nombre: "Gin Beefeater 700",
     imagen: `${require('./imagenes/Previateca---Gin-Beefeters.png')}`,
     precio: 4200,
     categoria: "Gin / Ron / Tequila"
-  },
+  }, */
   {
     id: 69,
     nombre: "Gin Tanqueray 750",
