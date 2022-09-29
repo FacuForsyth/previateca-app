@@ -7,7 +7,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 	let dispatch = useDispatch();
 
 	function handleButton(id) {
-		//console.log('🟢 id: ', id);
+		//console.log('🟢 id: ',  id);
 		var element = document.getElementById(id);
 		var headerOffset = 71;
 		var elementPosition = element.getBoundingClientRect().top;
