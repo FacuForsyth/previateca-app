@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Image, Text, Button } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { agregarCarrito, sumarProducto } from '../redux/actions';
+import toast from 'react-hot-toast';
 
 function PromoCard({ nombre, imagen, precio, categoria, globalCart }) {
 	let dispatch = useDispatch();
@@ -18,8 +19,14 @@ function PromoCard({ nombre, imagen, precio, categoria, globalCart }) {
 					categoria,
 				})
 			);
+			toast('Agregado al carrito', {
+				icon: '🛒',
+			});
 		} else {
 			dispatch(sumarProducto(nombre));
+			toast('Agregado al carrito', {
+				icon: '🛒',
+			});
 		}
 	};
 
@@ -59,14 +66,14 @@ function PromoCard({ nombre, imagen, precio, categoria, globalCart }) {
 						zIndex: 1,
 						top: '72%',
 						right: '5%',
-						fontSize: 10,
-						height: '30px',
-						padding: '5px',
+						fontSize: 13,
+						/* height: '30px', */
+						padding: '4px',
 					}}
 					variant='gradient'
 					gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 					onClick={(e) => handleButton(`${nombre}`)}>
-					¡ Comprar !
+					Comprar
 				</Button>
 			</Card.Section>
 		</Card>

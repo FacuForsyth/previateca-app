@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { agregarCarrito, restarProducto, sumarProducto } from '../redux/actions';
 import { useDispatch } from 'react-redux';
 import useStyles from '../css/Card';
+import toast from 'react-hot-toast';
+
 
 export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCatego }) {
 	const { classes } = useStyles();
@@ -25,6 +27,9 @@ export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCate
 				categoria,
 			})
 		);
+		toast('Agregado al carrito', {
+			icon: '🛒',
+		});
 	};
 
 	const handlerClickMenos = (e) => {
@@ -34,12 +39,18 @@ export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCate
 		//handlers.decrement();
 		//console.log('💥 Restar Producto: ', nombre);
 		dispatch(restarProducto(nombre));
+		toast('Eliminado del carrito', {
+			icon: '🗑',
+		});
 	};
 
 	function handlerClickMas(e) {
 		//handlers.increment();
 		//console.log('🟢Agregar Producto: ', nombre);
 		dispatch(sumarProducto(nombre));
+		toast('Agregado al carrito', {
+			icon: '🛒',
+		});
 	}
 
 	return (

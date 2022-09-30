@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AppShell, useMantineTheme } from '@mantine/core';
+import { Toaster } from 'react-hot-toast';
 
 import MainContainer from './Componentes/MainContainer.jsx';
 import TopContainer from './Componentes/TopContainer';
@@ -21,9 +22,7 @@ export default function App() {
 	//console.log('🟢globalCart APP: ', globalCart);
 
 	// EXPERIMENTO PARA UNIR  EL ESTADO DEL CARRUSEL CON ACORDEON
-
-	//
-
+ 
 	return (
 		<AppShell
 			className={classes.AppShell}
@@ -32,6 +31,9 @@ export default function App() {
 			navbar={<CustomNavbar opened={opened} setOpened={setOpened} />}
 			footer={<CustomFooter opened={opened} setOpened={setOpened} />}
 			header={<CustomHeader theme={theme} opened={opened} setOpened={setOpened} />}>
+      <Toaster containerStyle={{
+    top: 75,
+  }}/>
 			<TopContainer />
 			<br />
 			<CustomCarousel globalCart={globalCart} />
