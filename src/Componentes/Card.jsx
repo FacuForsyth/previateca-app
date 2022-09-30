@@ -1,23 +1,23 @@
 import React from 'react';
 import { Card, Image, Text, Group, Button } from '@mantine/core';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { agregarCarrito, restarProducto, sumarProducto } from '../redux/actions';
 import { useDispatch } from 'react-redux';
 import useStyles from '../css/Card';
 import toast from 'react-hot-toast';
 
-
 export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCatego }) {
 	const { classes } = useStyles();
 	let esteProducto = productosEnEstaCatego.filter((prod) => prod.nombre === nombre);
 	let cantidad = esteProducto[0]?.cantidad;
-	const [buttonSwith, setbuttonSwith] = useState(esteProducto.length ? true : false);
+	//const [buttonSwith, setbuttonSwith] = useState(esteProducto.length ? true : false);
+	let buttonSwith = cantidad ? true : false;
 	//const [count, handlers] = useCounter(0, { min: 0, max: 12 });
 	const dispatch = useDispatch();
 
 	const handlerSwitchButton = (e) => {
 		e.preventDefault();
-		setbuttonSwith(!buttonSwith);
+		buttonSwith = !buttonSwith;
 		//handlers.increment();
 		dispatch(
 			agregarCarrito({
@@ -34,7 +34,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCate
 
 	const handlerClickMenos = (e) => {
 		if (/* count */ cantidad === 1) {
-			setbuttonSwith(!buttonSwith);
+			buttonSwith = !buttonSwith;
 		}
 		//handlers.decrement();
 		//console.log('💥 Restar Producto: ', nombre);
