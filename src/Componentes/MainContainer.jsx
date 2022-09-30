@@ -1,26 +1,15 @@
 import { Accordion } from '@mantine/core';
 import productos from '../Productos/productos.js';
 import categorias from './categorias.js';
-import Lista from './Lista';
+import Lista from './Lista.jsx';
 
-import MainContainerCss from '../css/MainContainerCss';
+import MainContainerCss from '../css/MainContainerCss.js';
+import scrollToTargetAdjusted from './scrollToTargetAdjusted.jsx';
 
-export default function MainContainer({ localCart }) {
+export default function MainContainer({ globalCart }) {
 	const { classes } = MainContainerCss();
-
-	function scrollToTargetAdjusted(id) {
-		var element = document.getElementById(id);
-		var headerOffset = 72;
-		var elementPosition = element.getBoundingClientRect().top;
-		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: 'smooth',
-		});
-	}
-
 	const catego = categorias.concat({ title: 'Hielo / Vasos' });
+
 	return (
 		<Accordion
 			variant='separated'
@@ -53,8 +42,9 @@ export default function MainContainer({ localCart }) {
 								width: '100%',
 							}}>
 							<Lista
+								categoria={prod.title}
 								productos={productos.filter((p) => p.categoria === prod.title)}
-								localCart={localCart}
+								globalCart={globalCart}
 							/>
 						</Accordion.Panel>
 					</Accordion.Item>

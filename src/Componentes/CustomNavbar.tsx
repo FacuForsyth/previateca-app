@@ -5,8 +5,6 @@ import { createStyles, Navbar, Group, Code, ScrollArea, UnstyledButton } from '@
 import categorias from './categorias';
 import imgHielo from '../icons/ice-cubes.png';
 
-//import { MantineLogo } from '@mantine/ds';
-
 const useStyles = createStyles((theme, _params, getRef) => {
 	const icon = getRef('icon');
 	return {
@@ -83,6 +81,7 @@ function scrollToTargetAdjusted(id) {
 
 export default function CustomNavbar({ opened, setOpened }) {
 	const { classes, cx } = useStyles();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [active, setActive] = useState('Billing');
 
 	const links = data.map((item) => (

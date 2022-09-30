@@ -1,4 +1,3 @@
-import imgPromos from '../icons/promos.png';
 import imgPromo from '../icons/promotion.png';
 import imgVodka from '../icons/vodka.png';
 import imgCerveza from '../icons/beer.png';

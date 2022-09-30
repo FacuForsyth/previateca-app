@@ -1,26 +1,15 @@
 import React from 'react';
-import { Card, Image, Text, Button, Group } from '@mantine/core';
+import { Card, Image, Text, Button } from '@mantine/core';
 import { useDispatch } from 'react-redux';
 import { agregarCarrito, sumarProducto } from '../redux/actions';
 
-function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
+function PromoCard({ nombre, imagen, precio, categoria, globalCart }) {
 	let dispatch = useDispatch();
 
-	function handleButton(id) {
-		//console.log('🟢 id: ', id);
-		var element = document.getElementById(id);
-		var headerOffset = 71;
-		var elementPosition = element.getBoundingClientRect().top;
-		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+	let localCart = globalCart.map((prod) => prod.nombre);
 
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: 'smooth',
-		});
-	}
-
-	/* 	const handleButton = (e) => {
-		e.preventDefault();
+	const handleButton = (e) => {
+		 
 		if (!localCart.includes(nombre)) {
 			dispatch(
 				agregarCarrito({
@@ -33,7 +22,7 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 		} else {
 			dispatch(sumarProducto(nombre));
 		}
-	}; */
+	};
 
 	return (
 		<Card
@@ -49,19 +38,19 @@ function PromoCard({ nombre, imagen, precio, categoria, key, id, localCart }) {
 			}}>
 			<Card.Section component='' href=''>
 				<Image src={imagen} alt={nombre} /* maxwidth='100%' height={300} */ fit='contain' />
-					<Text
-						style={{
-							position: 'absolute',
-							zIndex: 1,
-							top: '55%',
-							right: '4%',
-							padding: '15px 5px'
-						}}
-						size='xl'
-						weight={600}
-						color='gray.0'>
-						${precio}
-					</Text>
+				<Text
+					style={{
+						position: 'absolute',
+						zIndex: 1,
+						top: '55%',
+						right: '4%',
+						padding: '15px 5px',
+					}}
+					size='xl'
+					weight={600}
+					color='gray.0'>
+					${precio}
+				</Text>
 				<Button
 					style={{
 						width: 'fit-content',

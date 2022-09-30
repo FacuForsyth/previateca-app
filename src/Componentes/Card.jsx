@@ -1,24 +1,22 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
-import { Card, Image, Text, Group, createStyles, Center, Button, Badge } from '@mantine/core';
-import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons';
+import React from 'react';
+import { Card, Image, Text, Group, Button } from '@mantine/core';
 import { useState } from 'react';
-import { useCounter } from '@mantine/hooks';
 import { agregarCarrito, restarProducto, sumarProducto } from '../redux/actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import useStyles from '../css/Card';
 
-export function Tarjeta({ nombre, imagen, precio, categoria, id }) {
+export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCatego }) {
 	const { classes } = useStyles();
-	const [buttonSwith, setbuttonSwith] = useState(false);
-	const [count, handlers] = useCounter(0, { min: 0, max: 12 });
+	let esteProducto = productosEnEstaCatego.filter((prod) => prod.nombre === nombre);
+	let cantidad = esteProducto[0]?.cantidad;
+	const [buttonSwith, setbuttonSwith] = useState(esteProducto.length ? true : false);
+	//const [count, handlers] = useCounter(0, { min: 0, max: 12 });
 	const dispatch = useDispatch();
-	//let cart = useSelector((state) => state.carrito);
 
 	const handlerSwitchButton = (e) => {
 		e.preventDefault();
 		setbuttonSwith(!buttonSwith);
-		handlers.increment();
+		//handlers.increment();
 		dispatch(
 			agregarCarrito({
 				nombre: nombre,
@@ -30,16 +28,16 @@ export function Tarjeta({ nombre, imagen, precio, categoria, id }) {
 	};
 
 	const handlerClickMenos = (e) => {
-		if (count === 1) {
+		if (/* count */ cantidad === 1) {
 			setbuttonSwith(!buttonSwith);
 		}
-		handlers.decrement();
+		//handlers.decrement();
 		//console.log('💥 Restar Producto: ', nombre);
 		dispatch(restarProducto(nombre));
 	};
 
 	function handlerClickMas(e) {
-		handlers.increment();
+		//handlers.increment();
 		//console.log('🟢Agregar Producto: ', nombre);
 		dispatch(sumarProducto(nombre));
 	}
@@ -83,7 +81,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria, id }) {
 						justifyContent: 'center',
 						alignItems: 'center',
 					}}>
-					{buttonSwith ? (
+					{buttonSwith || esteProducto.length ? (
 						<Group
 							position='center'
 							style={{
@@ -97,7 +95,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria, id }) {
 								style={{ paddingLeft: '11px', paddingRight: '11px', height: '30px' }}>
 								-
 							</Button>
-							<Text>{count}</Text>
+							<Text>{cantidad}</Text>
 							<Button
 								radius='sm'
 								variant='gradient'

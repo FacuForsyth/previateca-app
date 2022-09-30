@@ -4,17 +4,13 @@ import { Tarjeta } from './Card';
 
 import useStyles from '../css/Lista';
 
-function Lista({ productos, localCart }) {
+function Lista({ productos, categoria, globalCart }) {
 	const { classes } = useStyles();
+	let productosEnEstaCatego = globalCart.filter((prod) => prod.categoria === categoria);
+
 	return (
 		<SimpleGrid
-			style={{
-				/* backgroundColor: '#00ffb3', */
-				padding: '0px',
-				margin: '0px',
-				width: '100%',
-				height: '100%',
-			}}
+			className={classes.grid}
 			cols={4}
 			spacing='xs'
 			breakpoints={[
@@ -22,29 +18,21 @@ function Lista({ productos, localCart }) {
 				{ maxWidth: 'sm', cols: 3, spacing: 'sm' },
 				{ maxWidth: 'xs', cols: 2, spacing: 'xs' },
 			]}
-			mt='md' >
+			/* mt='md' */
+		>
 			{productos.length === 0 ? (
 				<h2>Cargando productos</h2>
 			) : (
 				productos.map((prod) => {
 					return (
-						<div
-							key={prod.id}
-							className={classes.cardContainer}
-							style={{
-								/* backgroundColor: '#00ffb3', */
-								padding: '0px',
-								margin: '0px',
-								width: '100%',
-								height: '100%',
-								lineHeight: 0,
-							}}>
+						<div key={prod.id} className={classes.cardContainer}>
 							<Tarjeta
 								nombre={prod.nombre}
 								imagen={prod.imagen}
 								precio={prod.precio}
 								categoria={prod.categoria}
 								id={prod.id}
+								productosEnEstaCatego={productosEnEstaCatego}
 							/>
 							<br />
 						</div>

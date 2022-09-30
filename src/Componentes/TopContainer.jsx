@@ -1,56 +1,11 @@
-/* eslint-disable no-unused-vars */
-import {
-	createStyles,
-	Card,
-	Text,
-	SimpleGrid,
-	UnstyledButton,
-	Anchor,
-	Group,
-	Button,
-} from '@mantine/core';
+import { Card, Text, SimpleGrid, UnstyledButton } from '@mantine/core';
+import useStyles from '../css/TopContainerCSS.js';
 import categorias from './categorias';
 
-const useStyles = createStyles((theme) => ({
-	card: {
-		backgroundImage: `linear-gradient(-60deg, #ff4f5e 0%, #ff4f78 100%)`,
-	},
-
-	title: {
-		fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-		fontWeight: 700,
-	},
-
-	item: {
-		marginRight: '-7px',
-    marginLeft: '-7px',
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-		justifyContent: 'center',
-		textAlign: 'center',
-		borderRadius: theme.radius.sm,
-		height: 90,
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-		transition: 'box-shadow 150ms ease, transform 100ms ease',
-
-		'&:hover': {
-			boxShadow: `${theme.shadows.md} !important`,
-			transform: 'scale(1.05)',
-		},
-	},
-}));
-
 export default function TopContainer() {
+	// eslint-disable-next-line no-unused-vars
 	const { classes, theme } = useStyles();
 
-	/* 	ESTO FUNCIONA BIEN PERO NO ME SIRVE EL OFFSET */
-	/* 	function scrollToTop(a) {
-		console.log('🟢🟢🟢 SearchID: ', a);
-		const element = document.getElementById(a);
-		element?.scrollIntoView({ behavior: 'smooth', block: 'end', offset: 60 });
-	} */
-	/* SCROLL DE LA PAGINA AL APRETAR EL BOTON */
 	function scrollToTargetAdjusted(id) {
 		var element = document.getElementById(id);
 		var headerOffset = 72;

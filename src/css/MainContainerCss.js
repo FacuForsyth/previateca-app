@@ -36,7 +36,7 @@ const MainContainerCss = createStyles((theme, _params, getRef) => ({
 	MainAccordion: {
 		/* backgroundColor: 'green', */
 		margin: 0,
-		padding: 0,
+		padding: 0,		
 	},
 }));
 export default MainContainerCss;
