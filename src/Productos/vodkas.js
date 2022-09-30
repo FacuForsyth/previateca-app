@@ -41,7 +41,7 @@ const vodkas = [
     precio: 1350,
     categoria: "Vodkas"
   },
-  {
+  /* {
     id: 32,
     nombre: "Smirnoff Raspberry",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff5.png')}`,
@@ -61,7 +61,7 @@ const vodkas = [
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff2.png')}`,
     precio: 1350,
     categoria: "Vodkas"
-  },
+  }, */
   {
     id: 35,
     nombre: "Smirnoff Grape&Citrus",
@@ -69,7 +69,7 @@ const vodkas = [
     precio: 1350,
     categoria: "Vodkas"
   },
-  {
+  /* {
     id: 36,
     nombre: "Absolut",
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute.png')}`,
@@ -89,7 +89,7 @@ const vodkas = [
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute4.png')}`,
     precio: 3500,
     categoria: "Vodkas"
-  },
+  }, */
   {
     id: 39,
     nombre: "Absolut Raspberry",
@@ -97,20 +97,20 @@ const vodkas = [
     precio: 3500,
     categoria: "Vodkas"
   },
-  {
+  /* {
     id: 40,
     nombre: "Absolut Mango",
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute3.png')}`,
     precio: 1700,
     categoria: "Vodkas"
-  },
-  {
+  }, */
+  /* {
     id: 41,
     nombre: "Skyy",
     imagen: `${require('./imagenes/Previateca---Vodka-Skyy.png')}`,
     precio: 1200,
     categoria: "Vodkas"
-  },
+  }, */
   {
     id: 42,
     nombre: "Skyy Raspberry",

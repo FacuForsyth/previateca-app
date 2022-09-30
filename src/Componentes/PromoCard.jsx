@@ -9,7 +9,6 @@ function PromoCard({ nombre, imagen, precio, categoria, globalCart }) {
 	let localCart = globalCart.map((prod) => prod.nombre);
 
 	const handleButton = (e) => {
-		 
 		if (!localCart.includes(nombre)) {
 			dispatch(
 				agregarCarrito({
@@ -60,52 +59,16 @@ function PromoCard({ nombre, imagen, precio, categoria, globalCart }) {
 						zIndex: 1,
 						top: '72%',
 						right: '5%',
-						fontSize: 12,
-						padding: ' 4px',
+						fontSize: 10,
+						height: '30px',
+						padding: '5px',
 					}}
 					variant='gradient'
 					gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
 					onClick={(e) => handleButton(`${nombre}`)}>
-					Comprar
+					¡ Comprar !
 				</Button>
 			</Card.Section>
-
-			{/* <Group position='apart' mt='md' mb='xs' style={{ display: 'flex', justifyContent: 'center' }}>
-				<Text weight={600} align='center'>
-					{nombre}
-				</Text>
-				<Badge
-					color='pink'
-					variant='light'
-					size='xl'
-					style={{
-						position: 'absolute',
-						top: 15,
-						right: 15,
-					}}>
-					¡PROMO!
-				</Badge>
-			</Group> */}
-			{/* <Group
-				style={{
-					marginTop: '15px',
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'center',
-					alignItems: 'center',
-					gap: 10,
-				}}>
-				<Text size='sm' color='dimmed' align='center' weight={600}>
-					${precio}
-				</Text>
-				<Button
-					variant='filled'
-					color='gray'
-					style={{ width: 'fit-content', display: 'flex', justifyContent: 'center' }}
-					onClick={(e) => handleButton(e)}>
-					Comprar
-				</Button>
-			</Group> */}
 		</Card>
 	);
 }
