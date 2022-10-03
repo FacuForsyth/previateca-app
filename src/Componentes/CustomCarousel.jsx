@@ -6,7 +6,7 @@ import productos from '../Productos/promos.js';
 import PromoCard from './PromoCard.jsx';
 import { useMantineTheme } from '@mantine/core';
 
-export default function CustomCarousel({globalCart}) {
+export default function CustomCarousel({ globalCart }) {
 	const theme = useMantineTheme();
 
 	const autoplay = useRef(Autoplay({ delay: 4000 }));
@@ -27,12 +27,14 @@ export default function CustomCarousel({globalCart}) {
 			styles={{
 				indicator: {
 					width: 12,
-					height: 4,
-					backgroundColor: theme.colors.cyan[4],
+					height: 5,
+					backgroundColor: theme.colors.pink[6],
 					transition: 'width 250ms ease',
 					'&[data-active]': {
 						width: 40,
 					},
+					position: 'relative',
+					bottom: '-25px',
 				},
 			}}
 			plugins={[autoplay.current]}

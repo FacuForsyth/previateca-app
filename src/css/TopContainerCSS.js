@@ -27,6 +27,13 @@ const useStyles = createStyles((theme) => ({
 			boxShadow: `${theme.shadows.md} !important`,
 			transform: 'scale(1.05)',
 		},
+
+		/* '@media (min-width: 1000px)': {
+			//backgroundColor: theme.colors.green[6],
+			margin: 3,
+			maxWidth: '80%',
+		}, */
 	},
+	grid: {},
 }));
 export default useStyles;
