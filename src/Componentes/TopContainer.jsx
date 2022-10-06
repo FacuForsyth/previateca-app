@@ -34,9 +34,9 @@ export default function TopContainer() {
 		<Card withBorder radius='sm' className={classes.card}>
 			{/* <Group position='apart'>
 				<Text className={classes.title}>Categorias</Text>
-				{/* <Anchor size='xs' color='dimmed' sx={{ lineHeight: 1 }}>
+				Anchor size='xs' color='dimmed' sx={{ lineHeight: 1 }}>
 					+ 21 other services
-				</Anchor> */}
+				</Anchor>
 			</Group> */}
 			<SimpleGrid
 				cols={3}
