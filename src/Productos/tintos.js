@@ -13,13 +13,13 @@ const tintos = [
     precio: 600,
     categoria: "Vinos tintos"
   },
-  {
+  /* {
     id: 51,
     nombre: "Cafayate Malbec",
     imagen: `${require('./imagenes/Previateca---Vino-Tinto-Cafayate.png')}`,
     precio: 590,
     categoria: "Vinos tintos"
-  },
+  }, */
   {
     id: 52,
     nombre: "Gata Flora Malbec",
