@@ -10,6 +10,8 @@
     "@mantine/hooks": "^5.3.2",
     "@mantine/notifications": "^5.3.2",
     "@mantine/spotlight": "^5.3.2",
+    "@sanity/client": "^3.4.1",
+    "@sanity/image-url": "^1.0.1",
     "@tabler/icons": "^1.96.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

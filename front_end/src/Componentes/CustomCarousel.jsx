@@ -1,15 +1,15 @@
 import { useRef } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
-
-import productos from '../Productos/promos.js';
 import PromoCard from './PromoCard.jsx';
 import { useMantineTheme } from '@mantine/core';
+import { urlFor } from '../client';
 
-export default function CustomCarousel({ globalCart }) {
+export default function CustomCarousel({ globalCart, promos }) {
 	const theme = useMantineTheme();
-
+	const productos = promos;
 	const autoplay = useRef(Autoplay({ delay: 4000 }));
+
 	return (
 		<Carousel
 			withIndicators
@@ -40,20 +40,24 @@ export default function CustomCarousel({ globalCart }) {
 			plugins={[autoplay.current]}
 			onMouseEnter={autoplay.current.stop}
 			onMouseLeave={autoplay.current.reset}>
-			{productos?.map((prod) => {
-				return (
-					<Carousel.Slide key={prod.id} style={{ marginBottom: '10px' }}>
-						<PromoCard
-							nombre={prod.nombre}
-							imagen={prod.imagen}
-							precio={prod.precio}
-							categoria={prod.categoria}
-							id={prod.id}
-							globalCart={globalCart}
-						/>
-					</Carousel.Slide>
-				);
-			})}
+			{productos.length > 1 ? (
+				productos.map((prod) => {
+					return (
+						<Carousel.Slide key={prod._id} style={{ marginBottom: '10px' }}>
+							<PromoCard
+								nombre={prod.nombre}
+								imagen={urlFor(prod.imagen)}
+								precio={prod.precio}
+								categoria={prod.categoria}
+								id={prod.id}
+								globalCart={globalCart}
+							/>
+						</Carousel.Slide>
+					);
+				})
+			) : (
+				<Carousel.Slide key='Loading' style={{ marginBottom: '10px' }}></Carousel.Slide>
+			)}
 		</Carousel>
 	);
 }

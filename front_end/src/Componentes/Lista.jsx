@@ -25,7 +25,7 @@ function Lista({ productos, categoria, globalCart }) {
 			) : (
 				productos.map((prod) => {
 					return (
-						<div key={prod.id} className={classes.cardContainer}>
+						<div key={prod._id} className={classes.cardContainer}>
 							<Tarjeta
 								nombre={prod.nombre}
 								imagen={prod.imagen}

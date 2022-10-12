@@ -5,6 +5,7 @@ import { agregarCarrito, restarProducto, sumarProducto } from '../redux/actions'
 import { useDispatch } from 'react-redux';
 import useStyles from '../css/Card';
 import toast from 'react-hot-toast';
+import { urlFor } from '../client';
 
 export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCatego }) {
 	const { classes } = useStyles();
@@ -56,7 +57,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCate
 	return (
 		<Card withBorder radius='sm' className={classes.card} id={nombre}>
 			<Card.Section className={classes.imageSection}>
-				<Image src={imagen} alt='' width='100%' /* height={200} */ fit='contain' />
+				<Image src={urlFor(imagen)} alt='' width='100%' /* height={200} */ fit='contain' />
 			</Card.Section>
 			<Card.Section className={classes.section}>
 				<Group

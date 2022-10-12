@@ -1,12 +1,11 @@
 import { Accordion } from '@mantine/core';
-import productos from '../Productos/productos.js';
 import categorias from './categorias.js';
 import Lista from './Lista.jsx';
 
 import MainContainerCss from '../css/MainContainerCss.js';
 import scrollToTargetAdjusted from './scrollToTargetAdjusted.jsx';
 
-export default function MainContainer({ globalCart }) {
+export default function MainContainer({ globalCart, productos }) {
 	const { classes } = MainContainerCss();
 	const catego = categorias.concat({ title: 'Hielo / Vasos' });
 
