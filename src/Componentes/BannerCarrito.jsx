@@ -199,8 +199,7 @@ export default function BannerCarrito() {
 							size='lg'
 							weight={600}
 						>
-							Previateca se encuentra cerrado.
-							Te esperamos a partir las 18:00hs 🍻
+							Previateca se encuentra cerrado. Te esperamos a partir las 18:00hs 🍻
 						</Text>	 
 					:
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
