@@ -3,16 +3,16 @@ const promos = [
     id: 93,
     nombre: "Campari 750 + 2 Cepita naranja",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaCampari.png')}`,
-    precio: 1390,
+    precio: 1600,
     categoria: "PROMOS"
   },
-  {
+  /* {
     id: 94,
     nombre: "Gancia 950 + Sprite 2,25",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaGancia.png')}`,
-    precio: 950,
+    precio: 999,
     categoria: "PROMOS"
-  },
+  }, */
   /* {
     id: 95,
     nombre: "Jagermaister 700 + 4 speed 250",
@@ -31,7 +31,7 @@ const promos = [
     id: 97,
     nombre: "Mumm + 2 speed 250",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaMumm.png')}`,
-    precio: 1500,
+    precio: 1600,
     categoria: "PROMOS"
   },
   {
@@ -64,9 +64,9 @@ const promos = [
   },
   /* {
     id: 102,
-    nombre: "Ron Bacardi Oro/Blanco 750 + CocaCola 2,25",
+    nombre: "Ron Bacardi Oro/Blanco + CocaCola + Hielo",
     imagen: `${require('./imagenes/promos/bacardi+coca.jpg')}`,
-    precio: 2300,
+    precio: 2900,
     categoria: "PROMOS"
   }, */
   {
@@ -80,51 +80,51 @@ const promos = [
     id: 104,
     nombre: "Brighton + Paso de los toros 1,5",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaBrighton.png')}`,
-    precio: 1750,
+    precio: 1800,
     categoria: "PROMOS"
   },
   {
     id: 105,
     nombre: "2x Dilema blanco dulce",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaDilema.png')}`,
-    precio: 1050,
+    precio: 1250,
     categoria: "PROMOS"
   },
   {
     id: 106,
     nombre: "2x Cafayate Tinto/Blanco",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaCafayateTorrontes.png')}`,
-    precio: 1150,
+    precio: 1200,
     categoria: "PROMOS"
   },
   {
     id: 107,
     nombre: "Smirnoff + Pack 4 Speed 250",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaSmirnoff.png')}`,
-    precio: 1850,
+    precio: 1950,
     categoria: "PROMOS"
   },
   {
     id: 108,
     nombre: "Smirnoff + 2 Cepita naranja",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaSmirnoff2.png')}`,
-    precio: 1600,
+    precio: 1750,
     categoria: "PROMOS"
   },
   {
     id: 109,
     nombre: "Smirnoff + Sprite 2,25",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaSmirnoff3.png')}`,
-    precio: 1550,
+    precio: 1650,
     categoria: "PROMOS"
   },
-  {
+  /* {
     id: 110,
     nombre: "Absolut + Pack 4 Speed 250",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaAbsolute1.png')}`,
     precio: 3900,
     categoria: "PROMOS"
-  },
+  }, */
   {
     id: 111,
     nombre: "Vodka Sernova + Pack 4 Speed 250",
@@ -136,7 +136,7 @@ const promos = [
     id: 112,
     nombre: "Vodka Sernova + 2 Cepita naranja",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaSernova2.png')}`,
-    precio: 1400,
+    precio: 1450,
     categoria: "PROMOS"
   },
   /* {

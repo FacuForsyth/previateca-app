@@ -17,7 +17,7 @@ const aperitivos = [
     id: 3,
     nombre: "Campari 750",
     imagen: `${require('./imagenes/Previateca---Campari1.png')}`,
-    precio: 990,
+    precio: 1150,
     categoria: "Aperitivos"
   },
   {
@@ -34,25 +34,25 @@ const aperitivos = [
     precio: 430,
     categoria: "Aperitivos"
   },
-  {
+  /* {
     id: 6,
     nombre: "Gancia 950",
     imagen: `${require('./imagenes/Previateca---Gancia.png')}`,
     precio: 600,
     categoria: "Aperitivos"
-  },
+  }, */
   {
     id: 7,
     nombre: "Martini Bianco 1L",
     imagen: `${require('./imagenes/Previateca---Martini.png')}`,
-    precio: 580,
+    precio: 590,
     categoria: "Aperitivos"
   },
   /* {
     id: 8,
     nombre: "New Age 750",
     imagen: `${require('./imagenes/Previateca---New-Age.png')}`,
-    precio: 590,
+    precio: 670,
     categoria: "Aperitivos"
   },
   {
@@ -62,6 +62,13 @@ const aperitivos = [
     precio: 6500,
     categoria: "Aperitivos"
   }, */
+  {
+    id: 115,
+    nombre: "Carpano Rosso 950",
+    imagen: `${require('./imagenes/Previateca---Carpano.png')}`,
+    precio: 799,
+    categoria: "Aperitivos"
+  },
 ]
 
 export default aperitivos;

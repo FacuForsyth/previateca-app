@@ -3,14 +3,14 @@ const blancos = [
     id: 43,
     nombre: "Dilema blanco dulce",
     imagen: `${require('./imagenes/Previateca---Vino-Blanco-Dilema.png')}`,
-    precio: 570,
+    precio: 640,
     categoria: "Vinos blancos"
   },
   {
     id: 44,
     nombre: "Cafayate Torrontes blanco dulce",
     imagen: `${require('./imagenes/Previateca---Vino-Blanco-Cafayate.png')}`,
-    precio: 590,
+    precio: 620,
     categoria: "Vinos blancos"
   },
   /* {
@@ -24,14 +24,14 @@ const blancos = [
     id: 46,
     nombre: "Santa Julia Chenin dulce",
     imagen: `${require('./imagenes/Previateca---Vino-Blanco-SantaJulia.png')}`,
-    precio: 850,
+    precio: 1100,
     categoria: "Vinos blancos"
   },
   {
     id: 47,
     nombre: "Amalaya Torrontes dulce",
     imagen: `${require('./imagenes/Previateca---Vino-Blanco-Amalaya.png')}`,
-    precio: 1050,
+    precio: 1200,
     categoria: "Vinos blancos"
   },
   {

@@ -10,14 +10,14 @@ const champagnes = [
     id: 62,
     nombre: "Mumm extra brut",
     imagen: `${require('./imagenes/Previateca---Champagne-Mumm.png')}`,
-    precio: 1160,
+    precio: 1270,
     categoria: "Champagnes"
   },
   {
     id: 63,
     nombre: "Chandon extra brut",
     imagen: `${require('./imagenes/Previateca---Champagne-Chandon.png')}`,
-    precio: 1360,
+    precio: 2100,
     categoria: "Champagnes"
   },
   {

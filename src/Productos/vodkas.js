@@ -31,42 +31,42 @@ const vodkas = [
     id: 30,
     nombre: "Smirnoff",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff.png')}`,
-    precio: 1200,
+    precio: 1300,
     categoria: "Vodkas"
   },
   {
     id: 31,
     nombre: "Smirnoff Manzana",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff3.png')}`,
-    precio: 1350,
+    precio: 1500,
     categoria: "Vodkas"
   },
   /* {
     id: 32,
     nombre: "Smirnoff Raspberry",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff5.png')}`,
-    precio: 1350,
+    precio: 1500,
     categoria: "Vodkas"
   },
   {
     id: 33,
     nombre: "Smirnoff Watermelon",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff4.png')}`,
-    precio: 1350,
+    precio: 1500,
     categoria: "Vodkas"
   },
   {
     id: 34,
     nombre: "Smirnoff Citrus",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff2.png')}`,
-    precio: 1350,
+    precio: 1500,
     categoria: "Vodkas"
   }, */
   {
     id: 35,
     nombre: "Smirnoff Grape&Citrus",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff1.png')}`,
-    precio: 1350,
+    precio: 1500,
     categoria: "Vodkas"
   },
   /* {
@@ -108,14 +108,14 @@ const vodkas = [
     id: 41,
     nombre: "Skyy",
     imagen: `${require('./imagenes/Previateca---Vodka-Skyy.png')}`,
-    precio: 1200,
+    precio: 1300,
     categoria: "Vodkas"
   }, */
   {
     id: 42,
     nombre: "Skyy Raspberry",
     imagen: `${require('./imagenes/Previateca---Vodka-Skyy1.png')}`,
-    precio: 1350,
+    precio: 1500,
     categoria: "Vodkas"
   },
 ]

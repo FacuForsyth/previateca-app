@@ -17,21 +17,21 @@ const energizantes = [
     id: 78,
     nombre: "Monster Energy 475",
     imagen: `${require('./imagenes/Previateca---Monster-energy.png')}`,
-    precio: 270,
+    precio: 299,
     categoria: "Energizantes"
   },
   {
     id: 79,
     nombre: "Monster Ultra 475",
     imagen: `${require('./imagenes/Previateca---Monster-ultra.png')}`,
-    precio: 270,
+    precio: 299,
     categoria: "Energizantes"
   },
   {
     id: 80,
     nombre: "Monster Mango Loca 475",
     imagen: `${require('./imagenes/Previateca---Monster-mangoloco.png')}`,
-    precio: 270,
+    precio: 299,
     categoria: "Energizantes"
   },
 ]

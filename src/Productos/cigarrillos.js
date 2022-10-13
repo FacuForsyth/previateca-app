@@ -24,21 +24,21 @@ const cigarrillos = [
     id: 87,
     nombre: "Malboro x20",
     imagen: `${require('./imagenes/Previateca---Cigarrillos-Malboro.png')}`,
-    precio: 390,
+    precio: 490,
     categoria: "Cigarrillos"
   },
   {
     id: 88,
     nombre: "Malboro uva x20",
     imagen: `${require('./imagenes/Previateca---Cigarrillos-MalboroUva.png')}`,
-    precio: 390,
+    precio: 490,
     categoria: "Cigarrillos"
   },
   {
     id: 89,
     nombre: "Philp Morris convertible x20",
     imagen: `${require('./imagenes/Previateca---Cigarrillos-PhilisConv.png')}`,
-    precio: 390,
+    precio: 490,
     categoria: "Cigarrillos"
   },
 ]

@@ -13,13 +13,13 @@ const gin_ron = [
     precio: 1550,
     categoria: "Gin / Ron / Tequila"
   },
-  /* {
+  {
     id: 68,
     nombre: "Gin Beefeater 700",
     imagen: `${require('./imagenes/Previateca---Gin-Beefeters.png')}`,
-    precio: 4200,
+    precio: 3850,
     categoria: "Gin / Ron / Tequila"
-  }, */
+  },
   /* {
     id: 69,
     nombre: "Gin Tanqueray 750",
@@ -52,21 +52,21 @@ const gin_ron = [
     id: 73,
     nombre: "Havana Club 3 años 750",
     imagen: `${require('./imagenes/Previateca---Ron-Havanna.png')}`,
-    precio: 2350,
+    precio: 2500,
     categoria: "Gin / Ron / Tequila"
   },
   {
     id: 74,
     nombre: "Bacardi Carta Oro 750",
     imagen: `${require('./imagenes/Previateca---Bacardi-oro.png')}`,
-    precio: 2350,
+    precio: 2500,
     categoria: "Gin / Ron / Tequila"
   },
   {
     id: 75,
     nombre: "Bacardi Carta Blanco 750",
     imagen: `${require('./imagenes/Previateca---Bacardi-blanco.png')}`,
-    precio: 2350,
+    precio: 2500,
     categoria: "Gin / Ron / Tequila"
   },
 ]
