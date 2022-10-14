@@ -21,6 +21,13 @@ const blancos = [
     categoria: "Vinos blancos"
   }, */
   {
+    id: 200,
+    nombre: "Elementos Torrontes",
+    imagen: `${require('./imagenes/Previateca---Vino-Blanco-Elementos.png')}`,
+    precio: 740,
+    categoria: "Vinos blancos"
+  },
+  {
     id: 46,
     nombre: "Santa Julia Chenin dulce",
     imagen: `${require('./imagenes/Previateca---Vino-Blanco-SantaJulia.png')}`,

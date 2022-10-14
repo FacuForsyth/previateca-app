@@ -24,23 +24,23 @@ const aperitivos = [
     id: 4,
     nombre: "Dr Lemon Vodka",
     imagen: `${require('./imagenes/Previateca---Dr-Lemon.png')}`,
-    precio: 430,
+    precio: 450,
     categoria: "Aperitivos"
   },
   {
     id: 5,
     nombre: "Frizze Blue 1L",
     imagen: `${require('./imagenes/Previateca---Frezze.png')}`,
-    precio: 430,
+    precio: 510,
     categoria: "Aperitivos"
   },
-  /* {
+  {
     id: 6,
     nombre: "Gancia 950",
     imagen: `${require('./imagenes/Previateca---Gancia.png')}`,
-    precio: 600,
+    precio: 850,
     categoria: "Aperitivos"
-  }, */
+  },
   {
     id: 7,
     nombre: "Martini Bianco 1L",
@@ -48,14 +48,14 @@ const aperitivos = [
     precio: 590,
     categoria: "Aperitivos"
   },
-  /* {
+  {
     id: 8,
     nombre: "New Age 750",
     imagen: `${require('./imagenes/Previateca---New-Age.png')}`,
-    precio: 670,
+    precio: 799,
     categoria: "Aperitivos"
   },
-  {
+  /* {
     id: 9,
     nombre: "Jaggermeister 700",
     imagen: `${require('./imagenes/Previateca---Jegger.png')}`,
@@ -66,7 +66,7 @@ const aperitivos = [
     id: 115,
     nombre: "Carpano Rosso 950",
     imagen: `${require('./imagenes/Previateca---Carpano.png')}`,
-    precio: 799,
+    precio: 999,
     categoria: "Aperitivos"
   },
 ]

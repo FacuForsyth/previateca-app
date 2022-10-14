@@ -69,21 +69,21 @@ const vodkas = [
     precio: 1500,
     categoria: "Vodkas"
   },
-  /* {
+  {
     id: 36,
     nombre: "Absolut",
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute.png')}`,
-    precio: 3000,
+    precio: 3300,
     categoria: "Vodkas"
   },
-  {
+  /* {
     id: 37,
     nombre: "Absolut Apple",
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute1.png')}`,
     precio: 3500,
     categoria: "Vodkas"
-  },
-  {
+  }, */
+  /* {
     id: 38,
     nombre: "Absolut Mandarin",
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute4.png')}`,
@@ -94,28 +94,28 @@ const vodkas = [
     id: 39,
     nombre: "Absolut Raspberry",
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute2.png')}`,
-    precio: 3500,
+    precio: 3600,
     categoria: "Vodkas"
   },
-  /* {
+  {
     id: 40,
     nombre: "Absolut Mango",
     imagen: `${require('./imagenes/Previateca---Vodka-Absolute3.png')}`,
-    precio: 1700,
+    precio: 3600,
     categoria: "Vodkas"
-  }, */
-  /* {
+  },
+  {
     id: 41,
     nombre: "Skyy",
     imagen: `${require('./imagenes/Previateca---Vodka-Skyy.png')}`,
-    precio: 1300,
+    precio: 1500,
     categoria: "Vodkas"
-  }, */
+  },
   {
     id: 42,
     nombre: "Skyy Raspberry",
     imagen: `${require('./imagenes/Previateca---Vodka-Skyy1.png')}`,
-    precio: 1500,
+    precio: 1700,
     categoria: "Vodkas"
   },
 ]

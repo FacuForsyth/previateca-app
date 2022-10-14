@@ -6,13 +6,13 @@ const promos = [
     precio: 1600,
     categoria: "PROMOS"
   },
-  /* {
+  {
     id: 94,
     nombre: "Gancia 950 + Sprite 2,25",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaGancia.png')}`,
-    precio: 999,
+    precio: 1200,
     categoria: "PROMOS"
-  }, */
+  },
   /* {
     id: 95,
     nombre: "Jagermaister 700 + 4 speed 250",
@@ -38,14 +38,14 @@ const promos = [
     id: 98,
     nombre: "2x Frizze Blue 1L",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaFrizze.png')}`,
-    precio: 850,
+    precio: 999,
     categoria: "PROMOS"
   },
   {
     id: 99,
     nombre: "2x Dr Lemon Vodka 1L",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaDrLemon.png')}`,
-    precio: 850,
+    precio: 900,
     categoria: "PROMOS"
   },
   {
@@ -118,13 +118,13 @@ const promos = [
     precio: 1650,
     categoria: "PROMOS"
   },
-  /* {
+  {
     id: 110,
     nombre: "Absolut + Pack 4 Speed 250",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaAbsolute1.png')}`,
     precio: 3900,
     categoria: "PROMOS"
-  }, */
+  },
   {
     id: 111,
     nombre: "Vodka Sernova + Pack 4 Speed 250",
