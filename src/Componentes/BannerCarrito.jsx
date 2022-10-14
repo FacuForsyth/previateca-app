@@ -192,15 +192,27 @@ export default function BannerCarrito() {
 				marginTop: '1rem',
 			}}>
 				{horario < 18 
-					? <Text 
+					? 
+					<div>
+						<Text 
+							className={classes.description}
+							mt='sm'
+							mb={30}
+							size='lg'
+							weight={700}
+						>
+							Previateca se encuentra cerrado.
+						</Text>
+						<Text 
 							className={classes.description}
 							mt='sm'
 							mb={30}
 							size='lg'
 							weight={600}
 						>
-							Previateca se encuentra cerrado. Te esperamos a partir las 18:00hs. 🍻
-						</Text>	 
+							Te esperamos a partir las 18:00hs 🍻
+						</Text>
+						</div>
 					:
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
