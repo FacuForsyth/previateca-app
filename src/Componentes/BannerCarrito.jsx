@@ -35,6 +35,10 @@ for (let ico of categorias) iconos[ico.title] = ico.img;
 
 const date = new Date();
 const horario = date.getHours();
+const min = date.getMinutes();
+console.log(horario)
+// horario = 00 y minutos < 30 
+// ( horario === 00 && min < 30 )
 
 export default function BannerCarrito() {
 	const { classes } = useStyles();
@@ -191,29 +195,7 @@ export default function BannerCarrito() {
 			style={{
 				marginTop: '1rem',
 			}}>
-				{horario < 18 
-					? 
-					<div>
-						<Text 
-							className={classes.description}
-							mt='sm'
-							mb={30}
-							size='lg'
-							weight={700}
-						>
-							Previateca se encuentra cerrado.
-						</Text>
-						<Text 
-							className={classes.description}
-							mt='sm'
-							mb={30}
-							size='lg'
-							weight={600}
-						>
-							Te esperamos a partir las 18:00hs 🍻
-						</Text>
-						</div>
-					:
+			{( horario === 0 && min < 25 ) || horario > 18 ? 
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
 					<Title className={classes.title}>Carrito</Title>
@@ -432,6 +414,27 @@ export default function BannerCarrito() {
 					</Group>
 				</div>
 			</SimpleGrid>
+			: 
+			<div>
+				<Text 
+					className={classes.description}
+					mt='sm'
+					mb={30}
+					size='lg'
+					weight={700}
+				>
+					Previateca se encuentra cerrado.
+				</Text>
+				<Text 
+					className={classes.description}
+					mt='sm'
+					mb={30}
+					size='lg'
+					weight={500}
+				>
+					Te esperamos a partir las 18:00hs 🍻
+				</Text>
+			</div>		
 			}
 		</div>
 	);
