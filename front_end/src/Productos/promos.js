@@ -13,13 +13,13 @@ const promos = [
     precio: 950,
     categoria: "PROMOS"
   },
-  /* {
+  {
     id: 95,
     nombre: "Jagermaister 700 + 4 speed 250",
     imagen: `${require('./imagenes/promos negro/Promos-PreviatecaJagermeister.png')}`,
     precio: 7000,
     categoria: "PROMOS"
-  }, */
+  },
   {
     id: 96,
     nombre: "Renaissance + 2 speed 250",

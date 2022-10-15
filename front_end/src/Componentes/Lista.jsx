@@ -33,6 +33,7 @@ function Lista({ productos, categoria, globalCart }) {
 								categoria={prod.categoria}
 								id={prod.id}
 								productosEnEstaCatego={productosEnEstaCatego}
+								disponible={prod.disponible}
 							/>
 							<br />
 						</div>
