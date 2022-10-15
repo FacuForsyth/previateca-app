@@ -33,6 +33,9 @@ let iconos = { 'Hielo / Vasos': imgHielo };
 
 for (let ico of categorias) iconos[ico.title] = ico.img;
 
+const date = new Date();
+const horario = date.getHours();
+
 export default function BannerCarrito() {
 	const { classes } = useStyles();
 
@@ -188,6 +191,7 @@ export default function BannerCarrito() {
 			style={{
 				marginTop: '1rem',
 			}}>
+			{horario < 18 ? "TK Cerrado no jodas" :
 			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				<div>
 					<Title className={classes.title}>Carrito</Title>
@@ -406,6 +410,7 @@ export default function BannerCarrito() {
 					</Group>
 				</div>
 			</SimpleGrid>
+			}
 		</div>
 	);
 }
