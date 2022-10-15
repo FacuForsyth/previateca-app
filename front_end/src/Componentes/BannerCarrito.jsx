@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {	
+import {
 	Text,
 	Title,
 	TextInput,
@@ -35,6 +35,7 @@ for (let ico of categorias) iconos[ico.title] = ico.img;
 
 const date = new Date();
 const horario = date.getHours();
+const min = date.getMinutes();
 
 export default function BannerCarrito() {
 	const { classes } = useStyles();
@@ -191,38 +192,38 @@ export default function BannerCarrito() {
 			style={{
 				marginTop: '1rem',
 			}}>
-			{horario < 18 ? "TK Cerrado no jodas" :
-			<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-				<div>
-					<Title className={classes.title}>Carrito</Title>
-					<Text
-						className={classes.description}
-						style={{ marginLeft: '25px' }}
-						mt='sm'
-						mb={30}
-						size='lg'
-						weight={600}>
-						¡Hace tu pedido y te contestaremos enseguida!
-					</Text>
-					<List
-						spacing='xs'
-						size='sm'
-						center
-						icon={
-							<ThemeIcon color='teal' size={24} radius='sm'>
-								<IconCircleCheck size={10} />
-							</ThemeIcon>
-						}>
-						{carro.length ? (
-							carro.map((p, i) => (
-								<Paper key={i} radius='sm' withBorder className={classes.card} mt={ICON_SIZE / 3}>
-									<ThemeIcon className={classes.icon} size={ICON_SIZE} radius={ICON_SIZE}>
-										<img src={iconos[p.categoria]} alt={p.categoria} width='32px' />
-									</ThemeIcon>
+			{(horario === 0 && min < 25) || horario > 18 ? (
+				<SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+					<div>
+						<Title className={classes.title}>Carrito</Title>
+						<Text
+							className={classes.description}
+							style={{ marginLeft: '25px' }}
+							mt='sm'
+							mb={30}
+							size='lg'
+							weight={600}>
+							¡Hace tu pedido y te contestaremos enseguida!
+						</Text>
+						<List
+							spacing='xs'
+							size='sm'
+							center
+							icon={
+								<ThemeIcon color='teal' size={24} radius='sm'>
+									<IconCircleCheck size={10} />
+								</ThemeIcon>
+							}>
+							{carro.length ? (
+								carro.map((p, i) => (
+									<Paper key={i} radius='sm' withBorder className={classes.card} mt={ICON_SIZE / 3}>
+										<ThemeIcon className={classes.icon} size={ICON_SIZE} radius={ICON_SIZE}>
+											<img src={iconos[p.categoria]} alt={p.categoria} width='32px' />
+										</ThemeIcon>
 
-									<Text size='xl' align='center' weight={700} className={classes.Cardtitle}>
-										{p.nombre}
-										{/* <div
+										<Text size='xl' align='center' weight={700} className={classes.Cardtitle}>
+											{p.nombre}
+											{/* <div
 											style={{ maxWidth: '1.5rem', position: 'absolute', top: '10px', right: '20px' }}>
 											{p.precio}&nbsp;
 											<img
@@ -231,186 +232,195 @@ export default function BannerCarrito() {
 												alt='price_tag'
 											/>
 										</div> */}
+										</Text>
+
+										<Group position='apart' mt='xs' style={{ gap: '5px' }}>
+											<Text size='lg' color=''>
+												Cantidad:
+											</Text>
+											<Button
+												style={{}}
+												variant='subtle'
+												color='dark'
+												radius='sm'
+												size=''
+												compact
+												onClick={() => handlerClickMenos(p.nombre, p.cantidad)}>
+												<img style={{ maxWidth: '1.5rem' }} src={minus} alt='minus' />
+											</Button>
+
+											<Text size='xl' color=''>
+												{p.cantidad}
+											</Text>
+											<Button
+												style={{}}
+												variant='subtle'
+												color='dark'
+												radius='sm'
+												size=''
+												compact
+												onClick={() => handlerClickMas(p.nombre, p.cantidad)}>
+												<img style={{ maxWidth: '1.5rem' }} src={plus} alt='plus' />
+											</Button>
+										</Group>
+
+										<Group position='apart' mt='md'>
+											<Text size='lg'>Subtotal: {`${p.precio * p.cantidad}`}&nbsp;&nbsp;</Text>
+											{/* <img style={{ maxWidth: '1.5rem' }} src={profits} alt='profits' /> */}
+											<Button
+												style={{ margin: '0px 0px' }}
+												variant='subtle'
+												color='dark'
+												radius='sm'
+												size=''
+												compact
+												onClick={() => handlerClickBorrar(p.nombre)}>
+												<img style={{ maxWidth: '1.5rem' }} src={deleteI} alt='deleteI' />
+											</Button>
+										</Group>
+									</Paper>
+								))
+							) : (
+								<div>
+									<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
+										Tu Carrito Está Vacío &nbsp;
+										{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />. */}
 									</Text>
+									<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
+										¡Llenalo y empezá la fiesta! &nbsp;
+										{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' /> */}
+									</Text>
+								</div>
+							)}
+						</List>
+						<br />
+						{carro.length ? (
+							<Paper radius='sm' withBorder className={classes.card} mt={ICON_SIZE / 3}>
+								<ThemeIcon className={classes.icon} size={ICON_SIZE} radius={ICON_SIZE}>
+									<img
+										style={{ maxWidth: '1.5rem', top: '10px' }}
+										src={money}
+										alt='money'
+										size={34}
+										stroke={1.5}
+									/>
+								</ThemeIcon>
 
-									<Group position='apart' mt='xs' style={{ gap: '5px' }}>
-										<Text size='lg' color=''>
-											Cantidad:
-										</Text>
-										<Button
-											style={{}}
-											variant='subtle'
-											color='dark'
-											radius='sm'
-											size=''
-											compact
-											onClick={() => handlerClickMenos(p.nombre, p.cantidad)}>
-											<img style={{ maxWidth: '1.5rem' }} src={minus} alt='minus' />
-										</Button>
-
-										<Text size='xl' color=''>
-											{p.cantidad}
-										</Text>
-										<Button
-											style={{}}
-											variant='subtle'
-											color='dark'
-											radius='sm'
-											size=''
-											compact
-											onClick={() => handlerClickMas(p.nombre, p.cantidad)}>
-											<img style={{ maxWidth: '1.5rem' }} src={plus} alt='plus' />
-										</Button>
-									</Group>
-
-									<Group position='apart' mt='md'>
-										<Text size='lg'>Subtotal: {`${p.precio * p.cantidad}`}&nbsp;&nbsp;</Text>
-										{/* <img style={{ maxWidth: '1.5rem' }} src={profits} alt='profits' /> */}
-										<Button
-											style={{ margin: '0px 0px' }}
-											variant='subtle'
-											color='dark'
-											radius='sm'
-											size=''
-											compact
-											onClick={() => handlerClickBorrar(p.nombre)}>
-											<img style={{ maxWidth: '1.5rem' }} src={deleteI} alt='deleteI' />
-										</Button>
-									</Group>
-								</Paper>
-							))
-						) : (
-							<div>
-								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
-									Tu Carrito Está Vacío &nbsp;
-									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={sad} alt='sad' />. */}
+								<Text align='center' weight={700} className={classes.title}>
+									Total:
 								</Text>
-								<Text className={classes.description} mt='sm' mb={30} size='lg' weight={550}>
-									¡Llenalo y empezá la fiesta! &nbsp;
-									{/* <img style={{ maxWidth: '1.5rem', top: '10px' }} src={confetti} alt='confetti' /> */}
+								<Text color='white' align='center' size='sm'>
+									<Badge
+										size='xl'
+										variant='gradient'
+										gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
+										style={{ marginTop: '1rem' }}>
+										$ {Total}
+									</Badge>
 								</Text>
-							</div>
-						)}
-					</List>
-					<br />
-					{carro.length ? (
-						<Paper radius='sm' withBorder className={classes.card} mt={ICON_SIZE / 3}>
-							<ThemeIcon className={classes.icon} size={ICON_SIZE} radius={ICON_SIZE}>
-								<img
-									style={{ maxWidth: '1.5rem', top: '10px' }}
-									src={money}
-									alt='money'
-									size={34}
-									stroke={1.5}
-								/>
-							</ThemeIcon>
-
-							<Text align='center' weight={700} className={classes.title}>
-								Total:
-							</Text>
-							<Text color='white' align='center' size='sm'>
-								<Badge
-									size='xl'
-									variant='gradient'
-									gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
-									style={{ marginTop: '1rem' }}>
-									$ {Total}
-								</Badge>
-							</Text>
-						</Paper>
-					) : null}
-				</div>
-				<div className={classes.form}>
-					<Text align='center' size='lg' weight={700} color='dark' className={classes.title2}>
-						Tus Datos
-					</Text>
-					<br />
-					<TextInput
-						label='Nombre'
-						placeholder='Leo Messi'
-						required
-						error={errors.nombre}
-						mt='md'
-						value={cliente.nombre}
-						name='nombre'
-						onChange={(e) => handleChange(e)}
-						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
-					{/* {errors.nombre && <p style={{ color: 'red', fontSize: '10px'}}>{errors.nombre}</p>} */}
-					{checked === true ? (
-						<></>
-					) : (
+							</Paper>
+						) : null}
+					</div>
+					<div className={classes.form}>
+						<Text align='center' size='lg' weight={700} color='dark' className={classes.title2}>
+							Tus Datos
+						</Text>
+						<br />
 						<TextInput
-							label='Dirección'
-							placeholder='¿Dónde es la fiesta? ¿Dpto, piso?'
+							label='Nombre'
+							placeholder='Leo Messi'
 							required
-							error={errors.direccion}
-							value={cliente.direccion}
-							name='direccion'
+							error={errors.nombre}
+							mt='md'
+							value={cliente.nombre}
+							name='nombre'
 							onChange={(e) => handleChange(e)}
 							classNames={{ input: classes.input, label: classes.inputLabel }}
 						/>
-					)}
-					<Checkbox
-						label='Retiro por el local'
-						/* icon={IconMotorbike} */
-						color='red'
-						style={{ margin: '5px 0px' }}
-						checked={checked}
-						onChange={(e) => handleCheckbox(e)}
-					/>
-					{/* {errors.direccion && <p style={{ color: 'red', fontSize: '10px'}}>{errors.direccion}</p>} */}
-					<Select
-						label='Medio de pago'
-						placeholder='Seleccionar'
-						required
-						data={['Efectivo', 'Transferencia', 'Tarjeta (+ 8%)']}
-						error={errors.metodoPago}
-						onChange={(e) => handleSelect(e)}
-						/* classNames={classes} */
-						/* style={{ marginTop: 20, zIndex: 2 }} */
-					/>
-					{cliente.metodoPago === 'Efectivo' ? (
-						<NumberInput
-							label='Abona con'
-							placeholder='$'
-							type='number'
-							hideControls
-							value={cliente.abonaCon}
-							onChange={(e) => handleChangeAbona(e)}
+						{/* {errors.nombre && <p style={{ color: 'red', fontSize: '10px'}}>{errors.nombre}</p>} */}
+						{checked === true ? (
+							<></>
+						) : (
+							<TextInput
+								label='Dirección'
+								placeholder='¿Dónde es la fiesta? ¿Dpto, piso?'
+								required
+								error={errors.direccion}
+								value={cliente.direccion}
+								name='direccion'
+								onChange={(e) => handleChange(e)}
+								classNames={{ input: classes.input, label: classes.inputLabel }}
+							/>
+						)}
+						<Checkbox
+							label='Retiro por el local'
+							/* icon={IconMotorbike} */
+							color='red'
+							style={{ margin: '5px 0px' }}
+							checked={checked}
+							onChange={(e) => handleCheckbox(e)}
+						/>
+						{/* {errors.direccion && <p style={{ color: 'red', fontSize: '10px'}}>{errors.direccion}</p>} */}
+						<Select
+							label='Medio de pago'
+							placeholder='Seleccionar'
+							required
+							data={['Efectivo', 'Transferencia', 'Tarjeta (+ 8%)']}
+							error={errors.metodoPago}
+							onChange={(e) => handleSelect(e)}
+							/* classNames={classes} */
+							/* style={{ marginTop: 20, zIndex: 2 }} */
+						/>
+						{cliente.metodoPago === 'Efectivo' ? (
+							<NumberInput
+								label='Abona con'
+								placeholder='$'
+								type='number'
+								hideControls
+								value={cliente.abonaCon}
+								onChange={(e) => handleChangeAbona(e)}
+								classNames={{ input: classes.input, label: classes.inputLabel }}
+							/>
+						) : (
+							<br />
+						)}
+						{/* {errors.abonaCon && <p style={{ color: 'red', fontSize: '11px'}}>{errors.abonaCon}</p>} */}
+						{/* {errors.metodoPago && <p style={{ color: 'red', fontSize: '10px'}}>{errors.metodoPago}</p>} */}
+						<Textarea
+							label='Comentario'
+							placeholder='¿Necesitas aclarar algo?'
+							minRows={4}
+							mt='md'
+							value={cliente.comentario}
+							name='comentario'
+							onChange={(e) => handleChange(e)}
 							classNames={{ input: classes.input, label: classes.inputLabel }}
 						/>
-					) : (
-						<br />
-					)}
-					{/* {errors.abonaCon && <p style={{ color: 'red', fontSize: '11px'}}>{errors.abonaCon}</p>} */}
-					{/* {errors.metodoPago && <p style={{ color: 'red', fontSize: '10px'}}>{errors.metodoPago}</p>} */}
-					<Textarea
-						label='Comentario'
-						placeholder='¿Necesitas aclarar algo?'
-						minRows={4}
-						mt='md'
-						value={cliente.comentario}
-						name='comentario'
-						onChange={(e) => handleChange(e)}
-						classNames={{ input: classes.input, label: classes.inputLabel }}
-					/>
 
-					<Group position='right' mt='md'>
-						<Button
-							className={classes.control}
-							variant='gradient'
-							gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
-							onClick={handlerClick}
-							disabled={
-								!cliente.nombre || !cliente.direccion || !cliente.metodoPago || carro.length === 0
-							}>
-							¡ Pedílo !
-						</Button>
-					</Group>
+						<Group position='right' mt='md'>
+							<Button
+								className={classes.control}
+								variant='gradient'
+								gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
+								onClick={handlerClick}
+								disabled={
+									!cliente.nombre || !cliente.direccion || !cliente.metodoPago || carro.length === 0
+								}>
+								¡ Pedílo !
+							</Button>
+						</Group>
+					</div>
+				</SimpleGrid>
+			) : (
+				<div>
+					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={700}>
+						Previateca se encuentra cerrado.
+					</Text>
+					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={500}>
+						Te esperamos a partir las 18:00hs 🍻
+					</Text>
 				</div>
-			</SimpleGrid>
-			}
+			)}
 		</div>
 	);
 }
