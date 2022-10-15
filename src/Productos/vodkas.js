@@ -27,13 +27,13 @@ const vodkas = [
     precio: 1150,
     categoria: "Vodkas"
   },
-  {
+  /* {
     id: 30,
     nombre: "Smirnoff",
     imagen: `${require('./imagenes/Previateca---Vodka-Smirnoff.png')}`,
     precio: 1300,
     categoria: "Vodkas"
-  },
+  }, */
   {
     id: 31,
     nombre: "Smirnoff Manzana",
