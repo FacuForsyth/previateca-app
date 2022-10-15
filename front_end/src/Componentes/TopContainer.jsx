@@ -1,4 +1,4 @@
-import { Card, Text, SimpleGrid, UnstyledButton, Group } from '@mantine/core';
+import { Card, Text, SimpleGrid, UnstyledButton } from '@mantine/core';
 import useStyles from '../css/TopContainerCSS.js';
 import categorias from './categorias';
 import scrollToTargetAdjusted from './scrollToTargetAdjusted.jsx';
