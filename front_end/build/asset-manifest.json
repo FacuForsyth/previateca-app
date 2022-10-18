@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e23487bd.css",
+    "main.js": "/static/js/main.d28598f5.js",
+    "static/media/alarm_clock.png": "/static/media/alarm_clock.b02d4a8be2c6cc6926f0.png",
+    "static/media/money.png": "/static/media/money.e6d495fc322ee0a41170.png",
+    "static/media/promotion.png": "/static/media/promotion.377c9d96bc479617c5c4.png",
+    "static/media/plus.png": "/static/media/plus.d97d9b9ae7b6b2e5de21.png",
+    "static/media/minus.png": "/static/media/minus.7fb6aca594e38c80207f.png",
+    "static/media/Previateca-logo-tipografia.png": "/static/media/Previateca-logo-tipografia.f39a589bee941bb3d62a.png",
+    "static/media/shopping_cart.png": "/static/media/shopping_cart.78215909b21f0b186a7f.png",
+    "static/media/up_arrow.png": "/static/media/up_arrow.4e6a956a108a8aa527cd.png",
+    "static/media/deleteI.png": "/static/media/deleteI.ccb73794d80242348a6f.png",
+    "index.html": "/index.html",
+    "main.e23487bd.css.map": "/static/css/main.e23487bd.css.map",
+    "main.d28598f5.js.map": "/static/js/main.d28598f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e23487bd.css",
+    "static/js/main.d28598f5.js"
+  ]
+}
