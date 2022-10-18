@@ -16,7 +16,7 @@ export default {
 		{
 			name: 'disponible',
 			title: 'Disponible',
-			type: 'string',
+			type: 'boolean',
 		},
 		{
 			name: 'categoria',

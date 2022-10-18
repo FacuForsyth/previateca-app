@@ -107,7 +107,7 @@ export function Tarjeta({ nombre, imagen, precio, categoria, productosEnEstaCate
 								+
 							</Button>
 						</Group>
-					) : disponible === 'si' ? (
+					) : disponible ? (
 						<Button
 							variant='gradient'
 							gradient={{ from: '#ff4f5e', to: '#ff4f78', deg: 106 }}
