@@ -414,7 +414,7 @@ export default function BannerCarrito() {
 			) : (
 				<div>
 					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={700}>
-						Previateca se encuentra cerrado.
+						Previateca se encuentra cerrado
 					</Text>
 					<Text className={classes.description} mt='sm' mb={30} size='lg' weight={500}>
 						Te esperamos a partir las 18:00hs 🍻
