@@ -7,7 +7,7 @@ import { urlFor } from '../client';
 
 export default function CustomCarousel({ globalCart, promos }) {
 	const theme = useMantineTheme();
-	const productos = promos;
+	const productos = promos.filter((prod)=> prod.disponible === true);
 	const autoplay = useRef(Autoplay({ delay: 4000 }));
 
 	return (
